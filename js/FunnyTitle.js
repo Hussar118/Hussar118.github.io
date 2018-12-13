@@ -4,12 +4,12 @@
  document.addEventListener('visibilitychange', function () {
      if (document.hidden) {
          $('[rel="icon"]').attr('href', "/img/trhx2.png");
-         document.title = 'Hussar——欢迎参观';
+         document.title = '(°A°`)页面崩溃啦！';
          clearTimeout(titleTime);
      }
      else {
          $('[rel="icon"]').attr('href', "/img/trhx2.png");
-         document.title = '(°A°`)页面崩溃啦！' + OriginTitle;
+         document.title = 'Hussar——欢迎参观' + OriginTitle;
          titleTime = setTimeout(function () {
              document.title = OriginTitle;
          }, 2000);
