@@ -26,6 +26,16 @@
   
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <script>
+      (function(){
+          if('{{ page.password }}'){
+              if (prompt('请输入文章密码') !== '{{ page.password }}'){
+                  alert('密码错误！');
+                  history.back();
+             }
+          }
+      })();
+  </script>
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
     
@@ -38,16 +48,7 @@
     <script src="/js/pace.js"></script>
     <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
 
-  <script>
-      (function(){
-          if('{{ page.password }}'){
-              if (prompt('请输入文章密码') !== '{{ page.password }}'){
-                  alert('密码错误！');
-                  history.back();
-             }
-          }
-      })();
-  </script>
+  
   
   <script>
       var yiliaConfig = {
