@@ -34,6 +34,18 @@
   <!-- 加载特效 -->
     <script src="/js/pace.js"></script>
     <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+
+  <script>
+      (function(){
+          if('{{ page.password }}'){
+              if (prompt('请输入文章密码') !== '{{ page.password }}'){
+                  alert('密码错误！');
+                  history.back();
+             }
+          }
+      })();
+  </script>
+  
   <script>
       var yiliaConfig = {
           rootUrl: '/',
@@ -146,7 +158,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/异常/" style="font-size: 10px;">异常</a> <a href="/tags/文件/" style="font-size: 10px;">文件</a>
+                        <a href="/tags/个人隐私/" style="font-size: 10px;">个人隐私</a> <a href="/tags/密码/" style="font-size: 10px;">密码</a> <a href="/tags/异常/" style="font-size: 20px;">异常</a> <a href="/tags/文件/" style="font-size: 20px;">文件</a>
                     </div>
                 </section>
                 
@@ -349,20 +361,20 @@
          
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/10/搭建GitHub博客/">Python3 自学笔记 C09</a>
+      <a class="archive-article-title" href="/2018/12/10/搭建GitHub博客/">Hussar 的小秘密</a>
     </h1>
   
 
         <div class="article-info info-on-archive">
           
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
+    <a class="article-category-link" href="/categories/私人话题/">私人话题</a>
     </div>
 
 
           
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异常/">异常</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件/">文件</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/个人隐私/">个人隐私</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/密码/">密码</a></li></ul>
     </div>
 
         </div>

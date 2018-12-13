@@ -35,6 +35,18 @@
   <!-- 加载特效 -->
     <script src="/js/pace.js"></script>
     <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+
+  <script>
+      (function(){
+          if('{{ page.password }}'){
+              if (prompt('请输入文章密码') !== '{{ page.password }}'){
+                  alert('密码错误！');
+                  history.back();
+             }
+          }
+      })();
+  </script>
+  
   <script>
       var yiliaConfig = {
           rootUrl: '/',
@@ -147,7 +159,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/异常/" style="font-size: 10px;">异常</a> <a href="/tags/文件/" style="font-size: 10px;">文件</a>
+                        <a href="/tags/个人隐私/" style="font-size: 10px;">个人隐私</a> <a href="/tags/密码/" style="font-size: 10px;">密码</a> <a href="/tags/异常/" style="font-size: 20px;">异常</a> <a href="/tags/文件/" style="font-size: 20px;">文件</a>
                     </div>
                 </section>
                 
@@ -314,12 +326,12 @@
     <!-- Tag Cloud Page -->
     <hr>
     <br>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">12</span></li></ul>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/私人话题/">私人话题</a><span class="category-list-count">1</span></li></ul>
 
     <p class="count"></p>
 
     <div class="tags">
-        <a href="/tags/异常/" style="font-size: 16px; color: #808080">异常</a> <a href="/tags/文件/" style="font-size: 16px; color: #808080">文件</a>
+        <a href="/tags/个人隐私/" style="font-size: 16px; color: #808080">个人隐私</a> <a href="/tags/密码/" style="font-size: 16px; color: #808080">密码</a> <a href="/tags/异常/" style="font-size: 35px; color: #000">异常</a> <a href="/tags/文件/" style="font-size: 35px; color: #000">文件</a>
     </div>
     <style>
         .category-list li{
