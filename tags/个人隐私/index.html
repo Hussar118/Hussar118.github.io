@@ -284,6 +284,7 @@
             </div>
             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
             <script>
+                document.getElementById("timeDate").setAttribute("color", "blue"); 
                 var now = new Date(); 
                 function createtime() { 
                     var grt= new Date("12/10/2018 17:38:00");//在此处修改你的建站时间
@@ -297,8 +298,6 @@
                     <font size="3">
                     document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
                     document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
-                    //document.getElementById("timeDate").style.color="blue";
-                    //document.getElementById("times").style.color="blue";
                 } 
             setInterval("createtime()",250);
             </script>
