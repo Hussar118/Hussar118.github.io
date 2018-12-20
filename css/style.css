@@ -617,8 +617,19 @@ a {
 #header {
   width: 100%;
 }
-#header a {
+#header .header-author {
+  text-align: center;
+  margin: 0.67em 0;
+  font-family: Roboto, "Roboto", serif;
+  font-size: 80px;
   color: #39f;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+}
+#header a {
+  color: #fff;
 }
 #header a:hover {
   color: #4d4d4d;
