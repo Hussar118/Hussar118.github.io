@@ -2024,7 +2024,7 @@ a {
 #header .header-subtitle {
   text-align: center;
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 25px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2048,7 +2048,7 @@ a {
   cursor: default;
 }
 #header .header-menu li a {
-  font-size: 20px;
+  font-size: 18px;
   min-width: 300px;
 }
 #header .header-menu li a:hover {
