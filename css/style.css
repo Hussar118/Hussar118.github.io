@@ -2048,7 +2048,7 @@ a {
   cursor: default;
 }
 #header .header-menu li a {
-  font-size: 30px;
+  font-size: 100px;
   min-width: 300px;
 }
 #header .header-menu li a:hover {
