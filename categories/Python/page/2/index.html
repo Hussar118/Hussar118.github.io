@@ -356,7 +356,7 @@
             <div class="footer-left">
                 &copy; 2018 Hussar
             </div>
-            
+            <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
             <script>
                 document.getElementById("timeDate").setAttribute("color", "blue"); 
                 var now = new Date(); 
@@ -373,7 +373,7 @@
                     document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
                     document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
                 } 
-                setInterval("createtime()",250);
+            setInterval("createtime()",250);
             </script>
 
             
