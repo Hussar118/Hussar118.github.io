@@ -10,8 +10,8 @@
      else {
          $('[rel="icon"]').attr('href', "/img/fengye.png");
          document.title = 'Hussar博客' + OriginTitle;
-         titleTime = setTimeout( function () {
-             document.title = OriginTitlfunctione;
+         titleTime = setTimeout(function () {
+             document.title = OriginTitle;
          }, 2000);
      }
  });
