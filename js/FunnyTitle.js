@@ -9,7 +9,7 @@
      }
      else {
          $('[rel="icon"]').attr('href', "/img/fengye.png");
-         document.title = 'Hussar博客——欢迎参观' + OriginTitle;
+         document.title = 'Hussar博客' + OriginTitle;
          titleTime = setTimeout(function () {
              document.title = OriginTitle;
          }, 2000);
