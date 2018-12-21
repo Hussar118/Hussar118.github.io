@@ -3027,7 +3027,7 @@ a.gitment-editor-footer-tip:hover {
   color: #c8c8c8;
 }
 .article-title {
-  color: #999;
+  color: #39f;
   margin-left: 0px;
   font-weight: initial;
   line-height: 35px;
@@ -3086,7 +3086,7 @@ a.gitment-editor-footer-tip:hover {
   padding: 1px 3px;
   margin: 0 3px;
   color: #999;
-  background: #002b36;
+  background: rgba(217,83,79,0.45);
   border: 1px dashed #ccc;
   border-radius: 3px;
   font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
@@ -3182,7 +3182,7 @@ a.gitment-editor-footer-tip:hover {
 }
 .article-entry code {
   color: #999;
-  background: #002b36;
+  background: rgba(217,83,79,0.45);
   padding: 1px 3px;
   border-radius: 5px;
 }
@@ -3691,7 +3691,7 @@ a.gitment-editor-footer-tip:hover {
   box-sizing: border-box;
 }
 .article-entry code {
-  background: #002b36;
+  background: rgba(217,83,79,0.45);
   padding: 0 0.3em;
   border: none;
 }
@@ -3714,7 +3714,7 @@ a.gitment-editor-footer-tip:hover {
   border-radius: 5px;
   font-family: Consolas, "Courier New", Courier;
   text-shadow: none;
-  background-color: #002b36;
+  background-color: rgba(217,83,79,0.45);
   word-wrap: break-word;
   white-space: pre;
 }
