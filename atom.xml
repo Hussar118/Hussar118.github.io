@@ -233,32 +233,6 @@
   </entry>
   
   <entry>
-    <title>XSS 文件上传漏洞 同源策略</title>
-    <link href="https://Hussar118.github.io/2018/12/13/XSS%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E-%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/"/>
-    <id>https://Hussar118.github.io/2018/12/13/XSS文件上传漏洞-同源策略/</id>
-    <published>2018-12-13T14:11:47.001Z</published>
-    <updated>2019-01-13T08:14:25.518Z</updated>
-    
-    <content type="html"><![CDATA[<center><font color="#4094C7" size="4">XSS 文件上传漏洞 同源策略</font></center><h1 id="同源策略"><a href="#同源策略" class="headerlink" title=" - 同源策略"></a><font color="#FF0000"> - 同源策略</font></h1><hr><p>所谓同源策略，指的是浏览器对<font color="#FF0000">不同源的脚本或者文本的访问方式进行的限制</font>。<br>比如源a的js不能读取或设置引入的源b的元素属性。</p><h1 id="1-1-同源定义"><a href="#1-1-同源定义" class="headerlink" title=" - 1.1 同源定义 "></a><font color="#FF0000"> - 1.1 同源定义 </font></h1><hr><p>所谓同源，就是指两个页面具有相同的协议，主机（也常说域名），端口，三个要素缺一不可。<br>(同协议，同IP地址，同端口)</p><p><a href="http://www.foo.com/js/a.js" target="_blank" rel="noopener">http://www.foo.com/js/a.js</a></p><p><a href="http://www.foo.com/js/b.js" target="_blank" rel="noopener">http://www.foo.com/js/b.js</a></p><p>协议、域名、端口都相同 允许通信</p><p><a href="http://www.foo.com/js/a.js" target="_blank" rel="noopener">http://www.foo.com/js/a.js</a></p><p><a href="http://www.foo.com:8888/js/b.js" target="_blank" rel="noopener">http://www.foo.com:8888/js/b.js</a></p><p>协议、域名相同，端口不同</p><p>不允许</p><p><a href="https://www.foo.com/js/a.js" target="_blank" rel="noopener">https://www.foo.com/js/a.js</a></p><p><a href="http://www.foo.com/js/b.js" target="_blank" rel="noopener">http://www.foo.com/js/b.js</a></p><p>主机、域名相同，协议不同</p><p>不允许</p><p><a href="http://www.foo.com/js/a.js" target="_blank" rel="noopener">http://www.foo.com/js/a.js</a></p><p><a href="http://www.bar.com/js/b.js" target="_blank" rel="noopener">http://www.bar.com/js/b.js</a></p><p>协议、端口相同，域名不同</p><p>不允许</p><p><a href="http://www.foo.com/js/a.js" target="_blank" rel="noopener">http://www.foo.com/js/a.js</a></p><p><a href="http://foo.com/js/b.js" target="_blank" rel="noopener">http://foo.com/js/b.js</a></p><p>协议、端口相同，主域名相同，子域名不同</p><p>不允许</p>]]></content>
-    
-    <summary type="html">
-    
-      XSS 文件上传漏洞 同源策略
-    
-    </summary>
-    
-      <category term="XSS" scheme="https://Hussar118.github.io/categories/XSS/"/>
-    
-    
-      <category term="网络安全" scheme="https://Hussar118.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-      <category term="漏洞" scheme="https://Hussar118.github.io/tags/%E6%BC%8F%E6%B4%9E/"/>
-    
-      <category term="同源策略" scheme="https://Hussar118.github.io/tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/"/>
-    
-  </entry>
-  
-  <entry>
     <title>XSS 文件上传漏洞 Cookie和Session</title>
     <link href="https://Hussar118.github.io/2018/12/12/XSS%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E-Cookie%20Session/"/>
     <id>https://Hussar118.github.io/2018/12/12/XSS文件上传漏洞-Cookie Session/</id>
