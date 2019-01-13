@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="同源策略的定义和一些常见知识分析">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-13T08:29:32.189Z">
+<meta property="og:updated_time" content="2019-01-13T08:32:28.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XSS 文件上传漏洞 同源策略">
 <meta name="twitter:description" content="同源策略的定义和一些常见知识分析">
@@ -276,7 +276,7 @@
 <p>所谓同源，就是指两个页面具有相同的协议，主机（也常说域名），端口，三个要素缺一不可。<br>(同协议，同IP地址，同端口，缺一不可)  </p>
 <p>其实：同源策略限制了不同源之间的交互主要针对的是js中的XMLHttpRequest等请求。<br>如下情况不受同源策略的影响：  </p>
 <blockquote>
-<p>1.页面中的链接，重定向以及表单提交是不会受到同源策略限制的。<br>    链接就不用说了，导航网站上的链接都是链接到其他站点的。而你在域名<a href="http://www.foo.com下面提交一个表单到www.bar.com是完全可以的。" target="_blank" rel="noopener">www.foo.com下面提交一个表单到www.bar.com是完全可以的。</a>  </p>
+<p>1.页面中的链接，重定向以及表单提交是不会受到同源策略限制的。<br>    链接就不用说了，导航网站上的链接都是链接到其他站点的。而你在域名<a href="http://www.foo.cm下面提交一个表单到www.bar.cm是完全可以的。" target="_blank" rel="noopener">www.foo.cm下面提交一个表单到www.bar.cm是完全可以的。</a>  </p>
 </blockquote>
 <blockquote>
 <p>2.跨域资源嵌入是允许的，当然，浏览器限制了Javascript不能读写加载的内容。 </p>
@@ -341,7 +341,7 @@
         <p><span>本文标题:</span><a href="/2018/12/13/XSS文件上传漏洞-同源策略/">XSS 文件上传漏洞 同源策略</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2018年12月13日 - 22时11分</p>
-        <p><span>最后更新:</span>2019年01月13日 - 16时29分</p>
+        <p><span>最后更新:</span>2019年01月13日 - 16时32分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/12/13/XSS文件上传漏洞-同源策略/" title="XSS 文件上传漏洞 同源策略">https://Hussar118.github.io/2018/12/13/XSS文件上传漏洞-同源策略/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2018/12/13/XSS文件上传漏洞-同源策略/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
