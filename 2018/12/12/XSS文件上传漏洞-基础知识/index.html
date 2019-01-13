@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="XSS 文件上传漏洞基础知识">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-13T07:16:51.137Z">
+<meta property="og:updated_time" content="2019-01-13T07:21:29.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XSS 文件上传漏洞 基础">
 <meta name="twitter:description" content="XSS 文件上传漏洞基础知识">
@@ -290,8 +290,9 @@
 </li>
 <li><p>中文属于Unicode字符，内存中占四个字符Cookie中需要对他进行编码(Cookie中保存中文只能编码。一般使用UTF-8编码即可。不推荐使用GBK等中文编码，因为浏览器不一定支持，而且JavaScript也不支持GBK编码。)  </p>
 </li>
+<li><p>Cookie还可以使用二进制，如数字证书</p>
+</li>
 </ol>
-<p>4.Cookie还可以使用二进制，如数字证书</p>
 <h1 id="1-5-Cookie内容分析介绍"><a href="#1-5-Cookie内容分析介绍" class="headerlink" title=" - 1.5 Cookie内容分析介绍  "></a><font color="#FF0000"> - 1.5 Cookie内容分析介绍  </font></h1><p>1.Cookie内容应该少而精(否则会影响速度)  </p>
 <p>2.常用属性</p>
 <p>String name：该Cookie的名称。Cookie一旦创建，名称便不可更改  </p>
@@ -315,7 +316,7 @@
 </li>
 </ol>
 <p>注意：修改、删除Cookie时，新建的Cookie除value、maxAge之外的所有属性，例如name、path、domain等，都要与原Cookie完全一样。否则，浏览器将视为两个不同的Cookie不予覆盖，导致修改、删除失败。</p>
-<h1 id="1-8-Cookie的域名"><a href="#1-8-Cookie的域名" class="headerlink" title=" - 1.8 Cookie的域名  "></a><font color="#FF0000"> - 1.8 Cookie的域名  </font></h1><p>Cookie是不可以跨域名的。Cookie的隐私安全机制能够禁止网站非法获取其他网站的Cookie<br>同一个域名下的两个二级域名(<a href="http://www.helloweenvsfei.com和images.helloweenvsfei.com)也不能交互使用Cookie，需要设置Cookie的domain参数为" target="_blank" rel="noopener">www.helloweenvsfei.com和images.helloweenvsfei.com)也不能交互使用Cookie，需要设置Cookie的domain参数为</a> cookie.setDomain(“.helloweenvsfei.com”);才可以！  </p>
+<h1 id="1-8-Cookie的域名"><a href="#1-8-Cookie的域名" class="headerlink" title=" - 1.8 Cookie的域名  "></a><font color="#FF0000"> - 1.8 Cookie的域名  </font></h1><p>Cookie是不可以跨域名的。Cookie的隐私安全机制能够禁止网站非法获取其他网站的Cookie<br>同一个域名下的两个二级域名。<a href="http://www.helloweenvsfei.com和images.helloweenvsfei.com也不能交互使用Cookie，需要设置Cookie的domain参数为：cookie.setDomain(&quot;.helloweenvsfei.com&quot;);才可以！" target="_blank" rel="noopener">www.helloweenvsfei.com和images.helloweenvsfei.com也不能交互使用Cookie，需要设置Cookie的domain参数为：cookie.setDomain(&quot;.helloweenvsfei.com&quot;);才可以！</a>  </p>
 <p>domain参数必须以点(“.”)开始。另外，name相同但domain不同的两个Cookie是两个不同的Cookie。如果想要两个域名完全不同的网站共有Cookie，可以生成两个Cookie，domain属性分别为两个域名，输出到客户端。</p>
 <h1 id="1-9-Cookie的路径"><a href="#1-9-Cookie的路径" class="headerlink" title=" - 1.9 Cookie的路径  "></a><font color="#FF0000"> - 1.9 Cookie的路径  </font></h1><p>domain属性决定运行访问Cookie的域名，而path属性决定允许访问Cookie的路径  </p>
 <p>如：如果只允许/sessionWeb/下的程序使用Cookie，可以这么写：<br>Cookie cookie = new Cookie(“time”,”20080808”);     // 新建Cookie  </p>
@@ -419,7 +420,7 @@
         <p><span>本文标题:</span><a href="/2018/12/12/XSS文件上传漏洞-基础知识/">XSS 文件上传漏洞 基础</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2018年12月12日 - 19时51分</p>
-        <p><span>最后更新:</span>2019年01月13日 - 15时16分</p>
+        <p><span>最后更新:</span>2019年01月13日 - 15时21分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/12/12/XSS文件上传漏洞-基础知识/" title="XSS 文件上传漏洞 基础">https://Hussar118.github.io/2018/12/12/XSS文件上传漏洞-基础知识/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2018/12/12/XSS文件上传漏洞-基础知识/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
