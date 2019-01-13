@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="XSS 文件上传漏洞基础知识">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-13T07:28:53.895Z">
+<meta property="og:updated_time" content="2019-01-13T07:34:59.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XSS 文件上传漏洞 基础">
 <meta name="twitter:description" content="XSS 文件上传漏洞基础知识">
@@ -293,8 +293,12 @@
 <li><p>Cookie还可以使用二进制，如数字证书</p>
 </li>
 </ol>
-<h1 id="1-5-Cookie内容分析介绍"><a href="#1-5-Cookie内容分析介绍" class="headerlink" title=" - 1.5 Cookie内容分析介绍  "></a><font color="#FF0000"> - 1.5 Cookie内容分析介绍  </font></h1><p>1.Cookie内容应该少而精(否则会影响速度)  </p>
-<p>2.常用属性</p>
+<h1 id="1-5-Cookie内容分析介绍"><a href="#1-5-Cookie内容分析介绍" class="headerlink" title=" - 1.5 Cookie内容分析介绍  "></a><font color="#FF0000"> - 1.5 Cookie内容分析介绍  </font></h1><ol>
+<li><p>Cookie内容应该少而精(否则会影响速度)  </p>
+</li>
+<li><p>常用属性：</p>
+</li>
+</ol>
 <p>String name：该Cookie的名称。Cookie一旦创建，名称便不可更改  </p>
 <p>Object value：该Cookie的值。如果值为Unicode字符，需要为字符编码。如果值为二进制数据，则需要使用BASE64编码  </p>
 <p>int maxAge：该Cookie失效的时间，单位秒。如果为正数，则该Cookie在maxAge秒之后失效。如果为负数，<br>Cookie为临时Cookie，关闭浏览器即失效，浏览器也不会以任何形式保存该Cookie。如果为0，表示删除该Cookie。默认为–1  </p>
@@ -303,10 +307,16 @@
 <p>String domain：可以访问该Cookie的域名。如果设置为“.google.com”，则所有以“google.com”结尾的域名都可以访问该Cookie。注意第一个字符必须为“.”  </p>
 <p>String comment：该Cookie的用处说明。浏览器显示Cookie信息的时候显示该说明  </p>
 <p>int version：该Cookie使用的版本号。0表示遵循Netscape的Cookie规范，1表示遵循W3C的RFC 2109规范</p>
-<h1 id="1-6-Cookie有效期"><a href="#1-6-Cookie有效期" class="headerlink" title=" - 1.6 Cookie有效期  "></a><font color="#FF0000"> - 1.6 Cookie有效期  </font></h1><p>1.Cookie的<font color="#FF0000">maxAge函数</font>决定着Cookie的有效期，单位为秒（Second）。<br>Cookie中通过getMaxAge()方法与setMaxAge(int maxAge)方法来读写maxAge属性。</p>
-<p>2.如果maxAge属性为正数，则表示该Cookie会在maxAge秒之后自动失效。浏览器会将maxAge为正数的Cookie持久化，即写到对应的Cookie文件中。无论客户关闭了浏览器还是电脑，只要还在maxAge秒之前，登录网站时该Cookie仍然有效。</p>
-<p>3.如果maxAge为负数，则表示该Cookie仅在本浏览器窗口以及本窗口打开的子窗口内有效，关闭窗口后该Cookie即失效。maxAge为负数的Cookie，为临时性Cookie，不会被持久化，不会被写到Cookie文件中。Cookie信息保存在浏览器内存中，因此关闭浏览器该Cookie就消失了。Cookie默认的maxAge值为–1。</p>
-<p>4.如果maxAge为0，则表示删除该Cookie。Cookie机制没有提供删除Cookie的方法，因此通过设置该Cookie即时失效实现删除Cookie的效果。失效的Cookie会被浏览器从Cookie文件或者内存中删除。</p>
+<h1 id="1-6-Cookie有效期"><a href="#1-6-Cookie有效期" class="headerlink" title=" - 1.6 Cookie有效期  "></a><font color="#FF0000"> - 1.6 Cookie有效期  </font></h1><ol>
+<li><p>Cookie的<font color="#FF0000">maxAge函数</font>决定着Cookie的有效期，单位为秒（Second）。<br>Cookie中通过getMaxAge()方法与setMaxAge(int maxAge)方法来读写maxAge属性。</p>
+</li>
+<li><p>如果maxAge属性为正数，则表示该Cookie会在maxAge秒之后自动失效。浏览器会将maxAge为正数的Cookie持久化，即写到对应的Cookie文件中。无论客户关闭了浏览器还是电脑，只要还在maxAge秒之前，登录网站时该Cookie仍然有效。</p>
+</li>
+<li><p>如果maxAge为负数，则表示该Cookie仅在本浏览器窗口以及本窗口打开的子窗口内有效，关闭窗口后该Cookie即失效。maxAge为负数的Cookie，为临时性Cookie，不会被持久化，不会被写到Cookie文件中。Cookie信息保存在浏览器内存中，因此关闭浏览器该Cookie就消失了。Cookie默认的maxAge值为–1。</p>
+</li>
+<li><p>如果maxAge为0，则表示删除该Cookie。Cookie机制没有提供删除Cookie的方法，因此通过设置该Cookie即时失效实现删除Cookie的效果。失效的Cookie会被浏览器从Cookie文件或者内存中删除。</p>
+</li>
+</ol>
 <h1 id="1-7-Cookie的删除和修改"><a href="#1-7-Cookie的删除和修改" class="headerlink" title=" - 1.7 Cookie的删除和修改  "></a><font color="#FF0000"> - 1.7 Cookie的删除和修改  </font></h1><ol>
 <li><p>Cookie不提供直接删除和修改的操作。  </p>
 </li>
@@ -319,10 +329,10 @@
 <h1 id="1-8-Cookie的域名"><a href="#1-8-Cookie的域名" class="headerlink" title=" - 1.8 Cookie的域名  "></a><font color="#FF0000"> - 1.8 Cookie的域名  </font></h1><p>Cookie是不可以跨域名的。Cookie的隐私安全机制能够禁止网站非法获取其他网站的Cookie<br>同一个域名下的两个二级域名。<a href="http://www.helloweenvsfei.com和images.helloweenvsfei.com也不能交互使用Cookie，需要设置Cookie的domain参数为：cookie.setDomain(&quot;.helloweenvsfei.com&quot;);才可以！" target="_blank" rel="noopener">www.helloweenvsfei.com和images.helloweenvsfei.com也不能交互使用Cookie，需要设置Cookie的domain参数为：cookie.setDomain(&quot;.helloweenvsfei.com&quot;);才可以！</a>  </p>
 <p>domain参数必须以点(“.”)开始。另外，name相同但domain不同的两个Cookie是两个不同的Cookie。如果想要两个域名完全不同的网站共有Cookie，可以生成两个Cookie，domain属性分别为两个域名，输出到客户端。</p>
 <h1 id="1-9-Cookie的路径"><a href="#1-9-Cookie的路径" class="headerlink" title=" - 1.9 Cookie的路径  "></a><font color="#FF0000"> - 1.9 Cookie的路径  </font></h1><p>domain属性决定运行访问Cookie的域名，而path属性决定允许访问Cookie的路径  </p>
-<p>如：如果只允许/sessionWeb/下的程序使用Cookie，可以这么写：<br>Cookie cookie = new Cookie(“time”,”20080808”);     // 新建Cookie  </p>
+<p>如：如果只允许/sessionWeb/下的程序使用Cookie，可以这么写：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"time"</span>,<span class="string">"20080808"</span>);     <span class="comment">// 新建Cookie</span></span><br></pre></td></tr></table></figure></p>
 <p>注意：设置为“/”时允许所有路径使用Cookie。 path属性需要使用符号“/”结尾。 name相同但domain相同的两个Cookie也是两个不同的Cookie。</p>
 <h1 id="1-10-Cookie的安全属性"><a href="#1-10-Cookie的安全属性" class="headerlink" title=" - 1.10 Cookie的安全属性  "></a><font color="#FF0000"> - 1.10 Cookie的安全属性  </font></h1><p>HTTP协议不仅是无状态的，而且是不安全的。使用HTTP协议的数据不经过任何加密就直接在网络上传播，有被截获的可能。使用HTTP协议传输很机密的内容是一种隐患。如果不希望Cookie在HTTP等非安全协议中传输，可以设置Cookie的secure属性为true。浏览器只会在HTTPS和SSL等安全协议中传输此类Cookie。</p>
-<p>下面的代码设置secure属性为true：<br>Cookie cookie = new Cookie(“time”, “20080808”);    // 新建Cookie<br>cookie.setSecure(true);                         // 设置安全属性<br>response.addCookie(cookie);                     // 输出到客户端</p>
+<p>下面的代码设置secure属性为true：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"time"</span>, <span class="string">"20080808"</span>);	<span class="comment">// 新建Cookie  </span></span><br><span class="line">cookie.setSecure(<span class="keyword">true</span>);                         <span class="comment">// 设置安全属性  </span></span><br><span class="line">response.addCookie(cookie);                     <span class="comment">// 输出到客户端</span></span><br></pre></td></tr></table></figure></p>
 <p>注意：secure属性并不能对Cookie内容加密，因而不能保证绝对的安全性。如果需要高安全性，需要在程序中对Cookie内容加密、解密，以防泄密。</p>
 <h1 id="1-11-JavaScript操作Cookie"><a href="#1-11-JavaScript操作Cookie" class="headerlink" title=" - 1.11 JavaScript操作Cookie  "></a><font color="#FF0000"> - 1.11 JavaScript操作Cookie  </font></h1><p>Cookie是保存在浏览器端的，因此浏览器具有操作Cookie的先决条件。浏览器可以使用脚本程序如JavaScript或者VBScript等操作Cookie。这里以JavaScript为例介绍常用的Cookie操作。例如下面的代码会输出本页面所有的Cookie。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;<span class="built_in">document</span>.write(<span class="built_in">document</span>.cookie);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
@@ -420,7 +430,7 @@
         <p><span>本文标题:</span><a href="/2018/12/12/XSS文件上传漏洞-基础知识/">XSS 文件上传漏洞 基础</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2018年12月12日 - 19时51分</p>
-        <p><span>最后更新:</span>2019年01月13日 - 15时28分</p>
+        <p><span>最后更新:</span>2019年01月13日 - 15时34分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/12/12/XSS文件上传漏洞-基础知识/" title="XSS 文件上传漏洞 基础">https://Hussar118.github.io/2018/12/12/XSS文件上传漏洞-基础知识/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2018/12/12/XSS文件上传漏洞-基础知识/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
