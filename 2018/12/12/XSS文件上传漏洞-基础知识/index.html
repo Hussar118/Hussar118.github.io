@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="XSS 文件上传漏洞基础知识">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-13T07:36:38.707Z">
+<meta property="og:updated_time" content="2019-01-13T07:39:19.644Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XSS 文件上传漏洞 基础">
 <meta name="twitter:description" content="XSS 文件上传漏洞基础知识">
@@ -326,7 +326,7 @@
 </li>
 </ol>
 <p>注意：修改、删除Cookie时，新建的Cookie除value、maxAge之外的所有属性，例如name、path、domain等，都要与原Cookie完全一样。否则，浏览器将视为两个不同的Cookie不予覆盖，导致修改、删除失败。</p>
-<h1 id="1-8-Cookie的域名"><a href="#1-8-Cookie的域名" class="headerlink" title=" - 1.8 Cookie的域名  "></a><font color="#FF0000"> - 1.8 Cookie的域名  </font></h1><p>Cookie是不可以跨域名的。Cookie的隐私安全机制能够禁止网站非法获取其他网站的Cookie<br>同一个域名下的两个二级域名。”<a href="http://www.helloweenvsfei.com&quot;和&quot;images.helloweenvsfei.com&quot;也不能交互使用Cookie，需要设置Cookie的domain参数为：cookie.setDomain(&quot;.helloweenvsfei.com&quot;);才可以！" target="_blank" rel="noopener">www.helloweenvsfei.com&quot;和&quot;images.helloweenvsfei.com&quot;也不能交互使用Cookie，需要设置Cookie的domain参数为：cookie.setDomain(&quot;.helloweenvsfei.com&quot;);才可以！</a>  </p>
+<h1 id="1-8-Cookie的域名"><a href="#1-8-Cookie的域名" class="headerlink" title=" - 1.8 Cookie的域名  "></a><font color="#FF0000"> - 1.8 Cookie的域名  </font></h1><p>Cookie是不可以跨域名的。Cookie的隐私安全机制能够禁止网站非法获取其他网站的Cookie<br>同一个域名下的两个二级域名。”1.haha.cm”和”2.haha.cm”也不能交互使用Cookie，需要设置Cookie的domain参数为：cookie.setDomain(“.helloweenvsfei.com”);才可以！  </p>
 <p>domain参数必须以点(“.”)开始。另外，name相同但domain不同的两个Cookie是两个不同的Cookie。如果想要两个域名完全不同的网站共有Cookie，可以生成两个Cookie，domain属性分别为两个域名，输出到客户端。</p>
 <h1 id="1-9-Cookie的路径"><a href="#1-9-Cookie的路径" class="headerlink" title=" - 1.9 Cookie的路径  "></a><font color="#FF0000"> - 1.9 Cookie的路径  </font></h1><p>domain属性决定运行访问Cookie的域名，而path属性决定允许访问Cookie的路径  </p>
 <p>如：如果只允许/sessionWeb/下的程序使用Cookie，可以这么写：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"time"</span>,<span class="string">"20080808"</span>);     <span class="comment">// 新建Cookie</span></span><br></pre></td></tr></table></figure></p>
@@ -430,7 +430,7 @@
         <p><span>本文标题:</span><a href="/2018/12/12/XSS文件上传漏洞-基础知识/">XSS 文件上传漏洞 基础</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2018年12月12日 - 19时51分</p>
-        <p><span>最后更新:</span>2019年01月13日 - 15时36分</p>
+        <p><span>最后更新:</span>2019年01月13日 - 15时39分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/12/12/XSS文件上传漏洞-基础知识/" title="XSS 文件上传漏洞 基础">https://Hussar118.github.io/2018/12/12/XSS文件上传漏洞-基础知识/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2018/12/12/XSS文件上传漏洞-基础知识/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
