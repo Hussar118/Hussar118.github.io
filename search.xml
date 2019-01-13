@@ -269,9 +269,13 @@
       
         <tags>
             
-            <tag> XSS </tag>
+            <tag> 网络安全 </tag>
             
             <tag> 漏洞 </tag>
+            
+            <tag> Cookie </tag>
+            
+            <tag> Session </tag>
             
         </tags>
       
