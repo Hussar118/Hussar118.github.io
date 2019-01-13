@@ -237,7 +237,7 @@
       
       <categories>
           
-          <category> 同源策略 </category>
+          <category> XSS </category>
           
       </categories>
       
@@ -264,7 +264,7 @@
       
       <categories>
           
-          <category> Cookie和Session </category>
+          <category> XSS </category>
           
       </categories>
       
