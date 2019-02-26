@@ -3,20 +3,20 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>渗透测试—提权姿势 | </title>
+  <title>XSS 文件上传漏洞 Cookie和Session | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="后渗透阶段提权技巧">
-<meta name="keywords" content="渗透测试,提权">
+  <meta name="description" content="Cookie和Session的分析和介绍">
+<meta name="keywords" content="网络安全,漏洞,Cookie,Session">
 <meta property="og:type" content="article">
-<meta property="og:title" content="渗透测试—提权姿势">
-<meta property="og:url" content="https://Hussar118.github.io/2018/12/13/渗透测试—提权技巧/index.html">
+<meta property="og:title" content="XSS 文件上传漏洞 Cookie和Session">
+<meta property="og:url" content="https://Hussar118.github.io/2019/02/26/XSS文件上传漏洞-Cookie Session - 副本 (2)/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="后渗透阶段提权技巧">
+<meta property="og:description" content="Cookie和Session的分析和介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-26T06:34:35.780Z">
+<meta property="og:updated_time" content="2019-01-13T08:18:43.826Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="渗透测试—提权姿势">
-<meta name="twitter:description" content="后渗透阶段提权技巧">
+<meta name="twitter:title" content="XSS 文件上传漏洞 Cookie和Session">
+<meta name="twitter:description" content="Cookie和Session的分析和介绍">
   
     <link rel="alternative" href="/atom.xml" title="" type="application/atom+xml">
   
@@ -224,11 +224,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-渗透测试—提权技巧" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-XSS文件上传漏洞-Cookie Session - 副本 (2)" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/12/13/渗透测试—提权技巧/" class="article-date">
-      <time datetime="2018-12-13T14:11:48.571Z" itemprop="datePublished">2018-12-13</time>
+      <a href="/2019/02/26/XSS文件上传漏洞-Cookie Session - 副本 (2)/" class="article-date">
+      <time datetime="2019-02-26T06:27:02.608Z" itemprop="datePublished">2019-02-26</time>
 </a>
     </div>
   
@@ -242,7 +242,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      渗透测试—提权姿势
+      XSS 文件上传漏洞 Cookie和Session
     </h1>
   
 
@@ -252,13 +252,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/渗透测试/">渗透测试</a>
+    <a class="article-category-link" href="/categories/XSS/">XSS</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/提权/">提权</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透测试/">渗透测试</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cookie/">Cookie</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Session/">Session</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/漏洞/">漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络安全/">网络安全</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -268,12 +268,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <center><font color="#4094C7" size="4"> 渗透测试—提权姿势 </font></center>
+        <center><font color="#4094C7" size="4">XSS 文件上传漏洞 Cookie和Session</font></center>
 
-<h1 id="1-提权概述"><a href="#1-提权概述" class="headerlink" title=" 1.提权概述  "></a><font color="#FF0000"> 1.提权概述  </font></h1><hr>
-<p>提权：对当前权限做进一步提升行为<br>作用：发现更多的潜在的漏洞<br>常用命令：  </p>
-<font color="#FF0000"> Net user xxx xxx /ad </font>  添加一个用户名为xxx，密码为xxx的账户<br><font color="#FF0000"> Net localgroup administrators xxx /ad </font> 添加上一条语句的xxx进入最高管理组<br><font color="#FF0000"> Whoami </font> 我是谁 系统命令代替当前权限<br><font color="#FF0000"> Net user xxx xx /ad&amp;net localgroup administrators /ad </font>
-
+<h1 id="Cookie和Session机制"><a href="#Cookie和Session机制" class="headerlink" title=" - Cookie和Session机制"></a><font color="#FF0000"> - Cookie和Session机制</font></h1><hr>
+<ol>
+<li>会话跟踪是Web程序中常用的技术，用来跟踪用户的整个会话。  </li>
+<li>Cookie通过在客户端记录信息确定用户身份。  </li>
+<li>Session通过在服务器端记录信息确定用户身份。</li>
+</ol>
 <h1 id="1-1Cookie机制引入介绍"><a href="#1-1Cookie机制引入介绍" class="headerlink" title=" - 1.1Cookie机制引入介绍"></a><font color="#FF0000"> - 1.1Cookie机制引入介绍</font></h1><hr>
 <p>就像购物一样，一个顾客的东西应该对应放入他的购物篮。那么一个用户的请求应该同属一个会话，而另一个用户的所<br>有请求应该属于另外一个会话。但是Web应用程序是使用的HTTP协议传输数据的，HTTP是无状态协议(无状态是指协议对于事务处理没有记忆能力)。这意味着服务器无法从连接上跟踪会话，也无法知道客户身份，单次连接都需要建立新的连接。而cookie就可以弥补HTTP协议无状态的不足。</p>
 <h1 id="1-2-什么是Cookie"><a href="#1-2-什么是Cookie" class="headerlink" title=" - 1.2 什么是Cookie"></a><font color="#FF0000"> - 1.2 什么是Cookie</font></h1><hr>
@@ -443,13 +445,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/12/13/渗透测试—提权技巧/">渗透测试—提权姿势</a></p>
+        <p><span>本文标题:</span><a href="/2019/02/26/XSS文件上传漏洞-Cookie Session - 副本 (2)/">XSS 文件上传漏洞 Cookie和Session</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
-        <p><span>发布时间:</span>2018年12月13日 - 22时11分</p>
-        <p><span>最后更新:</span>2019年02月26日 - 14时34分</p>
+        <p><span>发布时间:</span>2019年02月26日 - 14时27分</p>
+        <p><span>最后更新:</span>2019年01月13日 - 16时18分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/12/13/渗透测试—提权技巧/" title="渗透测试—提权姿势">https://Hussar118.github.io/2018/12/13/渗透测试—提权技巧/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2018/12/13/渗透测试—提权技巧/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/02/26/XSS文件上传漏洞-Cookie Session - 副本 (2)/" title="XSS 文件上传漏洞 Cookie和Session">https://Hussar118.github.io/2019/02/26/XSS文件上传漏洞-Cookie Session - 副本 (2)/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/02/26/XSS文件上传漏洞-Cookie Session - 副本 (2)/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -462,7 +464,7 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/02/26/XSS文件上传漏洞-Cookie Session - 副本/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/02/26/XSS文件上传漏洞-Cookie Session - 副本 (3)/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
@@ -472,8 +474,8 @@
     </a>
   
   
-    <a href="/2018/12/13/Windows取证/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Windows取证分析</div>
+    <a href="/2019/02/26/XSS文件上传漏洞-Cookie Session - 副本/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">XSS 文件上传漏洞 Cookie和Session</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -484,7 +486,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-提权概述"><span class="toc-number">1.</span> <span class="toc-text"> 1.提权概述  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-1Cookie机制引入介绍"><span class="toc-number">2.</span> <span class="toc-text"> - 1.1Cookie机制引入介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-2-什么是Cookie"><span class="toc-number">3.</span> <span class="toc-text"> - 1.2 什么是Cookie</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-3-Cookie文本信息查看"><span class="toc-number">4.</span> <span class="toc-text"> - 1.3 Cookie文本信息查看</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-4-Cookie作用"><span class="toc-number">5.</span> <span class="toc-text"> - 1.4 Cookie作用  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-5-Cookie内容分析介绍"><span class="toc-number">6.</span> <span class="toc-text"> - 1.5 Cookie内容分析介绍  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-6-Cookie有效期"><span class="toc-number">7.</span> <span class="toc-text"> - 1.6 Cookie有效期  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-7-Cookie的删除和修改"><span class="toc-number">8.</span> <span class="toc-text"> - 1.7 Cookie的删除和修改  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-8-Cookie的域名"><span class="toc-number">9.</span> <span class="toc-text"> - 1.8 Cookie的域名  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-9-Cookie的路径"><span class="toc-number">10.</span> <span class="toc-text"> - 1.9 Cookie的路径  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-10-Cookie的安全属性"><span class="toc-number">11.</span> <span class="toc-text"> - 1.10 Cookie的安全属性  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-11-JavaScript操作Cookie"><span class="toc-number">12.</span> <span class="toc-text"> - 1.11 JavaScript操作Cookie  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-1-Session机制引入"><span class="toc-number">13.</span> <span class="toc-text"> - 2.1 Session机制引入  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-2-Session介绍"><span class="toc-number">14.</span> <span class="toc-text"> - 2.2 Session介绍  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-3-Session实现用户登录"><span class="toc-number">15.</span> <span class="toc-text"> - 2.3 Session实现用户登录  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-4-Session的生命周期"><span class="toc-number">16.</span> <span class="toc-text"> - 2.4 Session的生命周期 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-5-Session有效期"><span class="toc-number">17.</span> <span class="toc-text"> - 2.5 Session有效期  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-6-Session中常用方法"><span class="toc-number">18.</span> <span class="toc-text"> - 2.6 Session中常用方法  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-7-Session对浏览器的要求"><span class="toc-number">19.</span> <span class="toc-text"> - 2.7 Session对浏览器的要求 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-8-Session中禁止使用Cookie"><span class="toc-number">20.</span> <span class="toc-text"> - 2.8 Session中禁止使用Cookie </span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie和Session机制"><span class="toc-number">1.</span> <span class="toc-text"> - Cookie和Session机制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-1Cookie机制引入介绍"><span class="toc-number">2.</span> <span class="toc-text"> - 1.1Cookie机制引入介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-2-什么是Cookie"><span class="toc-number">3.</span> <span class="toc-text"> - 1.2 什么是Cookie</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-3-Cookie文本信息查看"><span class="toc-number">4.</span> <span class="toc-text"> - 1.3 Cookie文本信息查看</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-4-Cookie作用"><span class="toc-number">5.</span> <span class="toc-text"> - 1.4 Cookie作用  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-5-Cookie内容分析介绍"><span class="toc-number">6.</span> <span class="toc-text"> - 1.5 Cookie内容分析介绍  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-6-Cookie有效期"><span class="toc-number">7.</span> <span class="toc-text"> - 1.6 Cookie有效期  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-7-Cookie的删除和修改"><span class="toc-number">8.</span> <span class="toc-text"> - 1.7 Cookie的删除和修改  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-8-Cookie的域名"><span class="toc-number">9.</span> <span class="toc-text"> - 1.8 Cookie的域名  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-9-Cookie的路径"><span class="toc-number">10.</span> <span class="toc-text"> - 1.9 Cookie的路径  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-10-Cookie的安全属性"><span class="toc-number">11.</span> <span class="toc-text"> - 1.10 Cookie的安全属性  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-11-JavaScript操作Cookie"><span class="toc-number">12.</span> <span class="toc-text"> - 1.11 JavaScript操作Cookie  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-1-Session机制引入"><span class="toc-number">13.</span> <span class="toc-text"> - 2.1 Session机制引入  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-2-Session介绍"><span class="toc-number">14.</span> <span class="toc-text"> - 2.2 Session介绍  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-3-Session实现用户登录"><span class="toc-number">15.</span> <span class="toc-text"> - 2.3 Session实现用户登录  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-4-Session的生命周期"><span class="toc-number">16.</span> <span class="toc-text"> - 2.4 Session的生命周期 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-5-Session有效期"><span class="toc-number">17.</span> <span class="toc-text"> - 2.5 Session有效期  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-6-Session中常用方法"><span class="toc-number">18.</span> <span class="toc-text"> - 2.6 Session中常用方法  </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-7-Session对浏览器的要求"><span class="toc-number">19.</span> <span class="toc-text"> - 2.7 Session对浏览器的要求 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-8-Session中禁止使用Cookie"><span class="toc-number">20.</span> <span class="toc-text"> - 2.8 Session中禁止使用Cookie </span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
@@ -570,13 +572,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/02/26/XSS文件上传漏洞-Cookie Session - 副本/" title="上一篇: XSS 文件上传漏洞 Cookie和Session">
+            <a href="/2019/02/26/XSS文件上传漏洞-Cookie Session - 副本 (3)/" title="上一篇: XSS 文件上传漏洞 Cookie和Session">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2018/12/13/Windows取证/" title="下一篇: Windows取证分析">
+            <a href="/2019/02/26/XSS文件上传漏洞-Cookie Session - 副本/" title="下一篇: XSS 文件上传漏洞 Cookie和Session">
                 <i class="fa fa-angle-right"></i>
             </a>
         
