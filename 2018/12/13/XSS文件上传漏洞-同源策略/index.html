@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="同源策略的定义和一些常见知识分析">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-16T11:21:33.315Z">
+<meta property="og:updated_time" content="2019-01-16T13:43:45.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XSS 文件上传漏洞 同源策略">
 <meta name="twitter:description" content="同源策略的定义和一些常见知识分析">
@@ -147,7 +147,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/同源策略/" style="font-size: 10px;">同源策略</a> <a href="/tags/异常/" style="font-size: 20px;">异常</a> <a href="/tags/心得感想/" style="font-size: 10px;">心得感想</a> <a href="/tags/文件/" style="font-size: 20px;">文件</a> <a href="/tags/漏洞/" style="font-size: 15px;">漏洞</a> <a href="/tags/网络安全/" style="font-size: 15px;">网络安全</a> <a href="/tags/自我鼓励/" style="font-size: 10px;">自我鼓励</a>
+                        <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/取证分析/" style="font-size: 10px;">取证分析</a> <a href="/tags/同源策略/" style="font-size: 10px;">同源策略</a> <a href="/tags/异常/" style="font-size: 20px;">异常</a> <a href="/tags/心得感想/" style="font-size: 10px;">心得感想</a> <a href="/tags/提权/" style="font-size: 10px;">提权</a> <a href="/tags/文件/" style="font-size: 20px;">文件</a> <a href="/tags/渗透测试/" style="font-size: 15px;">渗透测试</a> <a href="/tags/漏洞/" style="font-size: 15px;">漏洞</a> <a href="/tags/网络安全/" style="font-size: 15px;">网络安全</a> <a href="/tags/自我鼓励/" style="font-size: 10px;">自我鼓励</a>
                     </div>
                 </section>
                 
@@ -276,7 +276,7 @@
 <p>所谓同源，就是指两个页面具有相同的协议，主机（也常说域名），端口，三个要素缺一不可。<br>(同协议，同IP地址，同端口，缺一不可)  </p>
 <p>其实：同源策略限制了不同源之间的交互主要针对的是js中的XMLHttpRequest等请求。<br>如下情况不受同源策略的影响：  </p>
 <blockquote>
-<p>1.页面中的链接，重定向以及表单提交是不会受到同源策略限制的。<br>链接就不用说了，导航网站上的链接都是链接到其他站点的。而你在域名<br><a href="http://www.foo.cm" target="_blank" rel="noopener">www.foo.cm</a><br>下面提交一个表单到<br><a href="http://www.bar.cm" target="_blank" rel="noopener">www.bar.cm</a><br>是完全可以的。  </p>
+<p>1.页面中的链接，重定向以及表单提交是不会受到同源策略限制的。<br>链接就不用说了，导航网站上的链接都是链接到其他站点的。而你在域名<br><a href="http://www.foo.cm" target="_blank" rel="noopener">www.foo.cm</a> 下面提交一个表单到 <a href="http://www.bar.cm" target="_blank" rel="noopener">www.bar.cm</a> 是完全可以的。  </p>
 </blockquote>
 <blockquote>
 <p>2.跨域资源嵌入是允许的，当然，浏览器限制了Javascript不能读写加载的内容。 </p>
@@ -341,7 +341,7 @@
         <p><span>本文标题:</span><a href="/2018/12/13/XSS文件上传漏洞-同源策略/">XSS 文件上传漏洞 同源策略</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2018年12月13日 - 22时11分</p>
-        <p><span>最后更新:</span>2019年01月16日 - 19时21分</p>
+        <p><span>最后更新:</span>2019年01月16日 - 21时43分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/12/13/XSS文件上传漏洞-同源策略/" title="XSS 文件上传漏洞 同源策略">https://Hussar118.github.io/2018/12/13/XSS文件上传漏洞-同源策略/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2018/12/13/XSS文件上传漏洞-同源策略/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -357,11 +357,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/12/13/Python3 自学笔记 C09 - 副本 (2)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/12/13/Windows取证/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Python3 自学笔记 C09
+          Windows取证分析
         
       </div>
     </a>
@@ -465,7 +465,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/12/13/Python3 自学笔记 C09 - 副本 (2)/" title="上一篇: Python3 自学笔记 C09">
+            <a href="/2018/12/13/Windows取证/" title="上一篇: Windows取证分析">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -476,7 +476,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Python3 自学笔记 C09 - 副本 (10)/">Python3 自学笔记 C09</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Python3 自学笔记 C09 - 副本 (9)/">Python3 自学笔记 C09</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Python3 自学笔记 C09 - 副本 (8)/">Python3 自学笔记 C09</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Python3 自学笔记 C09 - 副本 (7)/">Python3 自学笔记 C09</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Python3 自学笔记 C09 - 副本 (6)/">Python3 自学笔记 C09</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Python3 自学笔记 C09 - 副本 (5)/">Python3 自学笔记 C09</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Python3 自学笔记 C09 - 副本 (4)/">Python3 自学笔记 C09</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Python3 自学笔记 C09 - 副本 (3)/">Python3 自学笔记 C09</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Python3 自学笔记 C09 - 副本 (2)/">Python3 自学笔记 C09</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/XSS文件上传漏洞-同源策略/">XSS 文件上传漏洞 同源策略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/12/XSS文件上传漏洞-Cookie Session/">XSS 文件上传漏洞 Cookie和Session</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/安全学习心得感受/">Hussar的安全学习心得和体会</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Python3 自学笔记 C09 - 副本 (10)/">Python3 自学笔记 C09</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Python3 自学笔记 C09 - 副本 (9)/">Python3 自学笔记 C09</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Python3 自学笔记 C09 - 副本 (8)/">Python3 自学笔记 C09</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Python3 自学笔记 C09 - 副本 (7)/">Python3 自学笔记 C09</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Python3 自学笔记 C09 - 副本 (6)/">Python3 自学笔记 C09</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Python3 自学笔记 C09 - 副本 (5)/">Python3 自学笔记 C09</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Python3 自学笔记 C09 - 副本 (4)/">Python3 自学笔记 C09</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/渗透测试—提权技巧/">渗透测试—提权姿势</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Windows取证/">Windows取证分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/XSS文件上传漏洞-同源策略/">XSS 文件上传漏洞 同源策略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/12/XSS文件上传漏洞-Cookie Session/">XSS 文件上传漏洞 Cookie和Session</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/安全学习心得感受/">Hussar的安全学习心得和体会</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
