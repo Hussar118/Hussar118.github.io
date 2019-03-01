@@ -49,9 +49,9 @@
     <link href="https://Hussar118.github.io/2019/02/26/kali%20linux%E6%9B%B4%E6%96%B0/"/>
     <id>https://Hussar118.github.io/2019/02/26/kali linux更新/</id>
     <published>2019-02-26T06:27:02.608Z</published>
-    <updated>2019-03-01T08:41:45.443Z</updated>
+    <updated>2019-03-01T08:49:55.623Z</updated>
     
-    <content type="html"><![CDATA[<center><font color="#4094C7" size="4">kali linux 系统和软件的日常更新</font></center><h1 id="Cookie和Session机制"><a href="#Cookie和Session机制" class="headerlink" title=" - Cookie和Session机制"></a><font color="#FF0000"> - Cookie和Session机制</font></h1><hr><ol><li>apt update  ：只检查，不更新（已安装的软件包是否有可用的更新，给出汇总报告）。  </li><li>apt upgrade ：更新已安装的软件包</li><li>apt dist-upgrade：apt upgrade 和 apt dist-upgrade 本质上是没有什么不同的。只不过，dist-upgrade 会识别出当依赖关系改变的情形并作出处理，而upgrade对此情形不处理。例如软件包 a 原先依赖 b c d，但是在源里面可能已经升级了，现在是 a 依赖 b c e。这种情况下，dist-upgrade 会删除 d 安装 e，并把 a 软件包升级，而 upgrade 会认为依赖关系改变而拒绝升级 a 软件包。  </li><li>从上述可以看出，在执行apt-get upgrade和apt-get dist-upgrade之前应该先执行apt-get update。</li></ol>]]></content>
+    <content type="html"><![CDATA[<center><font color="#4094C7" size="4">kali linux 系统和软件的日常更新</font></center><hr><ol><li><font color="#FF0000">apt update</font>  ：只检查，不更新（已安装的软件包是否有可用的更新，给出汇总报告）。  </li><li><font color="#FF0000"></font>apt upgrade ：更新已安装的软件包</li><li><font color="#FF0000"></font>apt dist-upgrade：apt upgrade 和 apt dist-upgrade 本质上是没有什么不同的。只不过，dist-upgrade 会识别出当依赖关系改变的情形并作出处理，而upgrade对此情形不处理。例如软件包 a 原先依赖 b c d，但是在源里面可能已经升级了，现在是 a 依赖 b c e。这种情况下，dist-upgrade 会删除 d 安装 e，并把 a 软件包升级，而 upgrade 会认为依赖关系改变而拒绝升级 a 软件包。  </li><li>从上述可以看出，在执行apt-get upgrade和apt-get dist-upgrade之前应该先执行apt-get update。</li></ol>]]></content>
     
     <summary type="html">
     
