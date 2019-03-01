@@ -9,11 +9,11 @@
 <meta name="keywords" content="kali,更新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kali linux更新系统和软件">
-<meta property="og:url" content="https://Hussar118.github.io/2019/02/26/kali linux更新/index.html">
+<meta property="og:url" content="https://Hussar118.github.io/2019/02/26/kali linux使用技巧—更新/index.html">
 <meta property="og:site_name">
 <meta property="og:description" content="系统和软件的更新">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-01T08:49:55.623Z">
+<meta property="og:updated_time" content="2019-03-01T10:53:04.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kali linux更新系统和软件">
 <meta name="twitter:description" content="系统和软件的更新">
@@ -147,7 +147,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Cookie/" style="font-size: 16.67px;">Cookie</a> <a href="/tags/Session/" style="font-size: 16.67px;">Session</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/取证分析/" style="font-size: 10px;">取证分析</a> <a href="/tags/同源策略/" style="font-size: 10px;">同源策略</a> <a href="/tags/心得感想/" style="font-size: 10px;">心得感想</a> <a href="/tags/提权/" style="font-size: 10px;">提权</a> <a href="/tags/更新/" style="font-size: 10px;">更新</a> <a href="/tags/渗透测试/" style="font-size: 13.33px;">渗透测试</a> <a href="/tags/漏洞/" style="font-size: 20px;">漏洞</a> <a href="/tags/网络安全/" style="font-size: 20px;">网络安全</a> <a href="/tags/自我鼓励/" style="font-size: 10px;">自我鼓励</a>
+                        <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/DNS服务器/" style="font-size: 10px;">DNS服务器</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/同源策略/" style="font-size: 10px;">同源策略</a> <a href="/tags/子网掩码/" style="font-size: 10px;">子网掩码</a> <a href="/tags/心得感想/" style="font-size: 10px;">心得感想</a> <a href="/tags/更新/" style="font-size: 10px;">更新</a> <a href="/tags/漏洞/" style="font-size: 20px;">漏洞</a> <a href="/tags/网络安全/" style="font-size: 20px;">网络安全</a> <a href="/tags/自我鼓励/" style="font-size: 10px;">自我鼓励</a> <a href="/tags/默认网关/" style="font-size: 10px;">默认网关</a>
                     </div>
                 </section>
                 
@@ -224,10 +224,10 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-kali linux更新" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-kali linux使用技巧—更新" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/02/26/kali linux更新/" class="article-date">
+      <a href="/2019/02/26/kali linux使用技巧—更新/" class="article-date">
       <time datetime="2019-02-26T06:27:02.608Z" itemprop="datePublished">2019-02-26</time>
 </a>
     </div>
@@ -273,9 +273,9 @@
 <hr>
 <ol>
 <li><font color="#FF0000">apt update</font>  ：只检查，不更新（已安装的软件包是否有可用的更新，给出汇总报告）。  </li>
-<li><font color="#FF0000"></font>apt upgrade ：更新已安装的软件包</li>
-<li><font color="#FF0000"></font>apt dist-upgrade：apt upgrade 和 apt dist-upgrade 本质上是没有什么不同的。只不过，dist-upgrade 会识别出当依赖关系改变的情形并作出处理，而upgrade对此情形不处理。例如软件包 a 原先依赖 b c d，但是在源里面可能已经升级了，现在是 a 依赖 b c e。这种情况下，dist-upgrade 会删除 d 安装 e，并把 a 软件包升级，而 upgrade 会认为依赖关系改变而拒绝升级 a 软件包。  </li>
-<li>从上述可以看出，在执行apt-get upgrade和apt-get dist-upgrade之前应该先执行apt-get update。</li>
+<li><font color="#FF0000">apt upgrade</font> ：更新已安装的软件包</li>
+<li><font color="#FF0000">apt dist-upgrade</font>：apt upgrade 和 apt dist-upgrade 本质上是没有什么不同的。只不过，dist-upgrade 会识别出当依赖关系改变的情形并作出处理，而upgrade对此情形不处理。例如软件包 a 原先依赖 b c d，但是在源里面可能已经升级了，现在是 a 依赖 b c e。这种情况下，dist-upgrade 会删除 d 安装 e，并把 a 软件包升级，而 upgrade 会认为依赖关系改变而拒绝升级 a 软件包。  </li>
+<li>从上述可以看出，在执行apt upgrade和apt dist-upgrade之前应该先执行apt update。</li>
 </ol>
 
       
@@ -332,13 +332,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/02/26/kali linux更新/">kali linux更新系统和软件</a></p>
+        <p><span>本文标题:</span><a href="/2019/02/26/kali linux使用技巧—更新/">kali linux更新系统和软件</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年02月26日 - 14时27分</p>
-        <p><span>最后更新:</span>2019年03月01日 - 16时49分</p>
+        <p><span>最后更新:</span>2019年03月01日 - 18时53分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/02/26/kali linux更新/" title="kali linux更新系统和软件">https://Hussar118.github.io/2019/02/26/kali linux更新/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/02/26/kali linux更新/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/02/26/kali linux使用技巧—更新/" title="kali linux更新系统和软件">https://Hussar118.github.io/2019/02/26/kali linux使用技巧—更新/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/02/26/kali linux使用技巧—更新/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -351,18 +351,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/02/26/XSS文件上传漏洞-Cookie Session - 副本 (3)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/01/IP，TCP协议—默认网关、子网掩码、DNS服务器/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          XSS 文件上传漏洞 Cookie和Session
+          IP/TCP协议——默认网关、子网掩码、DNS服务器地址的作用
         
       </div>
     </a>
   
   
-    <a href="/2019/02/26/XSS漏洞/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">XSS 漏洞</div>
+    <a href="/2018/12/13/XSS漏洞—同源策略/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">XSS 文件上传漏洞 同源策略</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -459,18 +459,18 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/02/26/XSS文件上传漏洞-Cookie Session - 副本 (3)/" title="上一篇: XSS 文件上传漏洞 Cookie和Session">
+            <a href="/2019/03/01/IP，TCP协议—默认网关、子网掩码、DNS服务器/" title="上一篇: IP/TCP协议——默认网关、子网掩码、DNS服务器地址的作用">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/02/26/XSS漏洞/" title="下一篇: XSS 漏洞">
+            <a href="/2018/12/13/XSS漏洞—同源策略/" title="下一篇: XSS 文件上传漏洞 同源策略">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/XSS文件上传漏洞-Cookie Session - 副本 (3)/">XSS 文件上传漏洞 Cookie和Session</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/kali linux更新/">kali linux更新系统和软件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/XSS漏洞/">XSS 漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/渗透测试—提权技巧/">渗透测试—提权姿势</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/Windows取证/">Windows取证分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/XSS漏洞-同源策略/">XSS 文件上传漏洞 同源策略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/12/XSS漏洞-Cookie Session/">XSS 文件上传漏洞 Cookie和Session</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/安全学习心得感受/">Hussar的安全学习心得和体会</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/01/IP，TCP协议—默认网关、子网掩码、DNS服务器/">IP/TCP协议——默认网关、子网掩码、DNS服务器地址的作用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/kali linux使用技巧—更新/">kali linux更新系统和软件</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/XSS漏洞—同源策略/">XSS 文件上传漏洞 同源策略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/12/XSS漏洞—Cookie Session/">XSS 文件上传漏洞 Cookie和Session</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/安全学习心得感受/">Hussar的安全学习心得和体会</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
