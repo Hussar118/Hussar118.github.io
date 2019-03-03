@@ -57,16 +57,16 @@
     </entry>
     
     <entry>
-      <title>kali linux更新系统和软件</title>
-      <link href="/2019/02/26/kali%20linux%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E2%80%94%E6%9B%B4%E6%96%B0/"/>
-      <url>/2019/02/26/kali%20linux%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E2%80%94%E6%9B%B4%E6%96%B0/</url>
+      <title>kali linux使用技巧</title>
+      <link href="/2019/02/26/kali%20linux%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+      <url>/2019/02/26/kali%20linux%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
       
-        <content type="html"><![CDATA[<center><font color="#4094C7" size="4">kali linux 系统和软件的日常更新</font></center><hr><ol><li><font color="#FF0000">apt update</font>  ：只检查，不更新（已安装的软件包是否有可用的更新，给出汇总报告）。  </li><li><font color="#FF0000">apt upgrade</font> ：更新已安装的软件包</li><li><font color="#FF0000">apt dist-upgrade</font>：apt upgrade 和 apt dist-upgrade 本质上是没有什么不同的。只不过，dist-upgrade 会识别出当依赖关系改变的情形并作出处理，而upgrade对此情形不处理。例如软件包 a 原先依赖 b c d，但是在源里面可能已经升级了，现在是 a 依赖 b c e。这种情况下，dist-upgrade 会删除 d 安装 e，并把 a 软件包升级，而 upgrade 会认为依赖关系改变而拒绝升级 a 软件包。  </li><li>从上述可以看出，在执行apt upgrade和apt dist-upgrade之前应该先执行apt update。</li></ol>]]></content>
+        <content type="html"><![CDATA[<h2 id="kali-linux-使用技巧"><a href="#kali-linux-使用技巧" class="headerlink" title="kali linux 使用技巧"></a><center><font color="#4094C7" size="4">kali linux 使用技巧</font></center></h2><h1 id="系统和软件更新"><a href="#系统和软件更新" class="headerlink" title="系统和软件更新"></a><font color="#FF0000">系统和软件更新</font></h1><hr><ol><li><font color="#FF0000">apt update</font>  ：只检查，不更新（已安装的软件包是否有可用的更新，给出汇总报告）。  </li><li><font color="#FF0000">apt upgrade</font> ：更新已安装的软件包</li><li><font color="#FF0000">apt dist-upgrade</font>：apt upgrade 和 apt dist-upgrade 本质上是没有什么不同的。只不过，dist-upgrade 会识别出当依赖关系改变的情形并作出处理，而upgrade对此情形不处理。例如软件包 a 原先依赖 b c d，但是在源里面可能已经升级了，现在是 a 依赖 b c e。这种情况下，dist-upgrade 会删除 d 安装 e，并把 a 软件包升级，而 upgrade 会认为依赖关系改变而拒绝升级 a 软件包。  </li><li>从上述可以看出，在执行apt upgrade和apt dist-upgrade之前应该先执行apt update。</li></ol><h1 id="三种网络模式介绍"><a href="#三种网络模式介绍" class="headerlink" title="三种网络模式介绍"></a><font color="#FF0000">三种网络模式介绍</font></h1><hr><ol><li><p>桥接模式：虚拟机和实体机在同一个网段<br><img src="https://s2.ax1x.com/2019/03/03/kL6NGQ.png" alt="image"><br>VMware设置过程：编辑-&gt;虚拟网络编辑器-&gt;更改设置-&gt;桥接到-&gt;自动(也可以选择对应的网卡)-&gt;将虚拟机网络修改为桥接网络。<br>桥接模式下，实体机可以上网，虚拟机就可以上网。</p></li><li><p>NAT模式(网络地址转换模式)：虚拟机和实体机不在一个网段，相当于虚拟机将实体机作为路由器。<br><img src="https://s2.ax1x.com/2019/03/03/kL6XQA.md.png" alt="image"><br>VMware设置过程：编辑-&gt;虚拟网络编辑器-&gt;更改设置-&gt;NAT模式-&gt;可以修改子网IP和子网掩码！</p></li><li><p>主机模式：虚拟机只能访问实体机，无法上网。设置过程和上面相同。<br><img src="https://s2.ax1x.com/2019/03/03/kLctw6.png" alt="image"></p></li></ol><h2 id="虚拟机快照"><a href="#虚拟机快照" class="headerlink" title="#虚拟机快照"></a>#<font color="#FF0000">虚拟机快照</font></h2><p>虚拟机的快照功能允许我们对当前虚拟机的所有运行状态(包括安装的软件、正在执行的程序)进行“定格”，以便恢复到快照时。<br><img src="https://s2.ax1x.com/2019/03/03/kLgT8e.png" alt="image"></p>]]></content>
       
       
       <categories>
           
-          <category> kali </category>
+          <category> VWware使用技巧 </category>
           
       </categories>
       
@@ -75,7 +75,13 @@
             
             <tag> kali </tag>
             
-            <tag> 更新 </tag>
+            <tag> VWmare </tag>
+            
+            <tag> 虚拟机快照 </tag>
+            
+            <tag> 三种网络模式 </tag>
+            
+            <tag> 系统和软件更新 </tag>
             
         </tags>
       
