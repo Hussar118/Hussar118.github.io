@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://Hussar118.github.io/"/>
-  <updated>2019-03-02T14:19:52.901Z</updated>
+  <updated>2019-03-03T10:54:27.732Z</updated>
   <id>https://Hussar118.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Web基础</title>
+    <link href="https://Hussar118.github.io/2019/03/03/Web%E5%9F%BA%E7%A1%80/"/>
+    <id>https://Hussar118.github.io/2019/03/03/Web基础/</id>
+    <published>2019-03-03T10:42:39.797Z</published>
+    <updated>2019-03-03T10:54:27.732Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Web知识"><a href="#Web知识" class="headerlink" title="Web知识"></a><center><font color="#4094C7" size="4">Web知识</font></center></h2><h1 id="HTTTP代理"><a href="#HTTTP代理" class="headerlink" title="HTTTP代理"></a><font color="#FF0000">HTTTP代理</font></h1><hr><ol><li>HTTP代理原理：代理位于浏览器和Web服务器之间，有了他之后，浏览器不是直接连接Web服务器去取回网页而是向HTTP代理发出请求，请求数据包会先送到HTTP代理，由HTTP代理来取回浏览器所需要的信息并传送给你的浏览器。<br>简而言之，HTTP代理位于浏览器和Web服务器之间，充当“中间人” 的角色。<br>代理的作用：通过代理我们可以查看、分析浏览器和Web服务器之间的HTTP通信数据。通过查看HTTP流浪，我们可以方便的测试各种Web漏洞，如SQL注入、文件上传、弱口令。<br><img src="https://s2.ax1x.com/2019/03/03/kLoJ8P.png" alt="image"></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      Web相关的一些知识理论
+    
+    </summary>
+    
+      <category term="Web知识" scheme="https://Hussar118.github.io/categories/Web%E7%9F%A5%E8%AF%86/"/>
+    
+    
+      <category term="HTTP代理" scheme="https://Hussar118.github.io/tags/HTTP%E4%BB%A3%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>渗透测试—永恒之蓝入侵windows7</title>
