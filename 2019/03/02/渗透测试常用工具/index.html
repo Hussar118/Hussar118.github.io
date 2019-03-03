@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="渗透测试常用工具介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-03T13:36:53.397Z">
+<meta property="og:updated_time" content="2019-03-03T13:38:40.031Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="渗透测试常用工具介绍">
 <meta name="twitter:description" content="渗透测试常用工具介绍">
@@ -272,7 +272,7 @@
 
 <h1 id="一句话木马"><a href="#一句话木马" class="headerlink" title="一句话木马"></a><font color="#FF0000">一句话木马</font></h1><hr>
 <ol>
-<li>介绍：一句话木马基于B/S结构，在注册信息的电子邮箱或者个人主页等中插入。<br>eval函数:把字符串按照PHP代码来执行，该字符串必须是合法的代码，且必须以分号结尾。</li>
+<li>介绍：一句话木马基于B/S结构，在注册信息的电子邮箱或者个人主页等中插入。<br>eval函数:把字符串按照PHP代码来执行，该字符串必须是合法的代码，且必须以分号结尾。<br>$_POST:PHP超全局变量$_GET和$_POST用于收集表单数据(form-data)  </li>
 <li>使用方法：找到数据库是asp格式的网站，然后，以留言板，或者发表文章的方式，把一句话添加到asp数据库，或者加进asp网页<br><strong>记住!我们的目的是<font color="#FF0000">把一句话&lt;%execute request(“value”)%&gt;添加到数据库</font>,无论任何方式!</strong>  </li>
 <li>服务器错误：当我们在一个asp文件中添加了一句话后，就会出现类型不匹配的错误。(Description:类型不匹配: ‘execute’)  </li>
 <li>解决方法:用”eval”替换掉”execute”服务端,就不会出错了!</li>
@@ -362,7 +362,7 @@
         <p><span>本文标题:</span><a href="/2019/03/02/渗透测试常用工具/">渗透测试常用工具介绍</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月02日 - 20时07分</p>
-        <p><span>最后更新:</span>2019年03月03日 - 21时36分</p>
+        <p><span>最后更新:</span>2019年03月03日 - 21时38分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/02/渗透测试常用工具/" title="渗透测试常用工具介绍">https://Hussar118.github.io/2019/03/02/渗透测试常用工具/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/02/渗透测试常用工具/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
