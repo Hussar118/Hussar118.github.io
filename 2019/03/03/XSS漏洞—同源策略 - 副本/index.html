@@ -3,22 +3,20 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Web基础 | </title>
+  <title>XSS 文件上传漏洞 同源策略 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Web相关的一些知识理论">
-<meta name="keywords" content="HTTP代理,webshell">
+  <meta name="description" content="同源策略的定义和一些常见知识分析">
+<meta name="keywords" content="网络安全,漏洞,同源策略">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Web基础">
-<meta property="og:url" content="https://Hussar118.github.io/2019/03/03/Web基础/index.html">
+<meta property="og:title" content="XSS 文件上传漏洞 同源策略">
+<meta property="og:url" content="https://Hussar118.github.io/2019/03/03/XSS漏洞—同源策略 - 副本/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="Web相关的一些知识理论">
+<meta property="og:description" content="同源策略的定义和一些常见知识分析">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/03/kLoJ8P.png">
-<meta property="og:updated_time" content="2019-03-03T12:11:28.787Z">
+<meta property="og:updated_time" content="2019-01-16T13:43:45.581Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Web基础">
-<meta name="twitter:description" content="Web相关的一些知识理论">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/03/03/kLoJ8P.png">
+<meta name="twitter:title" content="XSS 文件上传漏洞 同源策略">
+<meta name="twitter:description" content="同源策略的定义和一些常见知识分析">
   
     <link rel="alternative" href="/atom.xml" title="" type="application/atom+xml">
   
@@ -226,11 +224,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Web基础" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-XSS漏洞—同源策略 - 副本" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/03/Web基础/" class="article-date">
-      <time datetime="2019-03-03T10:42:39.797Z" itemprop="datePublished">2019-03-03</time>
+      <a href="/2019/03/03/XSS漏洞—同源策略 - 副本/" class="article-date">
+      <time datetime="2019-03-03T11:59:51.119Z" itemprop="datePublished">2019-03-03</time>
 </a>
     </div>
   
@@ -244,7 +242,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Web基础
+      XSS 文件上传漏洞 同源策略
     </h1>
   
 
@@ -254,13 +252,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Web知识/">Web知识</a>
+    <a class="article-category-link" href="/categories/XSS/">XSS</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP代理/">HTTP代理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webshell/">webshell</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/同源策略/">同源策略</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/漏洞/">漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络安全/">网络安全</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -270,10 +268,21 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="Web知识"><a href="#Web知识" class="headerlink" title="Web知识"></a><center><font color="#4094C7" size="4">Web知识</font></center></h2><h1 id="HTTTP代理"><a href="#HTTTP代理" class="headerlink" title="HTTTP代理"></a><font color="#FF0000">HTTTP代理</font></h1><hr>
-<p>HTTP代理原理：代理位于浏览器和Web服务器之间，有了他之后，浏览器不是直接连接Web服务器去取回网页而是向HTTP代理发出请求，请求数据包会先送到HTTP代理，由HTTP代理来取回浏览器所需要的信息并传送给你的浏览器。<br>简而言之，HTTP代理位于浏览器和Web服务器之间，充当“中间人” 的角色。<br>代理的作用：通过代理我们可以查看、分析浏览器和Web服务器之间的HTTP通信数据。通过查看HTTP流浪，我们可以方便的测试各种Web漏洞，如SQL注入、文件上传、弱口令。<br><img src="https://s2.ax1x.com/2019/03/03/kLoJ8P.png" alt="image"></p>
-<h1 id="webshell"><a href="#webshell" class="headerlink" title="webshell"></a><font color="#FF0000">webshell</font></h1><hr>
-<p>webshell是以sap、php、jsp或者cgi等网页文件形式存在的一种命令执行环境，也可以称为网页后门。黑客们在入侵一个网站后，通常会将asp或php后门文件与网站服务器WEB目录下正常的网页文件混在一起，然后可以使用浏览器来访问asp或者php后门，得到一个命令执行环境，以达到控制网站服务器的目的。</p>
+        <center><font color="#4094C7" size="4">XSS 文件上传漏洞 同源策略</font></center>
+
+<h1 id="同源策略"><a href="#同源策略" class="headerlink" title=" - 同源策略"></a><font color="#FF0000"> - 同源策略</font></h1><hr>
+<p>所谓同源策略，指的是浏览器对<font color="#FF0000">不同源的脚本或者文本的访问方式进行的限制</font>。<br>比如源a的js不能读取或设置引入的源b的元素属性。</p>
+<h1 id="1-1-同源定义"><a href="#1-1-同源定义" class="headerlink" title=" - 1.1 同源定义 "></a><font color="#FF0000"> - 1.1 同源定义 </font></h1><hr>
+<p>所谓同源，就是指两个页面具有相同的协议，主机（也常说域名），端口，三个要素缺一不可。<br>(同协议，同IP地址，同端口，缺一不可)  </p>
+<p>其实：同源策略限制了不同源之间的交互主要针对的是js中的XMLHttpRequest等请求。<br>如下情况不受同源策略的影响：  </p>
+<blockquote>
+<p>1.页面中的链接，重定向以及表单提交是不会受到同源策略限制的。<br>链接就不用说了，导航网站上的链接都是链接到其他站点的。而你在域名<br><a href="http://www.foo.cm" target="_blank" rel="noopener">www.foo.cm</a> 下面提交一个表单到 <a href="http://www.bar.cm" target="_blank" rel="noopener">www.bar.cm</a> 是完全可以的。  </p>
+</blockquote>
+<blockquote>
+<p>2.跨域资源嵌入是允许的，当然，浏览器限制了Javascript不能读写加载的内容。 </p>
+</blockquote>
+<h1 id="1-1-同源定义-1"><a href="#1-1-同源定义-1" class="headerlink" title=" - 1.1 同源定义 "></a><font color="#FF0000"> - 1.1 同源定义 </font></h1><hr>
+<h1 id="1-1-同源定义-2"><a href="#1-1-同源定义-2" class="headerlink" title=" - 1.1 同源定义 "></a><font color="#FF0000"> - 1.1 同源定义 </font></h1><hr>
 
       
       
@@ -329,13 +338,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/03/Web基础/">Web基础</a></p>
+        <p><span>本文标题:</span><a href="/2019/03/03/XSS漏洞—同源策略 - 副本/">XSS 文件上传漏洞 同源策略</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
-        <p><span>发布时间:</span>2019年03月03日 - 18时42分</p>
-        <p><span>最后更新:</span>2019年03月03日 - 20时11分</p>
+        <p><span>发布时间:</span>2019年03月03日 - 19时59分</p>
+        <p><span>最后更新:</span>2019年01月16日 - 21时43分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/03/Web基础/" title="Web基础">https://Hussar118.github.io/2019/03/03/Web基础/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/03/Web基础/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/03/03/XSS漏洞—同源策略 - 副本/" title="XSS 文件上传漏洞 同源策略">https://Hussar118.github.io/2019/03/03/XSS漏洞—同源策略 - 副本/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/03/XSS漏洞—同源策略 - 副本/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -348,18 +357,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/03/03/XSS漏洞—同源策略 - 副本/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          XSS 文件上传漏洞 同源策略
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/02/渗透测试常用工具/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">渗透测试常用工具介绍</div>
+    <a href="/2019/03/03/Web基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Web基础</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -370,8 +370,8 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Web知识"><span class="toc-number">1.</span> <span class="toc-text">Web知识</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTTP代理"><span class="toc-number"></span> <span class="toc-text">HTTTP代理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#webshell"><span class="toc-number"></span> <span class="toc-text">webshell</span></a>
-</li></div>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#同源策略"><span class="toc-number">1.</span> <span class="toc-text"> - 同源策略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-1-同源定义"><span class="toc-number">2.</span> <span class="toc-text"> - 1.1 同源定义 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-1-同源定义-1"><span class="toc-number">3.</span> <span class="toc-text"> - 1.1 同源定义 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-1-同源定义-2"><span class="toc-number">4.</span> <span class="toc-text"> - 1.1 同源定义 </span></a></li></ol>
+</div>
 <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
@@ -456,13 +456,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/03/XSS漏洞—同源策略 - 副本/" title="上一篇: XSS 文件上传漏洞 同源策略">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/03/02/渗透测试常用工具/" title="下一篇: 渗透测试常用工具介绍">
+            <a href="/2019/03/03/Web基础/" title="下一篇: Web基础">
                 <i class="fa fa-angle-right"></i>
             </a>
         
