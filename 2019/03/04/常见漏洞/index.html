@@ -345,7 +345,7 @@
 <p>注意：secure属性并不能对Cookie内容加密，因而不能保证绝对的安全性。如果需要高安全性，需要在程序中对Cookie内容加密、解密，以防泄密。</p>
 <h1 id="1-11-JavaScript操作Cookie"><a href="#1-11-JavaScript操作Cookie" class="headerlink" title=" - 1.11 JavaScript操作Cookie  "></a><font color="#FF0000"> - 1.11 JavaScript操作Cookie  </font></h1><hr>
 <p>Cookie是保存在浏览器端的，因此浏览器具有操作Cookie的先决条件。浏览器可以使用脚本程序如JavaScript或者VBScript等操作Cookie。这里以JavaScript为例介绍常用的Cookie操作。例如下面的代码会输出本页面所有的Cookie。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;<span class="built_in">document</span>.write(<span class="built_in">document</span>.cookie);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;<span class="built_in">document</span>.write(<span class="built_in">document</span>.cookie);<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p>由于JavaScript能够任意地读写Cookie，有些好事者便想使用JavaScript程序去窥探用户在其他网站的Cookie。不过这是徒劳的，W3C组织早就意识到JavaScript对Cookie的读写所带来的安全隐患并加以防备了，<font color="#FF0000">W3C标准的浏览器会阻止JavaScript读写任何不属于自己网站的Cookie</font>。换句话说，A网站的JavaScript程序读写B网站的Cookie不会有任何结果。</p>
 <h1 id="2-1-Session机制引入"><a href="#2-1-Session机制引入" class="headerlink" title=" - 2.1 Session机制引入  "></a><font color="#FF0000"> - 2.1 Session机制引入  </font></h1><hr>
 <p>除了使用Cookie，Web应用程序中还经常使用Session来记录客户端状态。Session是服务器端使用的一种记录客户端状态的机制，使用上比Cookie简单一些，相应的也增加了服务器的存储压力。</p>
@@ -465,7 +465,7 @@
 <nav id="article-nav">
   
   
-    <a href="/2019/03/03/Web基础/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/03/03/Web基础知识理论/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Web基础</div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -567,12 +567,12 @@
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/03/03/Web基础/" title="下一篇: Web基础">
+            <a href="/2019/03/03/Web基础知识理论/" title="下一篇: Web基础">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/常见漏洞/">XSS 文件上传漏洞 Cookie和Session</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/Web基础/">Web基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/渗透测试常用工具/">渗透测试常用工具介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/kali linux使用技巧/">kali linux使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/XSS漏洞—同源策略/">XSS 文件上传漏洞 同源策略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/安全学习心得感受/">Hussar的安全学习心得和体会</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/常见漏洞/">XSS 文件上传漏洞 Cookie和Session</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/Web基础知识理论/">Web基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/渗透测试常用工具/">渗透测试常用工具介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/kali linux使用技巧/">kali linux使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/XSS漏洞—同源策略/">XSS 文件上传漏洞 同源策略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/安全学习心得感受/">Hussar的安全学习心得和体会</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
