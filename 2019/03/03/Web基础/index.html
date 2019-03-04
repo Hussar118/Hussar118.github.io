@@ -15,7 +15,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/03/kLoJ8P.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/01/kbV2Oe.png">
-<meta property="og:updated_time" content="2019-03-04T12:55:46.268Z">
+<meta property="og:updated_time" content="2019-03-04T13:00:46.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web基础">
 <meta name="twitter:description" content="Web相关的一些知识理论">
@@ -286,7 +286,8 @@
 <li>Cookie机制：介绍Cookie通过在客户端记录信息确定用户身份。就像购物一样，一个顾客的东西应该对应放入他的购物篮。那么一个用户的请求应该同属一个会话，而另一个用户的所<br>有请求应该属于另外一个会话。但是Web应用程序是使用的HTTP协议传输数据的，HTTP是无状态协议(无状态是指协议对于事务处理没有记忆能力)。这意味着服务器无法从连接上跟踪会话，也无法知道客户身份，单次连接都需要建立新的连接。而cookie就可以弥补HTTP协议无状态的不足。</li>
 <li>什么是Cookie：Cookie就相当于服务端给客户端颁发的通行证，而客户端访问时，都必须提供自己的通行证。<br>Cookie实际上是一小段的文本信息。客户端请求服务器，如果服务器需要记录该用户状态，就使用response向客户端浏览器颁发一个Cookie。客户端浏览器会把Cookie保存起来。当浏览器再请求该网站时，浏览器把请求的网址连同该Cookie一同提交给服务器。服务器检查该Cookie，以此来辨认用户状态。服务器还可以根据需要修改Cookie的内容。</li>
 <li>Cookie信息查看：不同网站对其颁布的Cookie都会进行不同的加密或者处理。<br>IE浏览器会在“C:\Documents and Settings\你的用户名\Cookies”文件夹下以文本文件形式保存，一个文本文件保存一个Cookie。<br>在浏览器的地址栏输入：javascript:alert(document.cookie)  (不区分大小写)，就会弹出你在当前网页登录的cookie信息。（但是当你尝试这样去查看当前网站的Cookie时，你会发现javascript字符串消失不见了，应为会被自动过滤隐藏，只需在前面加个1再复制后删去1即可。）</li>
-<li>①记录用户访问次数<br>②Cookie不可跨域名性(不同域名的cookie不可相互使用)<br>③中文属于Unicode字符，内存中占四个字符Cookie中需要对他进行编码(Cookie中保存中文只能编码。一般使用UTF-8编码即可。不推荐使用GBK等中文编码，因为浏览器不一定支持，而且JavaScript也不支持GBK编码。)<br>④Cookie还可以使用二进制，如数字证书</li>
+<li>①记录用户访问次数。<br>②Cookie不可跨域名性(不同域名的cookie不可相互使用)<br>③中文属于Unicode字符，内存中占四个字符Cookie中需要对他进行编码(Cookie中保存中文只能编码。一般使用UTF-8编码即可。不推荐使用GBK等中文编码，因为浏览器不一定支持，而且JavaScript也不支持GBK编码。)<br>④Cookie还可以使用二进制，如数字证书。</li>
+<li>Cookie内容：①Cookie内容应该少而精(否则会影响速度)<br>②常用属性：<br><font color="#FF0000">String name</font>：该Cookie的名称。Cookie一旦创建，名称便不可更改<br><font color="#FF0000">Object value</font>：该Cookie的值。如果值为Unicode字符，需要为字符编码。如果值为二进制数据，则需要使用BASE64编码<br><font color="#FF0000">int maxAge</font>：该Cookie失效的时间，单位秒。如果为正数，则该Cookie在maxAge秒之后失效。如果为负数，<br>Cookie为临时Cookie，关闭浏览器即失效，浏览器也不会以任何形式保存该Cookie。如果为0，表示删除该Cookie。默认为–1<br><font color="#FF0000">boolean secure</font>：该Cookie是否仅被使用安全协议传输。安全协议。安全协议有HTTPS，SSL等，在网络上传输数据之前先将数据加密。默认为false<br><font color="#FF0000">String path</font>：该Cookie的使用路径。如果设置为“/sessionWeb/”，则只有contextPath为“/sessionWeb”的程序可以访问该Cookie。如果设置为“/”，则本域名下contextPath都可以访问该Cookie。注意最后一个字符必须为“/”<br><font color="#FF0000">String domain</font>：可以访问该Cookie的域名。如果设置为“.google.com”，则所有以“google.com”结尾的域名都可以访问该Cookie。注意第一个字符必须为“.”<br><font color="#FF0000">String comment</font>：该Cookie的用处说明。浏览器显示Cookie信息的时候显示该说明<br><font color="#FF0000">int version</font>：该Cookie使用的版本号。0表示遵循Netscape的Cookie规范，1表示遵循W3C的RFC 2109规范</li>
 </ol>
 <h1 id="Session"><a href="#Session" class="headerlink" title=" Session "></a><font color="#FF0000"> Session </font></h1><hr>
 <p>Session通过在服务器端记录信息确定用户身份</p>
@@ -348,7 +349,7 @@
         <p><span>本文标题:</span><a href="/2019/03/03/Web基础/">Web基础</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月03日 - 18时42分</p>
-        <p><span>最后更新:</span>2019年03月04日 - 20时55分</p>
+        <p><span>最后更新:</span>2019年03月04日 - 21时00分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/03/Web基础/" title="Web基础">https://Hussar118.github.io/2019/03/03/Web基础/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/03/Web基础/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
