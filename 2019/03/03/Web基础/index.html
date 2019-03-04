@@ -15,7 +15,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/03/kLoJ8P.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/01/kbV2Oe.png">
-<meta property="og:updated_time" content="2019-03-04T13:12:04.508Z">
+<meta property="og:updated_time" content="2019-03-04T13:14:00.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web基础">
 <meta name="twitter:description" content="Web相关的一些知识理论">
@@ -325,6 +325,17 @@
 <p>Object getValue(String attribute)<br>不被推荐的方法。已经被getAttribute(String   attr)替代</p>
 <p>boolean isNew()<br>返回该Session是否是新创建的</p>
 <p>void invalidate()<br>使该Session失效</p>
+<ol start="6">
+<li>Session对浏览器的要求：<br>①Session依据该Cookie来识别是否为同一用户。虽然Session保存在服务器，对客户端是透明的，它的正常运行仍然需要客户端浏览器的支持，因为Session需要使用Cookie作为识别标志。HTTP协议是无状态的，Session不能依据HTTP连接来判断是否为同一客户，因此服务器向客户端浏览器发送一个名为JSESSIONID的Cookie，它的值为该Session的id（也就是HttpSession.getId()的返回值）。它的maxAge属性一般为–1。</li>
+</ol>
+<p>②但是如果将Cookie功能禁用，或者不支持Cookie怎么办。比如绝大数手机浏览器都不支持Cookie，Java Web提供了一种方法：UR地址L重写。</p>
+<p>③重写URL地址：<br>原理：将该用户Session的id信息重写到URL地址中，服务器解析重写后的URL获取Session的id，不支持Cookie也可以记录用户状态。</p>
+<ol start="7">
+<li>Session中禁止使用Cookie：<br>既然存在有些浏览器不支持Cookie，为了统一，索性禁止Session使用Cookie，统一使用URL地址重写。</li>
+</ol>
+<p>禁用方法：打开项目sessionWeb的WebRoot目录下的META-INF文件夹，打开context.xml，修改属性。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">"/sessionWeb"</span><span class="attr">cookies</span>=<span class="string">"false"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>注意：该配置只是禁止Session使用Cookie作为识别标志，并不能阻止其他的Cookie读写。也就是说服务器不会自动维护名为JSESSIONID的Cookie了，但是程序中仍然可以读写其他的Cookie</p>
+<p>#未完待续……</p>
 
       
       
@@ -383,7 +394,7 @@
         <p><span>本文标题:</span><a href="/2019/03/03/Web基础/">Web基础</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月03日 - 18时42分</p>
-        <p><span>最后更新:</span>2019年03月04日 - 21时12分</p>
+        <p><span>最后更新:</span>2019年03月04日 - 21时14分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/03/Web基础/" title="Web基础">https://Hussar118.github.io/2019/03/03/Web基础/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/03/Web基础/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -518,7 +529,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/常见漏洞/">XSS 文件上传漏洞 Cookie和Session</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/Web基础/">Web基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/渗透测试常用工具/">渗透测试常用工具介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/kali linux使用技巧/">kali linux使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/XSS漏洞—同源策略/">XSS 文件上传漏洞 同源策略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/12/XSS漏洞—Cookie Session/">XSS 文件上传漏洞 Cookie和Session</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/安全学习心得感受/">Hussar的安全学习心得和体会</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/常见漏洞/">XSS 文件上传漏洞 Cookie和Session</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/Web基础/">Web基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/渗透测试常用工具/">渗透测试常用工具介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/kali linux使用技巧/">kali linux使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/XSS漏洞—同源策略/">XSS 文件上传漏洞 同源策略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/安全学习心得感受/">Hussar的安全学习心得和体会</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
