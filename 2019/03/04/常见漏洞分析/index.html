@@ -6,7 +6,7 @@
   <title>常见漏洞分析 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="常见漏洞的分析介绍">
-<meta name="keywords" content="SQL注入漏洞,文件上传漏洞">
+<meta name="keywords" content="SQL注入漏洞,文件上传漏洞,命令注入漏洞">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常见漏洞分析">
 <meta property="og:url" content="https://Hussar118.github.io/2019/03/04/常见漏洞分析/index.html">
@@ -17,7 +17,9 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXTmRI.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXLZvR.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXLfaT.png">
-<meta property="og:updated_time" content="2019-03-05T13:22:57.637Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kjttl6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kjtXBF.png">
+<meta property="og:updated_time" content="2019-03-05T14:33:19.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常见漏洞分析">
 <meta name="twitter:description" content="常见漏洞的分析介绍">
@@ -152,7 +154,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/DNS服务器/" style="font-size: 10px;">DNS服务器</a> <a href="/tags/HTTP代理/" style="font-size: 10px;">HTTP代理</a> <a href="/tags/SQL注入漏洞/" style="font-size: 10px;">SQL注入漏洞</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/VWmare/" style="font-size: 10px;">VWmare</a> <a href="/tags/hackbar/" style="font-size: 10px;">hackbar</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/sqlmap/" style="font-size: 10px;">sqlmap</a> <a href="/tags/webshell/" style="font-size: 10px;">webshell</a> <a href="/tags/一句话木马/" style="font-size: 10px;">一句话木马</a> <a href="/tags/三种网络模式/" style="font-size: 10px;">三种网络模式</a> <a href="/tags/中国菜刀/" style="font-size: 10px;">中国菜刀</a> <a href="/tags/同源策略/" style="font-size: 10px;">同源策略</a> <a href="/tags/大马/" style="font-size: 10px;">大马</a> <a href="/tags/子网掩码/" style="font-size: 10px;">子网掩码</a> <a href="/tags/心得感想/" style="font-size: 10px;">心得感想</a> <a href="/tags/文件上传漏洞/" style="font-size: 10px;">文件上传漏洞</a> <a href="/tags/漏洞/" style="font-size: 10px;">漏洞</a> <a href="/tags/系统和软件更新/" style="font-size: 10px;">系统和软件更新</a> <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a> <a href="/tags/自我鼓励/" style="font-size: 10px;">自我鼓励</a> <a href="/tags/虚拟机快照/" style="font-size: 10px;">虚拟机快照</a> <a href="/tags/默认网关/" style="font-size: 10px;">默认网关</a>
+                        <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/DNS服务器/" style="font-size: 10px;">DNS服务器</a> <a href="/tags/HTTP代理/" style="font-size: 10px;">HTTP代理</a> <a href="/tags/SQL注入漏洞/" style="font-size: 10px;">SQL注入漏洞</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/VWmare/" style="font-size: 10px;">VWmare</a> <a href="/tags/Windows常用系统命令和功能/" style="font-size: 10px;">Windows常用系统命令和功能</a> <a href="/tags/hackbar/" style="font-size: 10px;">hackbar</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/linux常用系统命令和功能/" style="font-size: 10px;">linux常用系统命令和功能</a> <a href="/tags/sqlmap/" style="font-size: 10px;">sqlmap</a> <a href="/tags/webshell/" style="font-size: 10px;">webshell</a> <a href="/tags/一句话木马/" style="font-size: 10px;">一句话木马</a> <a href="/tags/三种网络模式/" style="font-size: 10px;">三种网络模式</a> <a href="/tags/中国菜刀/" style="font-size: 10px;">中国菜刀</a> <a href="/tags/同源策略/" style="font-size: 10px;">同源策略</a> <a href="/tags/命令注入漏洞/" style="font-size: 10px;">命令注入漏洞</a> <a href="/tags/大马/" style="font-size: 10px;">大马</a> <a href="/tags/子网掩码/" style="font-size: 10px;">子网掩码</a> <a href="/tags/心得感想/" style="font-size: 10px;">心得感想</a> <a href="/tags/文件上传漏洞/" style="font-size: 10px;">文件上传漏洞</a> <a href="/tags/漏洞/" style="font-size: 10px;">漏洞</a> <a href="/tags/系统和软件更新/" style="font-size: 10px;">系统和软件更新</a> <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a> <a href="/tags/自我鼓励/" style="font-size: 10px;">自我鼓励</a> <a href="/tags/虚拟机快照/" style="font-size: 10px;">虚拟机快照</a> <a href="/tags/默认网关/" style="font-size: 10px;">默认网关</a>
                     </div>
                 </section>
                 
@@ -263,7 +265,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL注入漏洞/">SQL注入漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件上传漏洞/">文件上传漏洞</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL注入漏洞/">SQL注入漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令注入漏洞/">命令注入漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件上传漏洞/">文件上传漏洞</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -275,7 +277,8 @@
           
         <center><font color="#4094C7" size="4">常见漏洞分析介绍</font></center>
 
-<h1 id="SQL注入漏洞"><a href="#SQL注入漏洞" class="headerlink" title="SQL注入漏洞"></a><font color="#FF0000">SQL注入漏洞</font></h1><ol>
+<h1 id="SQL注入漏洞"><a href="#SQL注入漏洞" class="headerlink" title="SQL注入漏洞"></a><font color="#FF0000">SQL注入漏洞</font></h1><hr>
+<ol>
 <li>介绍：SQL注入是恶意用户通过把精心构造的SQL语句当做查询参数的一部分提交给Web服务器应用程序，最终欺骗服务器执行恶意的SQL命令并导致用户信息泄露甚至是服务器被控制的漏洞。<br><img src="https://s2.ax1x.com/2019/03/05/kj36Nq.png" alt="image"></li>
 <li>判断是否存在注入：(and 1=1 / and 1=2)</li>
 <li>判断有多少列:(order by n)</li>
@@ -286,6 +289,17 @@
 <ol>
 <li>文件上传流程：前端校验-&gt;http协议传输-&gt;web应用程序校验-&gt;web应用程序储存-&gt;web应用程序解析执行<br><img src="https://s2.ax1x.com/2019/03/05/kXTmRI.png" alt="image"></li>
 <li>类型分析：<br>①任意文件上传：Web应用系统没有对用户上传的文件做任何校验就直接上传到Web服务器。恶意用户可以直接上传一句话木马到Web服务器，从而控制Web服务器。 (开发人员测试代码没有删除、上传文件经过压缩编码、通过特定的客户端上传，如APP)<br>②绕过js检验上传：Web应用系统虽然对用户上传的文件进行了校验，但是校验是通过前端javascript代码完成的。由于恶意用户可以对前端javascript进行修改或者是通过抓包软件篡改上传文件，就会导致基于js的校验很容易被绕过。绕过方法有：修改前端JavaScript、使用Burp Suite篡改上传的文件。<br>③后端上传代码校验绕过：一般根据绕过Web应用校验的方法可以分为：绕过文件类型校验(部分Web应用系统判定文件类型是通过content-type字段，测试人员可以通过抓包，将content-type字段改为常见的图片类型，如image/gif，从而绕过校验)、绕过扩展名验证(一般针对黑名单的Web应用系统。黑名单检测方式一般有个专门的blacklist文件或者列表，里面会包含常见的危险脚本文件类型，所有在黑名单中的文件都不允许上传。)、绕过文件头校验(Web应用程序在检验文件类型、文件扩展名的同时，也会校验文件头，从而进一步确定文件的类型。针对这种情况，可以通过在上传的一句话木马文件的开头加入特定的文件头从而绕过这种验证方式)。<br><img src="https://s2.ax1x.com/2019/03/05/kXLZvR.png" alt="image"><br><img src="https://s2.ax1x.com/2019/03/05/kXLfaT.png" alt="image"><br>④结合00截断：在上传文件的时候，web应用程序经过一系列文件校验之后，最终调用php的内置函数move_uploaded_file保存文件。在某些版本的PHP下，该函数遇到\x00字符后悔截断路径名。测试人员通过构造包含\x00的特殊文件名就可以通过上传文件的扩展名校验，但是保存时却以非法的扩展名保存文件。(如上传文件名为”test.php\x00.jpg”这类文件可以通过文件类型必须是jpg校验，但最终在调用move_uploaded_file时遇到了\x00所以保存成了test.php)<br>⑤结合解析漏洞：Web中间件遇到特殊类型的文件时会被当成代码执行。不同的Web中间件触发解析漏洞的文件类型也不同。(IIS6.0:”test.asp;.php”会被IIS6.0当做test.php解析)</li>
+</ol>
+<h1 id="命令注入漏洞"><a href="#命令注入漏洞" class="headerlink" title="命令注入漏洞"></a><font color="#FF0000">命令注入漏洞</font></h1><hr>
+<ol>
+<li>介绍：命令注入漏洞的危害跟web中间件的运行的权限有关。由于web应用运行在web中间件上，所以web应用会“继承”web中间件的运行权限。如果存在命令注入漏洞的web应用运行在以系统管理员身份运行的web中间件上，那么黑客就相当于拥有一个管理员权限的shell。黑客可以利用漏洞任意的执行权限允许的命令(查看系统敏感信息、添加管理员、反弹shell、下载并运行恶意代码)</li>
+<li>命令注入漏洞本质：由于系统把用户输入进来的参数当成了要执行的命令，并且这些命令被执行了，这样就造成了命令注入漏洞。</li>
+<li>命令注入漏洞产生原因：①web网站没有对用户提交的参数进行有效的检测过滤 ②操作系统运行一条语句执行多条命令(使用连接符和管道符)</li>
+<li><p>连接符和管道符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">command1  &amp; command2  :  先后执行command1 和 command2，无论command1执行是否成功</span><br><span class="line">command1 &amp;&amp; command2  :  先后执行command1 和 command2，只有command1执行成功时才执行command2</span><br><span class="line">command1 || command2  :  先后执行command1 和 command2，只有command1执行失败时才执行command2</span><br><span class="line">command1  | command2  :  |是管道符，将command1的执行结果传递给command2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>漏洞利用流程：查找可以执行命令的接口-&gt;判断是否存在命令注入-&gt;查看当前系统当前信息-&gt;查看当前用户权限-&gt;添加新用户或者反弹shell-&gt;控制目标服务器<br><img src="https://s2.ax1x.com/2019/03/05/kjttl6.png" alt="image"><br><img src="https://s2.ax1x.com/2019/03/05/kjtXBF.png" alt="image"></p>
+</li>
 </ol>
 <p>#未完待续……</p>
 
@@ -346,7 +360,7 @@
         <p><span>本文标题:</span><a href="/2019/03/04/常见漏洞分析/">常见漏洞分析</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月04日 - 20时42分</p>
-        <p><span>最后更新:</span>2019年03月05日 - 21时22分</p>
+        <p><span>最后更新:</span>2019年03月05日 - 22时33分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/04/常见漏洞分析/" title="常见漏洞分析">https://Hussar118.github.io/2019/03/04/常见漏洞分析/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/04/常见漏洞分析/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -375,7 +389,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL注入漏洞"><span class="toc-number">1.</span> <span class="toc-text">SQL注入漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件上传漏洞"><span class="toc-number">2.</span> <span class="toc-text">文件上传漏洞</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL注入漏洞"><span class="toc-number">1.</span> <span class="toc-text">SQL注入漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件上传漏洞"><span class="toc-number">2.</span> <span class="toc-text">文件上传漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#命令注入漏洞"><span class="toc-number">3.</span> <span class="toc-text">命令注入漏洞</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
