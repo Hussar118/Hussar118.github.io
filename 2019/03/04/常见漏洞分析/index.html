@@ -3,18 +3,24 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Tag: 同源策略 | </title>
+  <title>常见漏洞分析 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="欢迎大家来我的博客，互相指导。">
-<meta property="og:type" content="website">
-<meta property="og:title">
-<meta property="og:url" content="https://Hussar118.github.io/tags/同源策略/index.html">
+  <meta name="description" content="常见漏洞的分析介绍">
+<meta name="keywords" content="文件上传漏洞">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见漏洞分析">
+<meta property="og:url" content="https://Hussar118.github.io/2019/03/04/常见漏洞分析/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="欢迎大家来我的博客，互相指导。">
+<meta property="og:description" content="常见漏洞的分析介绍">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXTmRI.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXLZvR.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXLfaT.png">
+<meta property="og:updated_time" content="2019-03-05T07:11:28.167Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title">
-<meta name="twitter:description" content="欢迎大家来我的博客，互相指导。">
+<meta name="twitter:title" content="常见漏洞分析">
+<meta name="twitter:description" content="常见漏洞的分析介绍">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/03/05/kXTmRI.png">
   
     <link rel="alternative" href="/atom.xml" title="" type="application/atom+xml">
   
@@ -43,9 +49,9 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
+          isPost: true,
           isArchive: false,
-          isTag: true,
+          isTag: false,
           isCategory: false,
           open_in_new: false
       }
@@ -222,58 +228,264 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-常见漏洞分析" class="article article-type-post" itemscope="" itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/12/13/XSS漏洞—同源策略/" class="archive-article-date">
-      <time datetime="2018-12-13T14:11:47.001Z" itemprop="datePublished">12-13</time>
+    <div class="article-meta">
+      <a href="/2019/03/04/常见漏洞分析/" class="article-date">
+      <time datetime="2019-03-04T12:42:56.483Z" itemprop="datePublished">2019-03-04</time>
 </a>
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/13/XSS漏洞—同源策略/">XSS 文件上传漏洞 同源策略</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <!--文章头-->
+      <header class="article-header" style="font-size:30px,color:#3399FF">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常见漏洞分析
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/XSS/">XSS</a>
+    <a class="article-category-link" href="/categories/漏洞/">漏洞</a>
     </div>
 
 
-          
+        
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/同源策略/">同源策略</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/漏洞/">漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络安全/">网络安全</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件上传漏洞/">文件上传漏洞</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <center><font color="#4094C7" size="4">常见漏洞分析介绍</font></center>
+
+<h1 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a><font color="#FF0000">文件上传漏洞</font></h1><hr>
+<ol>
+<li>文件上传流程：前端校验-&gt;http协议传输-&gt;web应用程序校验-&gt;web应用程序储存-&gt;web应用程序解析执行<br><img src="https://s2.ax1x.com/2019/03/05/kXTmRI.png" alt="image"></li>
+<li>类型分析：<br>①任意文件上传：Web应用系统没有对用户上传的文件做任何校验就直接上传到Web服务器。恶意用户可以直接上传一句话木马到Web服务器，从而控制Web服务器。 (开发人员测试代码没有删除、上传文件经过压缩编码、通过特定的客户端上传，如APP)<br>②绕过js检验上传：Web应用系统虽然对用户上传的文件进行了校验，但是校验是通过前端javascript代码完成的。由于恶意用户可以对前端javascript进行修改或者是通过抓包软件篡改上传文件，就会导致基于js的校验很容易被绕过。绕过方法有：修改前端JavaScript、使用Burp Suite篡改上传的文件。<br>③后端上传代码校验绕过：一般根据绕过Web应用校验的方法可以分为：绕过文件类型校验(部分Web应用系统判定文件类型是通过content-type字段，测试人员可以通过抓包，将content-type字段改为常见的图片类型，如image/gif，从而绕过校验)、绕过扩展名验证(一般针对黑名单的Web应用系统。黑名单检测方式一般有个专门的blacklist文件或者列表，里面会包含常见的危险脚本文件类型，所有在黑名单中的文件都不允许上传。)、绕过文件头校验(Web应用程序在检验文件类型、文件扩展名的同时，也会校验文件头，从而进一步确定文件的类型。针对这种情况，可以通过在上传的一句话木马文件的开头加入特定的文件头从而绕过这种验证方式)。<br><img src="https://s2.ax1x.com/2019/03/05/kXLZvR.png" alt="image"><br><img src="https://s2.ax1x.com/2019/03/05/kXLfaT.png" alt="image"><br>#未完待续……</li>
+</ol>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>谢谢打赏！</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫">
+            </div>
+              <div class="pay_explain">技术活！当赏！</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝"></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信"></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/03/04/常见漏洞分析/">常见漏洞分析</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
+        <p><span>发布时间:</span>2019年03月04日 - 20时42分</p>
+        <p><span>最后更新:</span>2019年03月05日 - 15时11分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/03/04/常见漏洞分析/" title="常见漏洞分析">https://Hussar118.github.io/2019/03/04/常见漏洞分析/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/04/常见漏洞分析/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/03/Web基础知识理论/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Web基础知识理论</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#文件上传漏洞"><span class="toc-number">1.</span> <span class="toc-text">文件上传漏洞</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+    <style>
+        .toc {
+            white-space: nowrap;
+            overflow-x: hidden;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            $(".toc li a").mouseover(function() {
+                var title = $(this).attr('href');
+                $(this).attr("title", title);
+            });
+        })
+    </script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
 
     
+        <!-- ������City�氲װ���� -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80MTYxOS8xODE2Ng==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
 
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>Ϊ����ʹ�����������۹����뼤��JavaScript</noscript>
+</div>
+<!-- City�氲װ��������� -->
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/03/03/Web基础知识理论/" title="下一篇: Web基础知识理论">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/常见漏洞分析/">常见漏洞分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/Web基础知识理论/">Web基础知识理论</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/渗透测试常用工具/">渗透测试常用工具介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/kali linux使用技巧/">kali linux使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/XSS漏洞—同源策略/">XSS 文件上传漏洞 同源策略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/安全学习心得感受/">Hussar的安全学习心得和体会</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
@@ -365,17 +577,6 @@
         };
     })
 </script>
-
-    <button class="hide-labels">TAG 开关</button>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>

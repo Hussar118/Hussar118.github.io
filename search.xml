@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>常见漏洞分析</title>
+      <link href="/2019/03/04/%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/"/>
+      <url>/2019/03/04/%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/</url>
+      
+        <content type="html"><![CDATA[<center><font color="#4094C7" size="4">常见漏洞分析介绍</font></center><h1 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a><font color="#FF0000">文件上传漏洞</font></h1><hr><ol><li>文件上传流程：前端校验-&gt;http协议传输-&gt;web应用程序校验-&gt;web应用程序储存-&gt;web应用程序解析执行<br><img src="https://s2.ax1x.com/2019/03/05/kXTmRI.png" alt="image"></li><li>类型分析：<br>①任意文件上传：Web应用系统没有对用户上传的文件做任何校验就直接上传到Web服务器。恶意用户可以直接上传一句话木马到Web服务器，从而控制Web服务器。 (开发人员测试代码没有删除、上传文件经过压缩编码、通过特定的客户端上传，如APP)<br>②绕过js检验上传：Web应用系统虽然对用户上传的文件进行了校验，但是校验是通过前端javascript代码完成的。由于恶意用户可以对前端javascript进行修改或者是通过抓包软件篡改上传文件，就会导致基于js的校验很容易被绕过。绕过方法有：修改前端JavaScript、使用Burp Suite篡改上传的文件。<br>③后端上传代码校验绕过：一般根据绕过Web应用校验的方法可以分为：绕过文件类型校验(部分Web应用系统判定文件类型是通过content-type字段，测试人员可以通过抓包，将content-type字段改为常见的图片类型，如image/gif，从而绕过校验)、绕过扩展名验证(一般针对黑名单的Web应用系统。黑名单检测方式一般有个专门的blacklist文件或者列表，里面会包含常见的危险脚本文件类型，所有在黑名单中的文件都不允许上传。)、绕过文件头校验(Web应用程序在检验文件类型、文件扩展名的同时，也会校验文件头，从而进一步确定文件的类型。针对这种情况，可以通过在上传的一句话木马文件的开头加入特定的文件头从而绕过这种验证方式)。<br><img src="https://s2.ax1x.com/2019/03/05/kXLZvR.png" alt="image"><br><img src="https://s2.ax1x.com/2019/03/05/kXLfaT.png" alt="image"><br>#未完待续……</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漏洞 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 文件上传漏洞 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Web基础知识理论</title>
       <link href="/2019/03/03/Web%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%90%86%E8%AE%BA/"/>
       <url>/2019/03/03/Web%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%90%86%E8%AE%BA/</url>
