@@ -25,6 +25,8 @@
             
             <tag> 命令注入漏洞 </tag>
             
+            <tag> XXS漏洞 </tag>
+            
         </tags>
       
     </entry>
