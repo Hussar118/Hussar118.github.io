@@ -19,7 +19,9 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kXLfaT.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kjttl6.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/05/kjtXBF.png">
-<meta property="og:updated_time" content="2019-03-05T14:41:20.236Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/06/kvio3q.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/06/kvkWfs.png">
+<meta property="og:updated_time" content="2019-03-06T06:53:38.318Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常见漏洞分析">
 <meta name="twitter:description" content="常见漏洞的分析介绍">
@@ -301,7 +303,13 @@
 <li><p>漏洞利用流程：查找可以执行命令的接口-&gt;判断是否存在命令注入-&gt;查看当前系统当前信息-&gt;查看当前用户权限-&gt;添加新用户或者反弹shell-&gt;控制目标服务器<br><img src="https://s2.ax1x.com/2019/03/05/kjttl6.png" alt="image"><br><img src="https://s2.ax1x.com/2019/03/05/kjtXBF.png" alt="image"></p>
 </li>
 </ol>
-<p>#未完待续……</p>
+<h1 id="XSS漏洞"><a href="#XSS漏洞" class="headerlink" title="XSS漏洞"></a><font color="#FF0000">XSS漏洞</font></h1><hr>
+<ol>
+<li>介绍：XSS攻击全称：跨站脚本攻击，是为不和层叠样式表的缩写混淆，故意将跨站脚本攻击写成XSS，XSS是一种在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中，从而导致各种安全问题，如cookie泄漏、网站挂马。<br><img src="https://s2.ax1x.com/2019/03/06/kvio3q.png" alt="image"></li>
+<li>XSS的原理是web应用程序混淆了用户提交的数据和js脚本的代码边界，导致浏览器把用户的输入当成了JS代码来执行</li>
+<li>分类：<br>反射型：非持久型XSS，也就是攻击相对于受害者而言的一次性的，具体表现在受害者点击了含有的恶意JavaScript脚本的url，而Web应用程序只是不加处理的把恶意脚本“反射”回受害者的浏览器而使受害者的浏览器执行相应的脚本。<br><img src="https://s2.ax1x.com/2019/03/06/kvkWfs.png" alt="image"><br>存储型：持久型XSS，攻击者上传的包含恶意js脚本的留言等消息被Web应用程序保存到数据库中，Web应用程序在生成新的页面的时候如果包含了该恶意js脚本，这样会导致所有访问该网页的浏览器执行该恶意js脚本。这种攻击类型常见在博客、论坛等网站。<br>DOM型：DOM是一个平台和语言都中立的接口，可以使程序和脚本能够动态访问和更新文档的内容、结构及样式。DOM型XSS其实是一种特殊类型的反射型XSS，它是基于DOM文档对象模型的一种漏洞，而且不需要与服务端进行交互。客户端的脚本程序可以通过DOM来动态修改页面内容，从客户端获取DOM中的数据并在本地执行。基于这个特性，就可以利用JS脚本来实现XSS漏洞的利用。</li>
+<li>发现和利用：<br>反射型XSS：可以查看代码，查找关键的变量，假如用户提交的变量经过htmlEncode处理就返回，那么这个变量就很有可能存在一个反射型XSS漏洞。<br>存储型XSS：一般需要查找像留言板、发帖等网站功能，然后在留言板、帖子中插入<script>alert(“XSS”)</script>之类的测试代码。在提交成功后，可以在访问之前发布的留言或者帖子，如果弹窗了，可以那么这个位置就存在一个存储型XSS漏洞。<br>#未完待续……</li>
+</ol>
 
       
       
@@ -360,7 +368,7 @@
         <p><span>本文标题:</span><a href="/2019/03/04/常见漏洞分析/">常见漏洞分析</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月04日 - 20时42分</p>
-        <p><span>最后更新:</span>2019年03月05日 - 22时41分</p>
+        <p><span>最后更新:</span>2019年03月06日 - 14时53分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/04/常见漏洞分析/" title="常见漏洞分析">https://Hussar118.github.io/2019/03/04/常见漏洞分析/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/04/常见漏洞分析/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -389,7 +397,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL注入漏洞"><span class="toc-number">1.</span> <span class="toc-text">SQL注入漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件上传漏洞"><span class="toc-number">2.</span> <span class="toc-text">文件上传漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#命令注入漏洞"><span class="toc-number">3.</span> <span class="toc-text">命令注入漏洞</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL注入漏洞"><span class="toc-number">1.</span> <span class="toc-text">SQL注入漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件上传漏洞"><span class="toc-number">2.</span> <span class="toc-text">文件上传漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#命令注入漏洞"><span class="toc-number">3.</span> <span class="toc-text">命令注入漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#XSS漏洞"><span class="toc-number">4.</span> <span class="toc-text">XSS漏洞</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
