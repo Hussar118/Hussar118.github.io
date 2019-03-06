@@ -3,25 +3,18 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>kali linux使用技巧 | </title>
+  <title>Tag: CSRF漏洞 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="kali linux的一些使用小技巧">
-<meta name="keywords" content="kali,VWmare,虚拟机快照,三种网络模式,系统和软件更新">
-<meta property="og:type" content="article">
-<meta property="og:title" content="kali linux使用技巧">
-<meta property="og:url" content="https://Hussar118.github.io/2019/02/26/kali linux使用技巧/index.html">
+  <meta name="description" content="欢迎大家来我的博客，互相指导。">
+<meta property="og:type" content="website">
+<meta property="og:title">
+<meta property="og:url" content="https://Hussar118.github.io/tags/CSRF漏洞/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="kali linux的一些使用小技巧">
+<meta property="og:description" content="欢迎大家来我的博客，互相指导。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/03/kL6NGQ.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/03/kL6XQA.md.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/03/kLctw6.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/03/03/kLgT8e.png">
-<meta property="og:updated_time" content="2019-03-03T09:22:46.021Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="kali linux使用技巧">
-<meta name="twitter:description" content="kali linux的一些使用小技巧">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/03/03/kL6NGQ.png">
+<meta name="twitter:title">
+<meta name="twitter:description" content="欢迎大家来我的博客，互相指导。">
   
     <link rel="alternative" href="/atom.xml" title="" type="application/atom+xml">
   
@@ -50,9 +43,9 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: true,
+          isPost: false,
           isArchive: false,
-          isTag: false,
+          isTag: true,
           isCategory: false,
           open_in_new: false
       }
@@ -229,286 +222,58 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-kali linux使用技巧" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2019/02/26/kali linux使用技巧/" class="article-date">
-      <time datetime="2019-02-26T06:27:02.608Z" itemprop="datePublished">2019-02-26</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2019/03/04/常见漏洞分析/" class="archive-article-date">
+      <time datetime="2019-03-04T12:42:56.483Z" itemprop="datePublished">03-04</time>
 </a>
-    </div>
+        </div>
+         
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <!--文章头-->
-      <header class="article-header" style="font-size:30px,color:#3399FF">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      kali linux使用技巧
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/03/04/常见漏洞分析/">常见漏洞分析</a>
     </h1>
   
 
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/VWware使用技巧/">VWware使用技巧</a>
-    </div>
-
-
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VWmare/">VWmare</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kali/">kali</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/三种网络模式/">三种网络模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统和软件更新/">系统和软件更新</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/虚拟机快照/">虚拟机快照</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        <div class="article-info info-on-archive">
           
-        <h2 id="kali-linux-使用技巧"><a href="#kali-linux-使用技巧" class="headerlink" title="kali linux 使用技巧"></a><center><font color="#4094C7" size="4">kali linux 使用技巧</font></center></h2><h1 id="系统和软件更新"><a href="#系统和软件更新" class="headerlink" title="系统和软件更新"></a><font color="#FF0000">系统和软件更新</font></h1><hr>
-<ol>
-<li><font color="#FF0000">apt update</font>  ：只检查，不更新（已安装的软件包是否有可用的更新，给出汇总报告）。  </li>
-<li><font color="#FF0000">apt upgrade</font> ：更新已安装的软件包</li>
-<li><font color="#FF0000">apt dist-upgrade</font>：apt upgrade 和 apt dist-upgrade 本质上是没有什么不同的。只不过，dist-upgrade 会识别出当依赖关系改变的情形并作出处理，而upgrade对此情形不处理。例如软件包 a 原先依赖 b c d，但是在源里面可能已经升级了，现在是 a 依赖 b c e。这种情况下，dist-upgrade 会删除 d 安装 e，并把 a 软件包升级，而 upgrade 会认为依赖关系改变而拒绝升级 a 软件包。  </li>
-<li>从上述可以看出，在执行apt upgrade和apt dist-upgrade之前应该先执行apt update。</li>
-</ol>
-<h1 id="三种网络模式介绍"><a href="#三种网络模式介绍" class="headerlink" title="三种网络模式介绍"></a><font color="#FF0000">三种网络模式介绍</font></h1><hr>
-<ol>
-<li><p>桥接模式：虚拟机和实体机在同一个网段<br><img src="https://s2.ax1x.com/2019/03/03/kL6NGQ.png" alt="image"><br>VMware设置过程：编辑-&gt;虚拟网络编辑器-&gt;更改设置-&gt;桥接到-&gt;自动(也可以选择对应的网卡)-&gt;将虚拟机网络修改为桥接网络。<br>桥接模式下，实体机可以上网，虚拟机就可以上网。</p>
-</li>
-<li><p>NAT模式(网络地址转换模式)：虚拟机和实体机不在一个网段，相当于虚拟机将实体机作为路由器。<br><img src="https://s2.ax1x.com/2019/03/03/kL6XQA.md.png" alt="image"><br>VMware设置过程：编辑-&gt;虚拟网络编辑器-&gt;更改设置-&gt;NAT模式-&gt;可以修改子网IP和子网掩码！</p>
-</li>
-<li><p>主机模式：虚拟机只能访问实体机，无法上网。设置过程和上面相同。<br><img src="https://s2.ax1x.com/2019/03/03/kLctw6.png" alt="image"></p>
-</li>
-</ol>
-<h1 id="虚拟机快照"><a href="#虚拟机快照" class="headerlink" title="虚拟机快照"></a><font color="#FF0000">虚拟机快照</font></h1><hr>
-<p>虚拟机的快照功能允许我们对当前虚拟机的所有运行状态(包括安装的软件、正在执行的程序)进行“定格”，以便恢复到快照时。<br><img src="https://s2.ax1x.com/2019/03/03/kLgT8e.png" alt="image"></p>
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/漏洞/">漏洞</a>
+    </div>
 
-      
-      
-        <div class="page-reward">
-          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
-          <div class="hide_box"></div>
-          <div class="shang_box">
-            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
-            <div class="shang_tit">
-              <p>谢谢打赏！</p>
-            </div>
-            <div class="shang_payimg">
-              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫">
-            </div>
-              <div class="pay_explain">技术活！当赏！</div>
-            <div class="shang_payselect">
-              
-                <div class="pay_item checked" data-id="alipay">
-                  <span class="radiobox"></span>
-                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝"></span>
-                </div>
-              
-              
-                <div class="pay_item" data-id="wechat">
-                  <span class="radiobox"></span>
-                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信"></span>
-                </div>
-              
-            </div>
-            <div class="shang_info">
-              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
-            </div>
-          </div>
+
+          
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSRF漏洞/">CSRF漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL注入漏洞/">SQL注入漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XXS漏洞/">XXS漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/信息泄露类漏洞/">信息泄露类漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令注入漏洞/">命令注入漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件上传漏洞/">文件上传漏洞</a></li></ul>
+    </div>
+
         </div>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
-        <script type="text/javascript">
-          $(".pay_item").click(function(){
-            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
-            var dataid=$(this).attr('data-id');
-            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
-            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
-          });
-          function dashangToggle(){
-            
-            $(".hide_box").fadeToggle();
-            $(".shang_box").fadeToggle();
-          }
-        </script>
-      
-    </div>
-    
+        <div class="clearfix"></div>
+    </header>
   </div>
-  
-    
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/02/26/kali linux使用技巧/">kali linux使用技巧</a></p>
-        <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
-        <p><span>发布时间:</span>2019年02月26日 - 14时27分</p>
-        <p><span>最后更新:</span>2019年03月03日 - 17时22分</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/02/26/kali linux使用技巧/" title="kali linux使用技巧">https://Hussar118.github.io/2019/02/26/kali linux使用技巧/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/02/26/kali linux使用技巧/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script src="/js/clipboard.min.js"></script>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
-
-
-<nav id="article-nav">
-  
-    <a href="/2019/03/02/渗透测试常用工具/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          渗透测试常用工具介绍
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/12/13/XSS漏洞—同源策略/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">XSS 文件上传漏洞 同源策略</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
-
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kali-linux-使用技巧"><span class="toc-number">1.</span> <span class="toc-text">kali linux 使用技巧</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#系统和软件更新"><span class="toc-number"></span> <span class="toc-text">系统和软件更新</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三种网络模式介绍"><span class="toc-number"></span> <span class="toc-text">三种网络模式介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机快照"><span class="toc-number"></span> <span class="toc-text">虚拟机快照</span></a>
-</li></div>
-<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
-
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
-
-    if ($(".left-col").is(":hidden")) {
-        $("#tocButton").attr("value", valueShow);
-    }
-    $("#tocButton").click(function() {
-        if ($("#toc").is(":hidden")) {
-            $("#tocButton").attr("value", valueHide);
-            $("#toc").slideDown(320);
-        }
-        else {
-            $("#tocButton").attr("value", valueShow);
-            $("#toc").slideUp(350);
-        }
-    })
-    if ($(".toc").length < 1) {
-        $("#toc, #tocButton").hide();
-    }
-</script>
-
-
-    <style>
-        .toc {
-            white-space: nowrap;
-            overflow-x: hidden;
-        }
-    </style>
-
-    <script>
-        $(document).ready(function() {
-            $(".toc li a").mouseover(function() {
-                var title = $(this).attr('href');
-                $(this).attr("title", title);
-            });
-        })
-    </script>
-
-
-
-
-<div class="bdsharebuttonbox">
-	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
-	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
-	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
-	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
-</div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-
-
-
+  
+  
+    </div></section>
+  
 
     
-        <!-- ������City�氲װ���� -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80MTYxOS8xODE2Ng==">
-<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
 
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-</script>
-<noscript>Ϊ����ʹ�����������۹����뼤��JavaScript</noscript>
-</div>
-<!-- City�氲װ��������� -->
-    
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2019/03/02/渗透测试常用工具/" title="上一篇: 渗透测试常用工具介绍">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-        
-            <a href="/2018/12/13/XSS漏洞—同源策略/" title="下一篇: XSS 文件上传漏洞 同源策略">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/常见漏洞分析/">常见漏洞分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/Web基础知识理论/">Web基础知识理论</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/渗透测试常用工具/">渗透测试常用工具介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/kali linux使用技巧/">kali linux使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/13/XSS漏洞—同源策略/">XSS 文件上传漏洞 同源策略</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/安全学习心得感受/">Hussar的安全学习心得和体会</a></li></ul>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-    <script>
-        $(".post-list").addClass("toc-article");
-        $(".post-list-item a").attr("target","_blank");
-        $("#post-nav-button > a:nth-child(2)").click(function() {
-            $(".fa-bars, .fa-times").toggle();
-            $(".post-list").toggle(300);
-            if ($(".toc").length > 0) {
-                $("#toc, #tocButton").toggle(200, function() {
-                    if ($(".switch-area").is(":visible")) {
-                        $("#tocButton").attr("value", valueHide);
-                        }
-                    })
-            }
-            else {
-            }
-        })
-    </script>
-
-
-
-    <script>
-        
-    </script>
 </div>
       <footer id="footer">
     <div class="outer">
@@ -600,6 +365,17 @@
         };
     })
 </script>
+
+    <button class="hide-labels">TAG 开关</button>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                $(".article-info").toggle(200);
+            });
+        });
+    </script>
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
