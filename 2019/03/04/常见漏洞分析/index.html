@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/07/kv4La4.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/20/AKpeJJ.png">
 <meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553057970500&di=98f30b7b750b4399aedb022c28b55f09&imgtype=0&src=http%3A%2F%2Fwww.0xby.com%2Fwp-content%2Fuploads%2F2018%2F07%2F0b9ec48620df953ea1787289eb1a22f4.jpg">
-<meta property="og:updated_time" content="2019-03-20T12:06:45.476Z">
+<meta property="og:updated_time" content="2019-03-20T12:13:34.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常见漏洞分析">
 <meta name="twitter:description" content="常见漏洞的分析介绍">
@@ -351,7 +351,7 @@
 </ol>
 <h1 id="DNS-rebinding攻击"><a href="#DNS-rebinding攻击" class="headerlink" title="DNS rebinding攻击"></a><font color="#FF0000">DNS rebinding攻击</font></h1><hr>
 <ol>
-<li>介绍：DNS重定向攻击，同源策略要求在同一个域下面的东西不会引用其它域的内容，但是！！这个规则不适用于<script>,<link>,<iframe>,<img>等标签的SRC属性。这也是为什么同源规则无法防止挂马的根本原因。我们通过欺诈的手段把你在站点A的资源引入到站点B上</li>
+<li>介绍：DNS重定向攻击，同源策略要求在同一个域下面的东西不会引用其它域的内容，但是！！这个规则不适用于（<script>,<link>,<iframe>,<img>）等标签的SRC属性。这也是为什么同源规则无法防止挂马的根本原因。我们通过欺诈的手段把你在站点A的资源引入到站点B上</li>
 <li>案例分析：<br>①弄一个域名，比如<a href="http://www.badguy.com/">http://www.badguy.com/</a><br>②瞄准一个目标，例如<a href="http://www.victim.com/">http://www.victim.com/</a><br>③把<a href="http://www.badguy.com/的TTL注册为一个很短的时间，例如1秒">http://www.badguy.com/的TTL注册为一个很短的时间，例如1秒</a><br>④然后，在<a href="http://www.victim.com/注册个帐号，登录之后，在个人主页之类的地方上传些坏东西(例如木马，不过场景是假设的，所以可能会不成功哦，奉劝大家也别想着干坏事了:p)">http://www.victim.com/注册个帐号，登录之后，在个人主页之类的地方上传些坏东西(例如木马，不过场景是假设的，所以可能会不成功哦，奉劝大家也别想着干坏事了:p)</a><br>⑤登录<a href="http://www.victim.com/的时候选择记住密码，然后查看cookie的信息，把记录登录信息的那段信息截出来。写一段JS放到http://www.badguy.com/,让访问的用户都会保留这段cookie信息到http://www.badguy.com/的域名下。">http://www.victim.com/的时候选择记住密码，然后查看cookie的信息，把记录登录信息的那段信息截出来。写一段JS放到http://www.badguy.com/,让访问的用户都会保留这段cookie信息到http://www.badguy.com/的域名下。</a><br>⑥让用户访问<a href="http://www.badguy.com/，之后用脚本控制这个用户在2秒后(&gt;TTL时间)重定向到http://www.badguy.com/,在这段时间内我们需要马上关闭DNS服务器，并且把http://www.victim.com/的IP绑定到http://www.badguy.com/上，好了，两秒之后，如无意外，这个用户会访问到http://www.victim.com/上的你的登录页，如果有木马，就会中招。">http://www.badguy.com/，之后用脚本控制这个用户在2秒后(&gt;TTL时间)重定向到http://www.badguy.com/,在这段时间内我们需要马上关闭DNS服务器，并且把http://www.victim.com/的IP绑定到http://www.badguy.com/上，好了，两秒之后，如无意外，这个用户会访问到http://www.victim.com/上的你的登录页，如果有木马，就会中招。</a></li>
 </ol>
 <h1 id="远程代码执行漏洞"><a href="#远程代码执行漏洞" class="headerlink" title="远程代码执行漏洞"></a><font color=#FF0000>远程代码执行漏洞</font></h1><hr>
@@ -427,7 +427,7 @@
         <p><span>本文标题:</span><a href="/2019/03/04/常见漏洞分析/">常见漏洞分析</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月04日 - 20时42分</p>
-        <p><span>最后更新:</span>2019年03月20日 - 20时06分</p>
+        <p><span>最后更新:</span>2019年03月20日 - 20时13分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/04/常见漏洞分析/" title="常见漏洞分析">https://Hussar118.github.io/2019/03/04/常见漏洞分析/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/04/常见漏洞分析/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
