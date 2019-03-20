@@ -6,7 +6,7 @@
   <title>常见漏洞分析 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="常见漏洞的分析介绍">
-<meta name="keywords" content="SQL注入漏洞,文件上传漏洞,命令注入漏洞,XXS漏洞,CSRF漏洞,SSRF漏洞,信息泄露类漏洞">
+<meta name="keywords" content="SQL注入漏洞,文件上传漏洞,命令注入漏洞,XXS漏洞,CSRF漏洞,SSRF漏洞,信息泄露类漏洞,DNS rebinding攻击,远程代码执行漏洞,url重定向攻击">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常见漏洞分析">
 <meta property="og:url" content="https://Hussar118.github.io/2019/03/04/常见漏洞分析/index.html">
@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/07/kv4La4.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/20/AKpeJJ.png">
 <meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553057970500&di=98f30b7b750b4399aedb022c28b55f09&imgtype=0&src=http%3A%2F%2Fwww.0xby.com%2Fwp-content%2Fuploads%2F2018%2F07%2F0b9ec48620df953ea1787289eb1a22f4.jpg">
-<meta property="og:updated_time" content="2019-03-20T02:16:42.848Z">
+<meta property="og:updated_time" content="2019-03-20T12:06:45.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常见漏洞分析">
 <meta name="twitter:description" content="常见漏洞的分析介绍">
@@ -160,7 +160,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/CSRF漏洞/" style="font-size: 10px;">CSRF漏洞</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/DNS服务器/" style="font-size: 10px;">DNS服务器</a> <a href="/tags/HTTP代理/" style="font-size: 10px;">HTTP代理</a> <a href="/tags/NAT网络地址转换/" style="font-size: 10px;">NAT网络地址转换</a> <a href="/tags/SQL注入漏洞/" style="font-size: 10px;">SQL注入漏洞</a> <a href="/tags/SSL安全套接层/" style="font-size: 10px;">SSL安全套接层</a> <a href="/tags/SSRF漏洞/" style="font-size: 10px;">SSRF漏洞</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/VPN虚拟专用网络/" style="font-size: 10px;">VPN虚拟专用网络</a> <a href="/tags/VWmare/" style="font-size: 10px;">VWmare</a> <a href="/tags/Windows常用系统命令和功能/" style="font-size: 10px;">Windows常用系统命令和功能</a> <a href="/tags/XFF-X-Forwarded-For/" style="font-size: 10px;">XFF(X-Forwarded-For)</a> <a href="/tags/XXS漏洞/" style="font-size: 10px;">XXS漏洞</a> <a href="/tags/hackbar/" style="font-size: 10px;">hackbar</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/linux常用系统命令和功能/" style="font-size: 10px;">linux常用系统命令和功能</a> <a href="/tags/sqlmap/" style="font-size: 10px;">sqlmap</a> <a href="/tags/webshell/" style="font-size: 10px;">webshell</a> <a href="/tags/whois/" style="font-size: 10px;">whois</a> <a href="/tags/一句话木马/" style="font-size: 10px;">一句话木马</a> <a href="/tags/三种网络模式/" style="font-size: 10px;">三种网络模式</a> <a href="/tags/中国菜刀/" style="font-size: 10px;">中国菜刀</a> <a href="/tags/信息搜集/" style="font-size: 10px;">信息搜集</a> <a href="/tags/信息泄露类漏洞/" style="font-size: 10px;">信息泄露类漏洞</a> <a href="/tags/加密/" style="font-size: 10px;">加密</a> <a href="/tags/同源策略/" style="font-size: 10px;">同源策略</a> <a href="/tags/命令注入漏洞/" style="font-size: 10px;">命令注入漏洞</a> <a href="/tags/大马/" style="font-size: 10px;">大马</a> <a href="/tags/子网掩码/" style="font-size: 10px;">子网掩码</a> <a href="/tags/心得感想/" style="font-size: 10px;">心得感想</a> <a href="/tags/提权/" style="font-size: 10px;">提权</a> <a href="/tags/文件上传漏洞/" style="font-size: 10px;">文件上传漏洞</a> <a href="/tags/渗透测试介绍/" style="font-size: 10px;">渗透测试介绍</a> <a href="/tags/漏洞/" style="font-size: 10px;">漏洞</a> <a href="/tags/系统和软件更新/" style="font-size: 10px;">系统和软件更新</a> <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a> <a href="/tags/自我鼓励/" style="font-size: 10px;">自我鼓励</a> <a href="/tags/虚拟机快照/" style="font-size: 10px;">虚拟机快照</a> <a href="/tags/默认网关/" style="font-size: 10px;">默认网关</a>
+                        <a href="/tags/CSRF漏洞/" style="font-size: 10px;">CSRF漏洞</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/DNS-rebinding攻击/" style="font-size: 10px;">DNS rebinding攻击</a> <a href="/tags/DNS服务器/" style="font-size: 10px;">DNS服务器</a> <a href="/tags/HTTP代理/" style="font-size: 10px;">HTTP代理</a> <a href="/tags/NAT网络地址转换/" style="font-size: 10px;">NAT网络地址转换</a> <a href="/tags/SQL注入漏洞/" style="font-size: 10px;">SQL注入漏洞</a> <a href="/tags/SSL安全套接层/" style="font-size: 10px;">SSL安全套接层</a> <a href="/tags/SSRF漏洞/" style="font-size: 10px;">SSRF漏洞</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/VPN虚拟专用网络/" style="font-size: 10px;">VPN虚拟专用网络</a> <a href="/tags/VWmare/" style="font-size: 10px;">VWmare</a> <a href="/tags/Windows常用系统命令和功能/" style="font-size: 10px;">Windows常用系统命令和功能</a> <a href="/tags/XFF-X-Forwarded-For/" style="font-size: 10px;">XFF(X-Forwarded-For)</a> <a href="/tags/XXS漏洞/" style="font-size: 10px;">XXS漏洞</a> <a href="/tags/hackbar/" style="font-size: 10px;">hackbar</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/linux常用系统命令和功能/" style="font-size: 10px;">linux常用系统命令和功能</a> <a href="/tags/sqlmap/" style="font-size: 10px;">sqlmap</a> <a href="/tags/url重定向攻击/" style="font-size: 10px;">url重定向攻击</a> <a href="/tags/webshell/" style="font-size: 10px;">webshell</a> <a href="/tags/whois/" style="font-size: 10px;">whois</a> <a href="/tags/一句话木马/" style="font-size: 10px;">一句话木马</a> <a href="/tags/三种网络模式/" style="font-size: 10px;">三种网络模式</a> <a href="/tags/中国菜刀/" style="font-size: 10px;">中国菜刀</a> <a href="/tags/信息搜集/" style="font-size: 10px;">信息搜集</a> <a href="/tags/信息泄露类漏洞/" style="font-size: 10px;">信息泄露类漏洞</a> <a href="/tags/加密/" style="font-size: 10px;">加密</a> <a href="/tags/同源策略/" style="font-size: 10px;">同源策略</a> <a href="/tags/命令注入漏洞/" style="font-size: 10px;">命令注入漏洞</a> <a href="/tags/大马/" style="font-size: 10px;">大马</a> <a href="/tags/子网掩码/" style="font-size: 10px;">子网掩码</a> <a href="/tags/心得感想/" style="font-size: 10px;">心得感想</a> <a href="/tags/提权/" style="font-size: 10px;">提权</a> <a href="/tags/文件上传漏洞/" style="font-size: 10px;">文件上传漏洞</a> <a href="/tags/渗透测试介绍/" style="font-size: 10px;">渗透测试介绍</a> <a href="/tags/漏洞/" style="font-size: 10px;">漏洞</a> <a href="/tags/系统和软件更新/" style="font-size: 10px;">系统和软件更新</a> <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a> <a href="/tags/自我鼓励/" style="font-size: 10px;">自我鼓励</a> <a href="/tags/虚拟机快照/" style="font-size: 10px;">虚拟机快照</a> <a href="/tags/远程代码执行漏洞/" style="font-size: 10px;">远程代码执行漏洞</a> <a href="/tags/默认网关/" style="font-size: 10px;">默认网关</a>
                     </div>
                 </section>
                 
@@ -271,7 +271,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSRF漏洞/">CSRF漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL注入漏洞/">SQL注入漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSRF漏洞/">SSRF漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XXS漏洞/">XXS漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/信息泄露类漏洞/">信息泄露类漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令注入漏洞/">命令注入漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件上传漏洞/">文件上传漏洞</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSRF漏洞/">CSRF漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DNS-rebinding攻击/">DNS rebinding攻击</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL注入漏洞/">SQL注入漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSRF漏洞/">SSRF漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XXS漏洞/">XXS漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/url重定向攻击/">url重定向攻击</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/信息泄露类漏洞/">信息泄露类漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令注入漏洞/">命令注入漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件上传漏洞/">文件上传漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/远程代码执行漏洞/">远程代码执行漏洞</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -319,8 +319,8 @@
 </ol>
 <h1 id="CSRF漏洞"><a href="#CSRF漏洞" class="headerlink" title="CSRF漏洞"></a><font color="#FF0000">CSRF漏洞</font></h1><hr>
 <ol>
-<li>介绍：通过伪装来自受信任用户的请求来利用受信用的网站。</li>
-<li>原理：web应用程序在用户进行敏感操作时，如修改账号密码、添加账号、转账时，没有校验表单token或者http请求头中的referer值，从而导致恶意攻击者利用被攻击者的身份完成对应的恶意请求。 </li>
+<li>介绍：通过伪装来自受信任用户的请求来利用受信用的网站。攻击者盗用了你的身份，以你的名义发送恶意请求。</li>
+<li>原理：web应用程序在用户进行敏感操作时，如修改账号密码、添加账号、转账时，没有校验表单token或者http请求头中的referer值，从而导致恶意攻击者利用被攻击者的身份完成对应的恶意请求。 CSRF一般用于操作用户的资源，或者使用用户的权限进行操作，或者窃取用户的相关信息。</li>
 <li>CSRF攻击流程：发现漏洞-&gt;构造代码-&gt;发送给受害人-&gt;受害人打开-&gt;受害人执行代码-&gt;完成攻击</li>
 <li>漏洞原理：<br><img src="https://s2.ax1x.com/2019/03/06/kvwCtg.png" alt="image"></li>
 </ol>
@@ -347,9 +347,29 @@
 <ol start="4">
 <li>分析举例：html，php，asp，jsp 具有这些文件后缀的文件通常储存在web服务器（网站服务器）中，而且web服务器都具有独立ip。而网站访问的大致步骤：用户在地址栏输入网址 -&gt; 向目标网站发送请求 -&gt; 目标网站接受请求并在服务器端验证请求是否合法，然后返回用户所需要的页面 -&gt; 用户接收页面并在浏览器中显示。<br><img src="https://s2.ax1x.com/2019/03/20/AKpeJJ.png" alt="image"></li>
 <li>SSRF漏洞寻找：通过URL地址分享网页内容、转码服务、在线翻译、图片加载与下载(通过URL地址加载或下载图片)、图片和文章收藏功能、未公开的api实现以及其他调用URL的功能、从URL关键字中寻找(share\wap\url\link\src\source\target\u\3g\display\sourceURl\imageURL\domain…)</li>
-<li>验证方法:<br>①因为SSRF漏洞是构造服务器发送请求的安全漏洞，所以我们就可以通过抓包分析发送的请求是否是由服务器的发送的来判断是否存在SSRF漏洞。<br>②在页面源码中查找访问的资源地址 ，如果该资源地址类型为 [<a href="http://www.xxx.com/a.php?image=（地址）]的就可能存在SSRF漏洞。" target="_blank" rel="noopener">http://www.xxx.com/a.php?image=（地址）]的就可能存在SSRF漏洞。</a><br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1553057970500&amp;di=98f30b7b750b4399aedb022c28b55f09&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.0xby.com%2Fwp-content%2Fuploads%2F2018%2F07%2F0b9ec48620df953ea1787289eb1a22f4.jpg" alt="image"><br>#未完待续……</li>
+<li>验证方法:<br>①因为SSRF漏洞是构造服务器发送请求的安全漏洞，所以我们就可以通过抓包分析发送的请求是否是由服务器的发送的来判断是否存在SSRF漏洞。<br>②在页面源码中查找访问的资源地址 ，如果该资源地址类型为 [<a href="http://www.xxx.com/a.php?image=（地址）]的就可能存在SSRF漏洞。" target="_blank" rel="noopener">http://www.xxx.com/a.php?image=（地址）]的就可能存在SSRF漏洞。</a><br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1553057970500&amp;di=98f30b7b750b4399aedb022c28b55f09&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.0xby.com%2Fwp-content%2Fuploads%2F2018%2F07%2F0b9ec48620df953ea1787289eb1a22f4.jpg" alt="image"></li>
 </ol>
-
+<h1 id="DNS-rebinding攻击"><a href="#DNS-rebinding攻击" class="headerlink" title="DNS rebinding攻击"></a><font color="#FF0000">DNS rebinding攻击</font></h1><hr>
+<ol>
+<li>介绍：DNS重定向攻击，同源策略要求在同一个域下面的东西不会引用其它域的内容，但是！！这个规则不适用于<script>,<link>,<iframe>,<img>等标签的SRC属性。这也是为什么同源规则无法防止挂马的根本原因。我们通过欺诈的手段把你在站点A的资源引入到站点B上</li>
+<li>案例分析：<br>①弄一个域名，比如<a href="http://www.badguy.com/">http://www.badguy.com/</a><br>②瞄准一个目标，例如<a href="http://www.victim.com/">http://www.victim.com/</a><br>③把<a href="http://www.badguy.com/的TTL注册为一个很短的时间，例如1秒">http://www.badguy.com/的TTL注册为一个很短的时间，例如1秒</a><br>④然后，在<a href="http://www.victim.com/注册个帐号，登录之后，在个人主页之类的地方上传些坏东西(例如木马，不过场景是假设的，所以可能会不成功哦，奉劝大家也别想着干坏事了:p)">http://www.victim.com/注册个帐号，登录之后，在个人主页之类的地方上传些坏东西(例如木马，不过场景是假设的，所以可能会不成功哦，奉劝大家也别想着干坏事了:p)</a><br>⑤登录<a href="http://www.victim.com/的时候选择记住密码，然后查看cookie的信息，把记录登录信息的那段信息截出来。写一段JS放到http://www.badguy.com/,让访问的用户都会保留这段cookie信息到http://www.badguy.com/的域名下。">http://www.victim.com/的时候选择记住密码，然后查看cookie的信息，把记录登录信息的那段信息截出来。写一段JS放到http://www.badguy.com/,让访问的用户都会保留这段cookie信息到http://www.badguy.com/的域名下。</a><br>⑥让用户访问<a href="http://www.badguy.com/，之后用脚本控制这个用户在2秒后(&gt;TTL时间)重定向到http://www.badguy.com/,在这段时间内我们需要马上关闭DNS服务器，并且把http://www.victim.com/的IP绑定到http://www.badguy.com/上，好了，两秒之后，如无意外，这个用户会访问到http://www.victim.com/上的你的登录页，如果有木马，就会中招。">http://www.badguy.com/，之后用脚本控制这个用户在2秒后(&gt;TTL时间)重定向到http://www.badguy.com/,在这段时间内我们需要马上关闭DNS服务器，并且把http://www.victim.com/的IP绑定到http://www.badguy.com/上，好了，两秒之后，如无意外，这个用户会访问到http://www.victim.com/上的你的登录页，如果有木马，就会中招。</a></li>
+</ol>
+<h1 id="远程代码执行漏洞"><a href="#远程代码执行漏洞" class="headerlink" title="远程代码执行漏洞"></a><font color=#FF0000>远程代码执行漏洞</font></h1><hr>
+<ol>
+<li>介绍：用户通过浏览器提交执行命令，由于服务器端没有针对执行函数做过滤，导致在没有指定绝对路径的情况下就执行命令，可能会允许攻击者通过改变 $PATH 或程序执行环境的其他方面来执行一个恶意构造的代码。</li>
+<li>漏洞原理：由于开发人员编写源码，没有针对代码中可执行的特殊函数入口做过滤，导致客户端可以提交恶意构造语句提交，并交由服务器端执行。命令注入攻击中WEB服务器没有过滤类似system(),eval()，exec()等函数是该漏洞攻击成功的最主要原因。像堆溢出，栈溢出，整型溢出，类型混淆，use after free，访问越界，格式化字符串等都会导致远程代码执行。</li>
+<li>危害：命令执行，对于攻击者来说是打开缺口的绝好方法，可长驱直入控制内网，甚至脱裤。攻击者可以通过远程调用的方式来让被攻击计算机设备执行恶意程序，从而控制远程计算机。</li>
+<li>防御：开发程序时，要假定所有的输入都是可疑的，尝试对所有输入提交可能执行命令的构造语句进行严格的检查或者控制外部的输入，系统命令执行函数的参数不允许外部传递。简单来说，卡住入口点很关键。对输入的数据不仅要验证数据的类型，还要验证其格式、长度、范围和内容。</li>
+<li>案例分析：wooyun上的三星默认输入法远程代码执行。攻击前提是攻击者能够劫持流量：首先，该输入法在更新语言包时，对下载的文件校验不严格，没有签名，中间人可以同时篡改下载文件和对应的hash值绕过校验；然后，语言压缩包中的文件是由 system user写入的，有很高的权限，可以写入很多位置；再者，odex文件完整性校验机制有问题，只是校验odex文件的crc32和modify time；由以上第二点，包含在语言zip包中的恶意odex文件就可以覆盖/data/dalvik-cache/目录下的odex；由第三点，保证恶意odex的crc32和modify time和源odex文件一致，绕过odex文件校验，以system user权限执行恶意的odex。</li>
+</ol>
+<h1 id="url重定向攻击"><a href="#url重定向攻击" class="headerlink" title="url重定向攻击"></a><font color=#FF0000>url重定向攻击</font></h1><hr>
+<ol>
+<li>介绍：通过以GET或者POST的方式接收将要跳转的URL，然后通过上面的几种方式的其中一种来跳转到目标URL。一方面，由于用户的输入会进入Meta，javascript，http头所以都可能发生相应上下文的漏洞，如xss等等，但是同时，即使只是对于URL跳转本身功能方面就存在一个缺陷，因为会将用户浏览器从可信的站点导向到不可信的站点，同时如果跳转的时候带有敏感数据一样可能将敏感数据泄漏给不可信的第三方。<br><img src="https://s2.ax1x.com/2019/03/20/AlfX8O.png" alt="image"></li>
+<li>攻击方式和危害：恶意用户完全可以借用URL跳转漏洞来欺骗安全意识低的用户，从而导致“中奖”之类的欺诈，这对于一些有在线业务的企业如淘宝等，危害较大，同时借助URL跳转，也可以突破常见的基于“白名单方式”的一些安全限制，如传统IM里对于URL的传播会进行安全校验，但是对于大公司的域名及URL将直接允许通过并且显示会可信的URL，而一旦该URL里包含一些跳转漏洞将可能导致安全限制被绕过。如果引用一些资源的限制是依赖于“白名单方式”，同样可能被绕过导致安全风险，譬如常见的一些应用允许引入可信站点如youku.com的视频，限制方式往往是检查URL是否是youku.com来实现，如果youku.com内含一个url跳转漏洞，将导致最终引入的资源属于不可信的第三方资源或者恶意站点，最终导致安全问题。这种漏洞一般都是配合钓鱼网站使用。<br><img src="https://img-blog.csdn.net/20180309233758892" alt="image"></li>
+<li>突破技巧：当某参数为url=<a href="http://xxxx.cn时可以尝试url重定向，但是多大数都会失败，我们可以使用@突破。例如：url=http://xxx.cn@www.baidu.com">http://xxxx.cn时可以尝试url重定向，但是多大数都会失败，我们可以使用@突破。例如：url=http://xxx.cn@www.baidu.com</a> 发现可以实现跳转。</li>
+</ol>
+<p>#未完待续……</p>
+</script></li></ol>
       
       
         <div class="page-reward">
@@ -407,7 +427,7 @@
         <p><span>本文标题:</span><a href="/2019/03/04/常见漏洞分析/">常见漏洞分析</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月04日 - 20时42分</p>
-        <p><span>最后更新:</span>2019年03月20日 - 10时16分</p>
+        <p><span>最后更新:</span>2019年03月20日 - 20时06分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/04/常见漏洞分析/" title="常见漏洞分析">https://Hussar118.github.io/2019/03/04/常见漏洞分析/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/04/常见漏洞分析/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -445,7 +465,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL注入漏洞"><span class="toc-number">1.</span> <span class="toc-text">SQL注入漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件上传漏洞"><span class="toc-number">2.</span> <span class="toc-text">文件上传漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#命令注入漏洞"><span class="toc-number">3.</span> <span class="toc-text">命令注入漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#XSS漏洞"><span class="toc-number">4.</span> <span class="toc-text">XSS漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSRF漏洞"><span class="toc-number">5.</span> <span class="toc-text">CSRF漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息泄露类漏洞"><span class="toc-number">6.</span> <span class="toc-text">信息泄露类漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SSRF漏洞"><span class="toc-number">7.</span> <span class="toc-text">SSRF漏洞</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL注入漏洞"><span class="toc-number">1.</span> <span class="toc-text">SQL注入漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件上传漏洞"><span class="toc-number">2.</span> <span class="toc-text">文件上传漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#命令注入漏洞"><span class="toc-number">3.</span> <span class="toc-text">命令注入漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#XSS漏洞"><span class="toc-number">4.</span> <span class="toc-text">XSS漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSRF漏洞"><span class="toc-number">5.</span> <span class="toc-text">CSRF漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息泄露类漏洞"><span class="toc-number">6.</span> <span class="toc-text">信息泄露类漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SSRF漏洞"><span class="toc-number">7.</span> <span class="toc-text">SSRF漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DNS-rebinding攻击"><span class="toc-number">8.</span> <span class="toc-text">DNS rebinding攻击</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
