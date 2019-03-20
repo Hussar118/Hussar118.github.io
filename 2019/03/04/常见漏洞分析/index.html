@@ -6,7 +6,7 @@
   <title>常见漏洞分析 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="常见漏洞的分析介绍">
-<meta name="keywords" content="SQL注入漏洞,文件上传漏洞,命令注入漏洞,XXS漏洞,CSRF漏洞,信息泄露类漏洞">
+<meta name="keywords" content="SQL注入漏洞,文件上传漏洞,命令注入漏洞,XXS漏洞,CSRF漏洞,SSRF漏洞,信息泄露类漏洞">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常见漏洞分析">
 <meta property="og:url" content="https://Hussar118.github.io/2019/03/04/常见漏洞分析/index.html">
@@ -23,7 +23,8 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/06/kvkWfs.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/06/kvwCtg.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/07/kv4La4.png">
-<meta property="og:updated_time" content="2019-03-06T16:35:56.295Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/20/AKpeJJ.png">
+<meta property="og:updated_time" content="2019-03-20T02:02:40.813Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常见漏洞分析">
 <meta name="twitter:description" content="常见漏洞的分析介绍">
@@ -158,7 +159,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/CSRF漏洞/" style="font-size: 10px;">CSRF漏洞</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/DNS服务器/" style="font-size: 10px;">DNS服务器</a> <a href="/tags/HTTP代理/" style="font-size: 10px;">HTTP代理</a> <a href="/tags/SQL注入漏洞/" style="font-size: 10px;">SQL注入漏洞</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/VWmare/" style="font-size: 10px;">VWmare</a> <a href="/tags/Windows常用系统命令和功能/" style="font-size: 10px;">Windows常用系统命令和功能</a> <a href="/tags/XXS漏洞/" style="font-size: 10px;">XXS漏洞</a> <a href="/tags/hackbar/" style="font-size: 10px;">hackbar</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/linux常用系统命令和功能/" style="font-size: 10px;">linux常用系统命令和功能</a> <a href="/tags/sqlmap/" style="font-size: 10px;">sqlmap</a> <a href="/tags/webshell/" style="font-size: 10px;">webshell</a> <a href="/tags/whois/" style="font-size: 10px;">whois</a> <a href="/tags/一句话木马/" style="font-size: 10px;">一句话木马</a> <a href="/tags/三种网络模式/" style="font-size: 10px;">三种网络模式</a> <a href="/tags/中国菜刀/" style="font-size: 10px;">中国菜刀</a> <a href="/tags/信息搜集/" style="font-size: 10px;">信息搜集</a> <a href="/tags/信息泄露类漏洞/" style="font-size: 10px;">信息泄露类漏洞</a> <a href="/tags/加密/" style="font-size: 10px;">加密</a> <a href="/tags/同源策略/" style="font-size: 10px;">同源策略</a> <a href="/tags/命令注入漏洞/" style="font-size: 10px;">命令注入漏洞</a> <a href="/tags/大马/" style="font-size: 10px;">大马</a> <a href="/tags/子网掩码/" style="font-size: 10px;">子网掩码</a> <a href="/tags/心得感想/" style="font-size: 10px;">心得感想</a> <a href="/tags/提权/" style="font-size: 10px;">提权</a> <a href="/tags/文件上传漏洞/" style="font-size: 10px;">文件上传漏洞</a> <a href="/tags/渗透测试介绍/" style="font-size: 10px;">渗透测试介绍</a> <a href="/tags/漏洞/" style="font-size: 10px;">漏洞</a> <a href="/tags/系统和软件更新/" style="font-size: 10px;">系统和软件更新</a> <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a> <a href="/tags/自我鼓励/" style="font-size: 10px;">自我鼓励</a> <a href="/tags/虚拟机快照/" style="font-size: 10px;">虚拟机快照</a> <a href="/tags/默认网关/" style="font-size: 10px;">默认网关</a>
+                        <a href="/tags/CSRF漏洞/" style="font-size: 10px;">CSRF漏洞</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/DNS服务器/" style="font-size: 10px;">DNS服务器</a> <a href="/tags/HTTP代理/" style="font-size: 10px;">HTTP代理</a> <a href="/tags/NAT网络地址转换/" style="font-size: 10px;">NAT网络地址转换</a> <a href="/tags/SQL注入漏洞/" style="font-size: 10px;">SQL注入漏洞</a> <a href="/tags/SSL安全套接层/" style="font-size: 10px;">SSL安全套接层</a> <a href="/tags/SSRF漏洞/" style="font-size: 10px;">SSRF漏洞</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/VPN虚拟专用网络/" style="font-size: 10px;">VPN虚拟专用网络</a> <a href="/tags/VWmare/" style="font-size: 10px;">VWmare</a> <a href="/tags/Windows常用系统命令和功能/" style="font-size: 10px;">Windows常用系统命令和功能</a> <a href="/tags/XFF-X-Forwarded-For/" style="font-size: 10px;">XFF(X-Forwarded-For)</a> <a href="/tags/XXS漏洞/" style="font-size: 10px;">XXS漏洞</a> <a href="/tags/hackbar/" style="font-size: 10px;">hackbar</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/linux常用系统命令和功能/" style="font-size: 10px;">linux常用系统命令和功能</a> <a href="/tags/sqlmap/" style="font-size: 10px;">sqlmap</a> <a href="/tags/webshell/" style="font-size: 10px;">webshell</a> <a href="/tags/whois/" style="font-size: 10px;">whois</a> <a href="/tags/一句话木马/" style="font-size: 10px;">一句话木马</a> <a href="/tags/三种网络模式/" style="font-size: 10px;">三种网络模式</a> <a href="/tags/中国菜刀/" style="font-size: 10px;">中国菜刀</a> <a href="/tags/信息搜集/" style="font-size: 10px;">信息搜集</a> <a href="/tags/信息泄露类漏洞/" style="font-size: 10px;">信息泄露类漏洞</a> <a href="/tags/加密/" style="font-size: 10px;">加密</a> <a href="/tags/同源策略/" style="font-size: 10px;">同源策略</a> <a href="/tags/命令注入漏洞/" style="font-size: 10px;">命令注入漏洞</a> <a href="/tags/大马/" style="font-size: 10px;">大马</a> <a href="/tags/子网掩码/" style="font-size: 10px;">子网掩码</a> <a href="/tags/心得感想/" style="font-size: 10px;">心得感想</a> <a href="/tags/提权/" style="font-size: 10px;">提权</a> <a href="/tags/文件上传漏洞/" style="font-size: 10px;">文件上传漏洞</a> <a href="/tags/渗透测试介绍/" style="font-size: 10px;">渗透测试介绍</a> <a href="/tags/漏洞/" style="font-size: 10px;">漏洞</a> <a href="/tags/系统和软件更新/" style="font-size: 10px;">系统和软件更新</a> <a href="/tags/网络安全/" style="font-size: 10px;">网络安全</a> <a href="/tags/自我鼓励/" style="font-size: 10px;">自我鼓励</a> <a href="/tags/虚拟机快照/" style="font-size: 10px;">虚拟机快照</a> <a href="/tags/默认网关/" style="font-size: 10px;">默认网关</a>
                     </div>
                 </section>
                 
@@ -269,7 +270,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSRF漏洞/">CSRF漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL注入漏洞/">SQL注入漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XXS漏洞/">XXS漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/信息泄露类漏洞/">信息泄露类漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令注入漏洞/">命令注入漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件上传漏洞/">文件上传漏洞</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSRF漏洞/">CSRF漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL注入漏洞/">SQL注入漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSRF漏洞/">SSRF漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XXS漏洞/">XXS漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/信息泄露类漏洞/">信息泄露类漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令注入漏洞/">命令注入漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件上传漏洞/">文件上传漏洞</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -333,7 +334,12 @@
 <li>任意文件读取漏洞危害：属于一种高位的Web安全漏洞，这种漏洞会泄露网站敏感信息导致网站处于极度不安全状态(下载服务器任意文件，如脚本代码、服务及系统配置文件等)(根据Web应用源代码进一步进行代码审计，得到更多可利用的漏洞)</li>
 <li>任意文件读取漏洞利用：手工挖掘任意文件读取漏洞需要注意网站提供的下载功能。(从链接上看：readfile.php?file=<strong><em>.txt 、 download.php?file+</em></strong>.rar)(从参数名看：RealPath=、FilePath=、inputFile)。找到可以的参数值后，替换下载的文件名为下列敏感的系统文件。如果下载成功，证明存在任意文件读取漏洞。利用任意文件读取漏洞，可以通过分析Web应用程序各个文件之间的调用关系，下载整个Web应用程序源代码。从源代码当中可以分析出数据库账号密码、后台路径等敏感信息，渗透测试人员也可以对网站源代码进行代码审计，深入挖掘各类漏洞。</li>
 </ol>
-<p>#未完待续……</p>
+<h1 id="SSRF漏洞"><a href="#SSRF漏洞" class="headerlink" title="SSRF漏洞"></a><font color="#FF0000">SSRF漏洞</font></h1><hr>
+<ol>
+<li>介绍：全名为服务端请求伪造，是一种<font color="#FF0000">由攻击者构造形成由服务端发起请求</font>的一种安全漏洞。一般情况下，SSRF攻击的目标是从外网无法访问的内网系统。由于该攻击是由服务端发起的，所以它可以<font color="#FF0000">请求到与它相连而与外网隔离的内部系统</font>。</li>
+<li>成因：SSRF 形成的原因大都是由于服务端提供了从其他服务器应用获取数据的功能且没有对目标地址做过滤与限制。比如从指定URL地址获取网页文本内容，加载指定地址的图片，下载等等。  </li>
+<li>分析举例：html，php，asp，jsp 具有这些文件后缀的文件通常储存在web服务器（网站服务器）中，而且web服务器都具有独立ip。而网站访问的大致步骤：用户在地址栏输入网址 -&gt; 向目标网站发送请求 -&gt; 目标网站接受请求并在服务器端验证请求是否合法，然后返回用户所需要的页面 -&gt; 用户接收页面并在浏览器中显示。(<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a>)<br><img src="https://s2.ax1x.com/2019/03/20/AKpeJJ.png" alt="image"><br>#未完待续……</li>
+</ol>
 
       
       
@@ -392,7 +398,7 @@
         <p><span>本文标题:</span><a href="/2019/03/04/常见漏洞分析/">常见漏洞分析</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月04日 - 20时42分</p>
-        <p><span>最后更新:</span>2019年03月07日 - 00时35分</p>
+        <p><span>最后更新:</span>2019年03月20日 - 10时02分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/04/常见漏洞分析/" title="常见漏洞分析">https://Hussar118.github.io/2019/03/04/常见漏洞分析/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/04/常见漏洞分析/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -430,7 +436,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL注入漏洞"><span class="toc-number">1.</span> <span class="toc-text">SQL注入漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件上传漏洞"><span class="toc-number">2.</span> <span class="toc-text">文件上传漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#命令注入漏洞"><span class="toc-number">3.</span> <span class="toc-text">命令注入漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#XSS漏洞"><span class="toc-number">4.</span> <span class="toc-text">XSS漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSRF漏洞"><span class="toc-number">5.</span> <span class="toc-text">CSRF漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息泄露类漏洞"><span class="toc-number">6.</span> <span class="toc-text">信息泄露类漏洞</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL注入漏洞"><span class="toc-number">1.</span> <span class="toc-text">SQL注入漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件上传漏洞"><span class="toc-number">2.</span> <span class="toc-text">文件上传漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#命令注入漏洞"><span class="toc-number">3.</span> <span class="toc-text">命令注入漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#XSS漏洞"><span class="toc-number">4.</span> <span class="toc-text">XSS漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSRF漏洞"><span class="toc-number">5.</span> <span class="toc-text">CSRF漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息泄露类漏洞"><span class="toc-number">6.</span> <span class="toc-text">信息泄露类漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SSRF漏洞"><span class="toc-number">7.</span> <span class="toc-text">SSRF漏洞</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
