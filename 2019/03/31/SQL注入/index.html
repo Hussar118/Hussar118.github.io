@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="SQL注入分析介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-31T15:30:16.620Z">
+<meta property="og:updated_time" content="2019-03-31T15:31:36.170Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL注入">
 <meta name="twitter:description" content="SQL注入分析介绍">
@@ -274,14 +274,14 @@
 </ol>
 <h1 id="SQL注入攻击利用"><a href="#SQL注入攻击利用" class="headerlink" title="SQL注入攻击利用"></a><font color="#3399FF">SQL注入攻击利用</font></h1><hr>
 <ol>
-<li>SQL注入点判断(一般存在形式：/abc.asp?id=XX)：<ol>
+<li>SQL注入点判断(一般存在形式：/abc.asp?id=XX)：<ul>
 <li>如果URL中传递的参数(一般为id)是数字，测试<font color="#66FFFF">id=2-1</font>与<font color="#66FFFF">id=1</font>返回的结果是否相同，如果做了2-1=1的运算，说明可能存在<font color="#66FFFF">数字型注入</font>。如果要用<font color="#66FFFF">+号</font>运算的话，因为URL编码的问题，需要把加好换成<font color="#66FFFF">%2B</font>，如<font color="#66FFFF">id=1%2B1</font>。</li>
 <li>在参数后面加<font color="#66FFFF">单引号</font>或<font color="#66FFFF">双引号</font>，判断返回结果是否有报错。</li>
 <li>添加注释符，判断前后是否有报错，如<font color="#66FFFF">id=1’ –+ </font>或 <font color="#66FFFF">id=1” –+ </font>或<font color="#66FFFF">id=1’ # </font>或<font color="#66FFFF">id=1” –+ </font>（–后面跟+号，是把+当成空格使用）。</li>
 <li>有些参数可能在括号里面，如：SELECT first_name, last_name FROM users WHERE user_id = （’$id’）；所以也可以在参数后面加单双引号和括号，如i<font color="#66FFFF">d=1’)  –+ </font>或 <font color="#66FFFF">id=1”) –+ </font>或<font color="#66FFFF">id=1’) # </font>或<font color="#66FFFF">id=1”) –+ </font>。</li>
 <li>参数后面跟<font color="#66FFFF">or</font> 或者<font color="#66FFFF">and</font>，判断返回结果是否有变化，如<font color="#66FFFF">1’ or ‘a’=’a  </font>或者<font color="#66FFFF">and ‘a’=’a</font>或者<font color="#66FFFF">1’ or ‘a’=’b</font>或者<font color="#66FFFF">1’ or ‘1’=’2</font>。</li>
 <li>如果返回的正确页面与错误页面都一样，可以考虑<font color="#66FFFF">时间延迟</font>的方法判断是否存在注入，如  <font color="#66FFFF">1’ and sleep(5)</font>。</li>
-</ol>
+</ul>
 </li>
 <li></li>
 </ol>
@@ -344,7 +344,7 @@
         <p><span>本文标题:</span><a href="/2019/03/31/SQL注入/">SQL注入</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月31日 - 22时33分</p>
-        <p><span>最后更新:</span>2019年03月31日 - 23时30分</p>
+        <p><span>最后更新:</span>2019年03月31日 - 23时31分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/31/SQL注入/" title="SQL注入">https://Hussar118.github.io/2019/03/31/SQL注入/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/31/SQL注入/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
