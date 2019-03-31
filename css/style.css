@@ -138,7 +138,7 @@ body,
 }
 body {
   font-family: "微软雅黑", 'Microsoft JhengHei', Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
-  font-size: 50px;
+  font-size: 18px;
   background: #3f3f3f;
   color: #999;
   -webkit-overflow-scrolling: touch;
@@ -160,7 +160,7 @@ h3 {
   display: block;
 }
 h1 {
-  font-size: 1.5em;
+  font-size: 5em;
   font-family: "Segoe UI", "Lucida Grande", Verdana, "Helvetica Neue", Arial, sans-serif, "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
 }
 h2 {
