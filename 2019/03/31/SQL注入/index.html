@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="SQL注入分析介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-31T15:45:17.063Z">
+<meta property="og:updated_time" content="2019-03-31T15:57:06.351Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL注入">
 <meta name="twitter:description" content="SQL注入分析介绍">
@@ -281,6 +281,7 @@
 <li>有些参数可能在括号里面，如：SELECT first_name, last_name FROM users WHERE user_id = （’$id’）；所以也可以在参数后面加单双引号和括号，如i<font color="#66FFFF">d=1’)  –+ </font>或 <font color="#66FFFF">id=1”) –+ </font>或<font color="#66FFFF">id=1’) # </font>或<font color="#66FFFF">id=1”) –+ </font>。</li>
 <li>参数后面跟<font color="#66FFFF">or</font> 或者<font color="#66FFFF">and</font>，判断返回结果是否有变化，如<font color="#66FFFF">1’ or ‘a’=’a  </font>或者<font color="#66FFFF">and ‘a’=’a</font>或者<font color="#66FFFF">1’ or ‘a’=’b</font>或者<font color="#66FFFF">1’ or ‘1’=’2</font>。</li>
 <li>如果返回的正确页面与错误页面都一样，可以考虑<font color="#66FFFF">时间延迟</font>的方法判断是否存在注入，如  <font color="#66FFFF">1’ and sleep(5)</font>。</li>
+<li>注：<font color="#66FFFF">Class=连续剧</font> 这类注入的参数是字符型；<font color="#66FFFF">ID=49</font> 这类注入的参数是数字型。</li>
 </ul>
 </li>
 <li>数据库类型判断：<ul>
@@ -291,11 +292,12 @@
 <li><font color="#66FFFF">/* </font>是MySQL中的注释符，返回错误说明该注入点不是MySQL，继续提交如下查询字符;</li>
 <li><font color="#66FFFF">– </font>是Oracle和MSSQL支持的注释符，如果返回正常，则说明为这两种数据库类型之一。继续提交如下查询字符;</li>
 <li><font color="#66FFFF">;  </font>是子句查询标识符，Oracle不支持多行查询，因此如果返回错误，则说明很可能是Oracle数据库。</li>
-<li><font color="#66FFFF">and exists (select count( <em> ) from sysobjects)</em></font>：意思是查询sysobjects表里记录数大于,返回正常的，说明大于0且存在sysobjects这个表，因为这个表只有MSSQL数据库才有，所以可以判断为MSSQL数据库。返回错误则表示不是。<font color="#66FFFF">and exists (select count(  ) from msysobjects)</font>：这句提交是不会返回正常页面的，就算是ACCESS数据库也不会返回正常。因为默认情况下我们没有权限查询这个表里的数据。WEB会提示我们“记录无法读取;’msysobjects’没有读取权限”，如果返回的是这个错误信息的话，那就证明是ACCESS数据库了。第一条返回正常，就是MSSQL数据库，如果两条都不正常，那就是ACCESS数据库了。以上参数都是int的时候，如果是字符型的话首先在参数后面加上单引号，然后再在查询语句后加上;–</li>
+<li><font color="#66FFFF">and exists (select count( <em> ) from sysobjects)</em></font>：意思是查询sysobjects表里记录数大于,返回正常的，说明大于0且存在sysobjects这个表，因为这个表只有MSSQL数据库才有，所以可以判断为MSSQL数据库。返回错误则表示不是。<font color="#66FFFF">and exists (select count(  ) from msysobjects)</font>：这句提交是不会返回正常页面的，就算是ACCESS数据库也不会返回正常。因为默认情况下我们没有权限查询这个表里的数据。WEB会提示我们“记录无法读取;’msysobjects’没有读取权限”，如果返回的是这个错误信息的话，那就证明是ACCESS数据库了。第一条返回正常，就是MSSQL数据库，如果两条都不正常，那就是ACCESS数据库了。以上参数都是int的时候，如果是字符型的话首先在参数后面加上单引号，然后再在查询语句后加上;–<br>-基于显示错误信息判断：<br>-注入点后直接加上<font color="#66FFFF">单引号</font>，根据服务器的报错信息来判断数据库。错误提示Microsoft JET Database Engine 错误 ‘80040e14’，说明是通过JET引擎连接数据库，则表明数据库为ACCESS数据库，如果是ODBC的话则说明是MSSQL数据库。</li>
 </ul>
 </li>
 </ul>
 </li>
+<li>手工注入常用语句：<br>序号 | 语句 | 功能 | 结果<br>—|—|—|—<br>1|<a href="http://xxx/xxx.php?id=2900" target="_blank" rel="noopener">http://xxx/xxx.php?id=2900</a> and 1=1|组合判断是否存在注入点|应该返回正确|<br>2||||<br>3||||<br>4||||<br>5||||<br>6||||<br>7||||<br>8||||<br>9||||<br>10||||</li>
 </ol>
 <p>#未完待续……</p>
 
@@ -356,7 +358,7 @@
         <p><span>本文标题:</span><a href="/2019/03/31/SQL注入/">SQL注入</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月31日 - 22时33分</p>
-        <p><span>最后更新:</span>2019年03月31日 - 23时45分</p>
+        <p><span>最后更新:</span>2019年03月31日 - 23时57分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/31/SQL注入/" title="SQL注入">https://Hussar118.github.io/2019/03/31/SQL注入/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/31/SQL注入/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
