@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="SQL注入分析介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-31T15:39:46.432Z">
+<meta property="og:updated_time" content="2019-03-31T15:42:21.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL注入">
 <meta name="twitter:description" content="SQL注入分析介绍">
@@ -284,7 +284,15 @@
 </ul>
 </li>
 <li>数据库类型判断：<ul>
-<li>基于特定函数判断：<br>  -<font color="#66FFFF">len</font>和<font color="#66FFFF">length</font>：在mssql和mysql以及db2内，返回长度值是调用len()函数；在oracle和INFORMIX则是通过length()来返回长度值。当你使用<font color="#66FFFF">and len(‘a’)=1</font>的时候，返回正常页面时，可以推断当前的数据库类型可能是mssql，或mysql，或是db2。反之则可能会是oracle和informix。<br>  -<font color="#66FFFF">@@version</font>和<font color="#66FFFF">version()</font>：在mysql内，可以用@@version或是version()来返回当前的版本信息。但无法判断是mysql还是mssql时，可以用version()函数来构造判断。version()&gt;1 返回与@@version&gt;1 相同页面时，则可能是mysql。如果出现提示version()错误时，则可能是mssql。<br>  -<font color="#66FFFF">substring</font>和<font color="#66FFFF">substr</font>：在mssql中可以调用substring。oracle则只可调用substr<br>-基于辅助的符号判断：</li>
+<li>基于特定函数判断：<ul>
+<li><font color="#66FFFF">len</font>和<font color="#66FFFF">length</font>：在mssql和mysql以及db2内，返回长度值是调用len()函数；在oracle和INFORMIX则是通过length()来返回长度值。当你使用<font color="#66FFFF">and len(‘a’)=1</font>的时候，返回正常页面时，可以推断当前的数据库类型可能是mssql，或mysql，或是db2。反之则可能会是oracle和informix。</li>
+<li><font color="#66FFFF">@@version</font>和<font color="#66FFFF">version()</font>：在mysql内，可以用@@version或是version()来返回当前的版本信息。但无法判断是mysql还是mssql时，可以用version()函数来构造判断。version()&gt;1 返回与@@version&gt;1 相同页面时，则可能是mysql。如果出现提示version()错误时，则可能是mssql。</li>
+<li><font color="#66FFFF">substring</font>和<font color="#66FFFF">substr</font>：在mssql中可以调用substring。oracle则只可调用substr<br>-基于辅助的符号判断：</li>
+<li><font color="#66FFFF">/* </font>是MySQL中的注释符，返回错误说明该注入点不是MySQL，继续提交如下查询字符;</li>
+<li><font color="#66FFFF">– </font>是Oracle和MSSQL支持的注释符，如果返回正常，则说明为这两种数据库类型之一。继续提交如下查询字符;</li>
+<li><font color="#66FFFF">;  </font>是子句查询标识符，Oracle不支持多行查询，因此如果返回错误，则说明很可能是Oracle数据库。</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
@@ -347,7 +355,7 @@
         <p><span>本文标题:</span><a href="/2019/03/31/SQL注入/">SQL注入</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月31日 - 22时33分</p>
-        <p><span>最后更新:</span>2019年03月31日 - 23时39分</p>
+        <p><span>最后更新:</span>2019年03月31日 - 23时42分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/31/SQL注入/" title="SQL注入">https://Hussar118.github.io/2019/03/31/SQL注入/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/31/SQL注入/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
