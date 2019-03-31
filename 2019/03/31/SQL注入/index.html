@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="SQL注入分析介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-31T15:42:21.136Z">
+<meta property="og:updated_time" content="2019-03-31T15:45:17.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL注入">
 <meta name="twitter:description" content="SQL注入分析介绍">
@@ -291,6 +291,7 @@
 <li><font color="#66FFFF">/* </font>是MySQL中的注释符，返回错误说明该注入点不是MySQL，继续提交如下查询字符;</li>
 <li><font color="#66FFFF">– </font>是Oracle和MSSQL支持的注释符，如果返回正常，则说明为这两种数据库类型之一。继续提交如下查询字符;</li>
 <li><font color="#66FFFF">;  </font>是子句查询标识符，Oracle不支持多行查询，因此如果返回错误，则说明很可能是Oracle数据库。</li>
+<li><font color="#66FFFF">and exists (select count( <em> ) from sysobjects)</em></font>：意思是查询sysobjects表里记录数大于,返回正常的，说明大于0且存在sysobjects这个表，因为这个表只有MSSQL数据库才有，所以可以判断为MSSQL数据库。返回错误则表示不是。<font color="#66FFFF">and exists (select count(  ) from msysobjects)</font>：这句提交是不会返回正常页面的，就算是ACCESS数据库也不会返回正常。因为默认情况下我们没有权限查询这个表里的数据。WEB会提示我们“记录无法读取;’msysobjects’没有读取权限”，如果返回的是这个错误信息的话，那就证明是ACCESS数据库了。第一条返回正常，就是MSSQL数据库，如果两条都不正常，那就是ACCESS数据库了。以上参数都是int的时候，如果是字符型的话首先在参数后面加上单引号，然后再在查询语句后加上;–</li>
 </ul>
 </li>
 </ul>
@@ -355,7 +356,7 @@
         <p><span>本文标题:</span><a href="/2019/03/31/SQL注入/">SQL注入</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月31日 - 22时33分</p>
-        <p><span>最后更新:</span>2019年03月31日 - 23时42分</p>
+        <p><span>最后更新:</span>2019年03月31日 - 23时45分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/31/SQL注入/" title="SQL注入">https://Hussar118.github.io/2019/03/31/SQL注入/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/31/SQL注入/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
