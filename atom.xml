@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://Hussar118.github.io/"/>
-  <updated>2019-03-31T14:29:47.569Z</updated>
+  <updated>2019-03-31T14:43:26.097Z</updated>
   <id>https://Hussar118.github.io/</id>
   
   <author>
@@ -17,26 +17,24 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hussar的安全学习心得感受</title>
-    <link href="https://Hussar118.github.io/2019/03/31/1%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%E8%87%AA%E8%BF%B0/"/>
-    <id>https://Hussar118.github.io/2019/03/31/1安全学习自述/</id>
-    <published>2019-03-31T14:22:21.791Z</published>
-    <updated>2019-03-31T14:29:47.569Z</updated>
+    <title>SQL注入</title>
+    <link href="https://Hussar118.github.io/2019/03/31/SQL%E6%B3%A8%E5%85%A5/"/>
+    <id>https://Hussar118.github.io/2019/03/31/SQL注入/</id>
+    <published>2019-03-31T14:33:51.305Z</published>
+    <updated>2019-03-31T14:43:26.097Z</updated>
     
-    <content type="html"><![CDATA[<center><font color="#4094C7" size="4">网络安全学习 个人心得和感受</font></center><h1 id="安全学习需要很大的毅力"><a href="#安全学习需要很大的毅力" class="headerlink" title=" - 安全学习需要很大的毅力  "></a><font color="#3399FF"> - 安全学习需要很大的毅力  </font></h1><hr>]]></content>
+    <content type="html"><![CDATA[<center><font color="#4094C7" size="4">SQL注入介绍</font></center><h1 id="SQL注入漏洞"><a href="#SQL注入漏洞" class="headerlink" title="SQL注入漏洞"></a><font color="#3399FF">SQL注入漏洞</font></h1><hr><p>#未完待续……</p>]]></content>
     
     <summary type="html">
     
-      说说我学习网络安全过程中的一些感受和体会
+      SQL注入分析介绍
     
     </summary>
     
-      <category term="吐露心声" scheme="https://Hussar118.github.io/categories/%E5%90%90%E9%9C%B2%E5%BF%83%E5%A3%B0/"/>
+      <category term="Web漏洞" scheme="https://Hussar118.github.io/categories/Web%E6%BC%8F%E6%B4%9E/"/>
     
     
-      <category term="心得感受" scheme="https://Hussar118.github.io/tags/%E5%BF%83%E5%BE%97%E6%84%9F%E5%8F%97/"/>
-    
-      <category term="自我鼓励" scheme="https://Hussar118.github.io/tags/%E8%87%AA%E6%88%91%E9%BC%93%E5%8A%B1/"/>
+      <category term="介绍" scheme="https://Hussar118.github.io/tags/%E4%BB%8B%E7%BB%8D/"/>
     
   </entry>
   
@@ -251,30 +249,6 @@
       <category term="三种网络模式" scheme="https://Hussar118.github.io/tags/%E4%B8%89%E7%A7%8D%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="系统和软件更新" scheme="https://Hussar118.github.io/tags/%E7%B3%BB%E7%BB%9F%E5%92%8C%E8%BD%AF%E4%BB%B6%E6%9B%B4%E6%96%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hussar的安全学习心得和体会</title>
-    <link href="https://Hussar118.github.io/2018/12/10/%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%E6%84%9F%E5%8F%97/"/>
-    <id>https://Hussar118.github.io/2018/12/10/安全学习心得感受/</id>
-    <published>2018-12-10T12:12:10.294Z</published>
-    <updated>2019-01-13T07:51:46.426Z</updated>
-    
-    <content type="html"><![CDATA[<center><font color="#4094C7" size="4">网络安全学习 个人心得和感受</font></center><hr><h1 id="安全学习需要很大的毅力"><a href="#安全学习需要很大的毅力" class="headerlink" title=" - 安全学习需要很大的毅力  "></a><font color="#FF0000"> - 安全学习需要很大的毅力  </font></h1><p>很多人看过黑客帝国和一些黑客电影，电影中的黑客们就像古代的武林高手一样，那些炫酷的操作和技术能够在几秒钟之内做出许多炫酷的事情。其实学安全炫酷只是几秒，枯燥会更长久。台上三分钟，台下十年功，没有长时间的积累，很难学好安全。面对着很多看着就麻烦的代码和难以理解的理论概念，没有足够的毅力坚持下去，是学不好的。</p>]]></content>
-    
-    <summary type="html">
-    
-      分享我学习过程中的感受
-    
-    </summary>
-    
-      <category term="个人观点和心得" scheme="https://Hussar118.github.io/categories/%E4%B8%AA%E4%BA%BA%E8%A7%82%E7%82%B9%E5%92%8C%E5%BF%83%E5%BE%97/"/>
-    
-    
-      <category term="自我鼓励" scheme="https://Hussar118.github.io/tags/%E8%87%AA%E6%88%91%E9%BC%93%E5%8A%B1/"/>
-    
-      <category term="心得感想" scheme="https://Hussar118.github.io/tags/%E5%BF%83%E5%BE%97%E6%84%9F%E6%83%B3/"/>
     
   </entry>
   
