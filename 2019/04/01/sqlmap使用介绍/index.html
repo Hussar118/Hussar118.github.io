@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="sqlmap的常规语句规则和使用方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-01T14:14:12.032Z">
+<meta property="og:updated_time" content="2019-04-01T14:17:53.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqlmap使用介绍">
 <meta name="twitter:description" content="sqlmap的常规语句规则和使用方法">
@@ -300,7 +300,7 @@
 <p> 6： HTTP认证保护(–auth-type/–auth-cred):<br> 这些参数可以用来登陆HTTP的认证保护支持三种方式：Basic、Digest、NTLM</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例如：python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/basic/get_int.php?id=1" <span class="comment">--auth-type Basic --auth-cred "testuser:testpass"</span></span><br></pre></td></tr></table></figure>
 <p> 7： HTTP协议的证书认证(<font color="#66FFFF">–auth-cert</font>):<br> 当Web服务器需要客户端证书进行身份验证时，需要提供两个文件:key_file，cert_file。<br> key_file是格式为PEM文件，包含着你的私钥，cert_file是格式为PEM的连接文件。</p>
-<p> 8： HTTP(S)代理(<font color="#66FFFF">–proxy/–proxy-cred/–ignore-proxy</font>):<br> 使用–proxy代理是格式为：<a href="http://url:port。" target="_blank" rel="noopener">http://url:port。</a><br> 当HTTP(S)代理需要认证是可以使用–proxy-cred参数：username:password。<br> –ignore-proxy拒绝使用本地局域网的HTTP(S)代理。</p>
+<p> 8： HTTP(S)代理(<font color="#66FFFF">–proxy/–proxy-cred/–ignore-proxy</font>):<br> 使用–proxy代理是格式为：(<a href="http://url:port)。" target="_blank" rel="noopener">http://url:port)。</a><br> 当HTTP(S)代理需要认证是可以使用–proxy-cred参数：username:password。<br> –ignore-proxy拒绝使用本地局域网的HTTP(S)代理。</p>
 <p> 9： HTTP请求延迟(<font color="#66FFFF">–delay</font>):<br> 可以设定两个HTTP(S)请求间的延迟，设定为0.5的时候是半秒，默认是没有延迟的。</p>
 <p> 10： 设定超时时间(<font color="#66FFFF">–timeout</font>):<br> 可以设定一个HTTP(S)请求超过多久判定为超时，10.5表示10.5秒，默认是30秒。</p>
 <p> 11： 设定重试超时(<font color="#66FFFF">–retries</font>):<br> 当HTTP(S)超时时，可以设定重新尝试连接次数，默认是3次。</p>
@@ -376,7 +376,7 @@
         <p><span>本文标题:</span><a href="/2019/04/01/sqlmap使用介绍/">sqlmap使用介绍</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年04月01日 - 20时25分</p>
-        <p><span>最后更新:</span>2019年04月01日 - 22时14分</p>
+        <p><span>最后更新:</span>2019年04月01日 - 22时17分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/04/01/sqlmap使用介绍/" title="sqlmap使用介绍">https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

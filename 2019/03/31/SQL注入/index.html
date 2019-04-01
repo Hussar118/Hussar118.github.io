@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="SQL注入分析介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-01T14:16:44.238Z">
+<meta property="og:updated_time" content="2019-04-01T14:19:02.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL注入">
 <meta name="twitter:description" content="SQL注入分析介绍">
@@ -275,8 +275,8 @@
 <h1 id="SQL注入攻击"><a href="#SQL注入攻击" class="headerlink" title="SQL注入攻击"></a><font color="#3399FF">SQL注入攻击</font></h1><hr>
 <ol>
 <li>SQL注入点判断(一般存在形式：<font color="#66FFFF">/abc.asp?id=XX</font>)：<br>1：如果URL中传递的参数(一般为id)是数字，测试<font color="#66FFFF">id=2-1</font>与<font color="#66FFFF">id=1</font>返回的结果是否相同，如果做了2-1=1的运算，说明可能存在<font color="#66FFFF">数字型注入</font>。如果要用<font color="#66FFFF">+号</font>运算的话，因为URL编码的问题，需要把加好换成<font color="#66FFFF">%2B</font>，如<font color="#66FFFF">id=1%2B1</font>。<br>2：在参数后面加<font color="#66FFFF">单引号</font>或<font color="#66FFFF">双引号</font>，判断返回结果是否有报错。<br>3：添加注释符，判断前后是否有报错，如<font color="#66FFFF">id=1’ –+ </font>或 <font color="#66FFFF">id=1” –+ </font>或<font color="#66FFFF">id=1’ # </font>或<font color="#66FFFF">id=1” –+ </font>（–后面跟+号，是把+当成空格使用）。<br>4：有些参数可能在括号里面，如：SELECT first_name, last_name FROM users WHERE user_id = （’$id’）；所以也可以在参数后面加单双引号和括号，如i<font color="#66FFFF">d=1’)  –+ </font>或 <font color="#66FFFF">id=1”) –+ </font>或<font color="#66FFFF">id=1’) # </font>或<font color="#66FFFF">id=1”) –+ </font>。<br>5：参数后面跟<font color="#66FFFF">or</font> 或者<font color="#66FFFF">and</font>，判断返回结果是否有变化，如<font color="#66FFFF">1’ or ‘a’=’a  </font>或者<font color="#66FFFF">and ‘a’=’a</font>或者<font color="#66FFFF">1’ or ‘a’=’b</font>或者<font color="#66FFFF">1’ or ‘1’=’2</font>。<br>6：如果返回的正确页面与错误页面都一样，可以考虑<font color="#66FFFF">时间延迟</font>的方法判断是否存在注入，如  <font color="#66FFFF">1’ and sleep(5)</font>。<br>7：注：<font color="#66FFFF">Class=连续剧</font> 这类注入的参数是字符型；<font color="#66FFFF">ID=49</font> 这类注入的参数是数字型。</li>
-<li>数据库类型判断：<br> 1： 基于特定函数判断：<pre><code>1： &lt;font color=#66FFFF&gt;len&lt;/font&gt;和&lt;font color=#66FFFF&gt;length&lt;/font&gt;：在mssql和mysql以及db2内，返回长度值是调用len()函数；在oracle和INFORMIX则是通过length()来返回长度值。当你使用&lt;font color=#66FFFF&gt;and len(&apos;a&apos;)=1&lt;/font&gt;的时候，返回正常页面时，可以推断当前的数据库类型可能是mssql，或mysql，或是db2。反之则可能会是oracle和informix。
-2： &lt;font color=#66FFFF&gt;@@version&lt;/font&gt;和&lt;font color=#66FFFF&gt;version()&lt;/font&gt;：在mysql内，可以用@@version或是version()来返回当前的版本信息。但无法判断是mysql还是mssql时，可以用version()函数来构造判断。version()&gt;1 返回与@@version&gt;1 相同页面时，则可能是mysql。如果出现提示version()错误时，则可能是mssql。
+<li>数据库类型判断：<br> 1： 基于特定函数判断：<pre><code>- &lt;font color=#66FFFF&gt;len&lt;/font&gt;和&lt;font color=#66FFFF&gt;length&lt;/font&gt;：在mssql和mysql以及db2内，返回长度值是调用len()函数；在oracle和INFORMIX则是通过length()来返回长度值。当你使用&lt;font color=#66FFFF&gt;and len(&apos;a&apos;)=1&lt;/font&gt;的时候，返回正常页面时，可以推断当前的数据库类型可能是mssql，或mysql，或是db2。反之则可能会是oracle和informix。
+- &lt;font color=#66FFFF&gt;@@version&lt;/font&gt;和&lt;font color=#66FFFF&gt;version()&lt;/font&gt;：在mysql内，可以用@@version或是version()来返回当前的版本信息。但无法判断是mysql还是mssql时，可以用version()函数来构造判断。version()&gt;1 返回与@@version&gt;1 相同页面时，则可能是mysql。如果出现提示version()错误时，则可能是mssql。
 3： &lt;font color=#66FFFF&gt;substring&lt;/font&gt;和&lt;font color=#66FFFF&gt;substr&lt;/font&gt;：在mssql中可以调用substring。oracle则只可调用substr
 </code></pre> 2： 基于辅助的符号判断：<pre><code>1： &lt;font color=#66FFFF&gt;/* &lt;/font&gt;是MySQL中的注释符，返回错误说明该注入点不是MySQL，继续提交如下查询字符;
 2： &lt;font color=#66FFFF&gt;-- &lt;/font&gt;是Oracle和MSSQL支持的注释符，如果返回正常，则说明为这两种数据库类型之一。继续提交如下查询字符;
@@ -376,7 +376,7 @@
         <p><span>本文标题:</span><a href="/2019/03/31/SQL注入/">SQL注入</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月31日 - 22时33分</p>
-        <p><span>最后更新:</span>2019年04月01日 - 22时16分</p>
+        <p><span>最后更新:</span>2019年04月01日 - 22时19分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/31/SQL注入/" title="SQL注入">https://Hussar118.github.io/2019/03/31/SQL注入/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/31/SQL注入/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
