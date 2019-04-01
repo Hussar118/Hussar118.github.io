@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="sqlmap的常规语句规则和使用方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-01T14:07:30.190Z">
+<meta property="og:updated_time" content="2019-04-01T14:10:32.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqlmap使用介绍">
 <meta name="twitter:description" content="sqlmap的常规语句规则和使用方法">
@@ -332,8 +332,14 @@
 </li>
 </ol>
 </li>
+<li><p>注入：</p>
+<ol>
+<li>测试参数(<font color="#66FFFF">-p/–skip</font>):<br>sqlmap默认测试所有的GET和POST参数，当–level的值大于等于2的时候也会测试HTTP Cookie头的值，当大于等于3的时候也会测试User-Agent和HTTP Referer头的值。但是你可以手动用-p参数设置想要测试的参数( 如：-p “id,user-anget”)。当你使用–level的值很大但是有个别参数不想测试的时候可以使用–skip参数(如：–skip=”user-angent.referer”)。在有些时候web服务器使用了URL重写，导致无法直接使用sqlmap测试参数，可以在想测试的参数后面加*<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">例如：python sqlmap.py -u "http://targeturl/param1/value1*/param2/value2/"</span><br><span class="line"><span class="comment">#sqlmap将会测试value1的位置是否可注入。</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h1 id="sqlmap目标请求和头"><a href="#sqlmap目标请求和头" class="headerlink" title="sqlmap目标请求和头"></a><font color="#3399FF">sqlmap目标请求和头</font></h1><p>(<font color="#66FFFF"></font>):<br>(<font color="#66FFFF"></font>):<br>(<font color="#66FFFF"></font>):<br>(<font color="#66FFFF"></font>):<br>(<font color="#66FFFF"></font>):</p>
+</li>
+</ol>
+<p>(<font color="#66FFFF"></font>):<br>(<font color="#66FFFF"></font>):<br>(<font color="#66FFFF"></font>):<br>(<font color="#66FFFF"></font>):</p>
 <h1 id="未完待续……"><a href="#未完待续……" class="headerlink" title=" 未完待续…… "></a><font color="#3399FF"> 未完待续…… </font></h1>
       
       
@@ -392,7 +398,7 @@
         <p><span>本文标题:</span><a href="/2019/04/01/sqlmap使用介绍/">sqlmap使用介绍</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年04月01日 - 20时25分</p>
-        <p><span>最后更新:</span>2019年04月01日 - 22时07分</p>
+        <p><span>最后更新:</span>2019年04月01日 - 22时10分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/04/01/sqlmap使用介绍/" title="sqlmap使用介绍">https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -421,7 +427,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlmap介绍"><span class="toc-number">1.</span> <span class="toc-text">sqlmap介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlmap三种等级"><span class="toc-number">2.</span> <span class="toc-text">sqlmap三种等级</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlmap各种参数"><span class="toc-number">3.</span> <span class="toc-text">sqlmap各种参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlmap目标请求和头"><span class="toc-number">4.</span> <span class="toc-text">sqlmap目标请求和头</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#未完待续……"><span class="toc-number">5.</span> <span class="toc-text"> 未完待续…… </span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlmap介绍"><span class="toc-number">1.</span> <span class="toc-text">sqlmap介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlmap三种等级"><span class="toc-number">2.</span> <span class="toc-text">sqlmap三种等级</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlmap各种参数"><span class="toc-number">3.</span> <span class="toc-text">sqlmap各种参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#未完待续……"><span class="toc-number">4.</span> <span class="toc-text"> 未完待续…… </span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
