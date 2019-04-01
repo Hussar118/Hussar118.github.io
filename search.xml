@@ -7,7 +7,7 @@
       <link href="/2019/04/01/sqlmap%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/"/>
       <url>/2019/04/01/sqlmap%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</url>
       
-        <content type="html"><![CDATA[<center><font color="#4094C7" size="4">sqlmap使用介绍</font></center><h1 id="sqlmap介绍"><a href="#sqlmap介绍" class="headerlink" title="sqlmap介绍"></a><font color="#3399FF">sqlmap介绍</font></h1><hr><p>sqlmap工作步骤：<br>graph TD<br>A[判断可注入的参数]–&gt;B[判断可以用哪种sql注入技术来注入]–&gt;C[识别出哪种数据库]–&gt;D[根据用户选择，读取哪些数据]</p>]]></content>
+        <content type="html"><![CDATA[<center><font color="#4094C7" size="4">sqlmap使用介绍</font></center><h1 id="sqlmap介绍"><a href="#sqlmap介绍" class="headerlink" title="sqlmap介绍"></a><font color="#3399FF">sqlmap介绍</font></h1><hr><ol><li>sqlmap工作步骤：<br>判断可注入的参数-&gt;判断可以用哪种sql注入技术来注入-&gt;识别出哪种数据库-&gt;根据用户选择和读取哪些数据</li><li>sqlmap支持的数据库：MySQL, Oracle, PostgreSQL, Microsoft SQL Server, Microsoft Access, IBM DB2, SQLite, Firebird, Sybase和SAP MaxDB。</li><li>sqlmap支持五种不同注入模式：<ol><li>基于布尔的盲注，即可以根据返回页面判断条件真假的注入。</li><li>基于时间的盲注，即不能根据页面返回内容判断任何信息，用条件语句查看时间延迟语句是否执行（即页面返回时间是否增加）来判断。</li><li>基于报错注入，即页面会返回错误信息，或者把注入的语句的结果直接返回在页面中。</li><li>联合查询注入，可以使用union的情况下的注入。</li><li>堆查询注入，可以同时执行多条语句的执行时的注入。</li></ol></li><li>sqlmap七个等级(默认为1，参数-v)：<br>0：只显示python错误以及严重的信息。<br>1：同时显示基本信息和警告信息。（默认）<br>2：同时显示debug信息。<br>3：同时显示注入的payload。<br>4：同时显示HTTP请求。<br>5：同时显示HTTP响应头。<br>6：同时显示HTTP响应页面。</li></ol>]]></content>
       
       
       <categories>
