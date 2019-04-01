@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="sqlmap的常规语句规则和使用方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-01T14:35:43.505Z">
+<meta property="og:updated_time" content="2019-04-01T14:40:10.356Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqlmap使用介绍">
 <meta name="twitter:description" content="sqlmap的常规语句规则和使用方法">
@@ -331,7 +331,7 @@
 <p> 4：设定UNION查询使用的字符(<font color="#66FFFF">–union-char</font>)：<br> 默认情况下sqlmap针对UNION查询的注入会使用NULL字符，但是有些情况下会造成页面返回失败，而一个随机整数是成功的，这是你可以用–union-char指定UNION查询的字符。</p>
 <p> 5：二阶SQL注入(<font color="#66FFFF">–second-order</font>)：<br> 有些时候注入点输入的数据看返回结果的时候并不是当前的页面，而是另外的一个页面，这时候就需要你指定到哪个页面获取响应判断真假。–second-order后门跟一个判断页面的URL地址。</p>
 </li>
-<li><p>列数据<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：</p>
+<li><p>列数据：<br> 1：标志(<font color="#66FFFF">-b/–banner</font>)：<br> 大多数的数据库系统都有一个函数可以返回数据库的版本号，通常这个函数是version()或者变量@@version这主要取决与是什么数据库。<br> 2：用户(<font color="#66FFFF">–current-user</font>)：<br> 在大多数据库中可以获取到管理数据的用户。<br> 3：当前数据库(<font color="#66FFFF">–current-db</font>)：<br> 返还当前连接的数据库。<br> 4：当前用户是否为管理用(<font color="#66FFFF">–is-dba</font>)：<br> 判断当前的用户是否为管理，是的话会返回True。<br> 5：列数据库管理用户(<font color="#66FFFF">–users</font>)：<br> 当前用户有权限读取包含所有用户的表的权限时，就可以列出所有管理用户。<br> 6：列出并破解数据库用户的hash(<font color="#66FFFF">–passwords</font>)：<br> 当前用户有权限读取包含用户密码的表的权限时，sqlmap会现列举出用户，然后列出hash，并尝试破解。<br> 7：列出数据库管理员权限(<font color="#66FFFF">–privileges</font>)：<br> 当前用户有权限读取包含所有用户的表的权限时，很可能列举出每个用户的权限，sqlmap将会告诉你哪个是数据库的超级管理员。也可以用-U参数指定你想看哪个用户的权限。<br> 8：列出数据库管理员角色(<font color="#66FFFF">–roles</font>)：<br> 当前用户有权限读取包含所有用户的表的权限时，很可能列举出每个用户的角色，也可以用-U参数指定你想看哪个用户的角色。仅适用于当前数据库是Oracle的时候。<br> 9：列出数据库系统的数据库(<font color="#66FFFF">–dbs</font>)：<br> 当前用户有权限读取包含所有数据库列表信息的表中的时候，即可列出所有的数据库。<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：</p>
 </li>
 </ol>
 <h1 id="未完待续……"><a href="#未完待续……" class="headerlink" title=" 未完待续…… "></a><font color="#3399FF"> 未完待续…… </font></h1>
@@ -392,7 +392,7 @@
         <p><span>本文标题:</span><a href="/2019/04/01/sqlmap使用介绍/">sqlmap使用介绍</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年04月01日 - 20时25分</p>
-        <p><span>最后更新:</span>2019年04月01日 - 22时35分</p>
+        <p><span>最后更新:</span>2019年04月01日 - 22时40分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/04/01/sqlmap使用介绍/" title="sqlmap使用介绍">https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
