@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="sqlmap的常规语句规则和使用方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-01T12:51:05.200Z">
+<meta property="og:updated_time" content="2019-04-01T12:53:51.231Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqlmap使用介绍">
 <meta name="twitter:description" content="sqlmap的常规语句规则和使用方法">
@@ -271,14 +271,7 @@
 <ol>
 <li>sqlmap工作步骤：<br>判断可注入的参数-&gt;判断可以用哪种sql注入技术来注入-&gt;识别出哪种数据库-&gt;根据用户选择和读取哪些数据</li>
 <li>sqlmap支持的数据库：MySQL, Oracle, PostgreSQL, Microsoft SQL Server, Microsoft Access, IBM DB2, SQLite, Firebird, Sybase和SAP MaxDB。</li>
-<li>sqlmap支持五种不同注入模式：<ol>
-<li>基于布尔的盲注，即可以根据返回页面判断条件真假的注入。</li>
-<li>基于时间的盲注，即不能根据页面返回内容判断任何信息，用条件语句查看时间延迟语句是否执行（即页面返回时间是否增加）来判断。</li>
-<li>基于报错注入，即页面会返回错误信息，或者把注入的语句的结果直接返回在页面中。</li>
-<li>联合查询注入，可以使用union的情况下的注入。</li>
-<li>堆查询注入，可以同时执行多条语句的执行时的注入。</li>
-</ol>
-</li>
+<li>sqlmap支持五种不同注入模式：<br>1：基于布尔的盲注，即可以根据返回页面判断条件真假的注入。<br>2：基于时间的盲注，即不能根据页面返回内容判断任何信息，用条件语句查看时间延迟语句是否执行（即页面返回时间是否增加）来判断。<br>3：基于报错注入，即页面会返回错误信息，或者把注入的语句的结果直接返回在页面中。<br>4：联合查询注入，可以使用union的情况下的注入。<br>5：堆查询注入，可以同时执行多条语句的执行时的注入。</li>
 <li>sqlmap七个等级(默认为1，参数-v)：<br>0：只显示python错误以及严重的信息。<br>1：同时显示基本信息和警告信息。（默认）<br>2：同时显示debug信息。<br>3：同时显示注入的payload。<br>4：同时显示HTTP请求。<br>5：同时显示HTTP响应头。<br>6：同时显示HTTP响应页面。</li>
 </ol>
 
@@ -339,7 +332,7 @@
         <p><span>本文标题:</span><a href="/2019/04/01/sqlmap使用介绍/">sqlmap使用介绍</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年04月01日 - 20时25分</p>
-        <p><span>最后更新:</span>2019年04月01日 - 20时51分</p>
+        <p><span>最后更新:</span>2019年04月01日 - 20时53分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/04/01/sqlmap使用介绍/" title="sqlmap使用介绍">https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
