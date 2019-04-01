@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="sqlmap的常规语句规则和使用方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-01T13:32:17.541Z">
+<meta property="og:updated_time" content="2019-04-01T13:46:56.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqlmap使用介绍">
 <meta name="twitter:description" content="sqlmap的常规语句规则和使用方法">
@@ -286,12 +286,25 @@
 <ol>
 <li><p>扫描目标：<br> 1：目标URL(<font color="#66FFFF">-u/-url</font>)：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u "http://www.target.com/vuln.php?id=1"</span><br></pre></td></tr></table></figure>
-<p> 2：从Burp或者WebScarab代理中获取日志(<font color="#66FFFF">-l</font>)：<br> 可以直接吧Burp proxy或者WebScarab proxy中的日志直接倒出来交给sqlmap来一个一个检测是否有注入。<br> 3：从文件获取多个扫描目标(<font color="#66FFFF">-m</font>)：<br> 文件中保存url格式如下，sqlmap会一个一个检测。<br> 4：从文件中加载HTTP请求(<font color="#66FFFF">-r</font>)：<br> sqlmap可以从一个文本文件中获取HTTP请求，这样就可以跳过设置一些其他参数（比如cookie，POST数据，等等）<br> 5：请求为HTTPS时(-force-ssl)：<br> 当请求是HTTPS的时候你需要配合这个–force-ssl参数来使用，或者你可以在Host头后门加上:443<br> 6：google的搜索结果(<font color="#66FFFF">-g</font>)：<br> sqlmap可以测试注入Google的搜索结果中的GET参数（只获取前100个结果）,非常强大的功能。</p>
+<p> 2：从Burp或者WebScarab代理中获取日志(<font color="#66FFFF">-l</font>)：<br> 可以直接吧Burp proxy或者WebScarab proxy中的日志直接倒出来交给sqlmap来一个一个检测是否有注入。<br> 3：从文件获取多个扫描目标(<font color="#66FFFF">-m</font>)：<br> 文件中保存url格式如下，sqlmap会一个一个检测。<br> 4：从文件中加载HTTP请求(<font color="#66FFFF">-r</font>)：<br> sqlmap可以从一个文本文件中获取HTTP请求，这样就可以跳过设置一些其他参数（比如cookie，POST数据，等等）<br> 5：请求为HTTPS时(<font color="#66FFFF">-force-ssl</font>)：<br> 当请求是HTTPS的时候你需要配合这个–force-ssl参数来使用，或者你可以在Host头后门加上:443<br> 6：google的搜索结果(<font color="#66FFFF">-g</font>)：<br> sqlmap可以测试注入Google的搜索结果中的GET参数（只获取前100个结果）,非常强大的功能。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -g "inurl:".php?id=1""</span><br></pre></td></tr></table></figure>
-<p> 7：<br> 8：</p>
+<p> 7：请求为http的时候(<font color="#66FFFF">-data</font>)：<br> 此参数是把数据以POST方式提交，sqlmap会像检测GET参数一样检测POST的参数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u "http://www.target.com/vuln.php" <span class="comment">--data="id=1" -f --banner --dbs --users</span></span><br></pre></td></tr></table></figure>
 </li>
+<li><p>参数拆分字符(<font color="#66FFFF">–param-del</font>)：<br>当GET或POST的数据需要用其他字符分割测试参数的时候需要用到此参数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u "http://www.target.com/vuln.php" <span class="comment">--data="query=foobar;id=1" --param-del=";" -f --banner --dbs --users</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>HTTP cookie头(<font color="#66FFFF">–cookie/–load-cookies/–drop-set-cookie</font>)：<br>web应用需要登陆的时候或者要在这些头参数中测试SQL注入时。可以通过抓包把cookie获取到，复制出来，然后加到–cookie参数里。在HTTP请求中，遇到Set-Cookie的话，sqlmap会自动获取并且在以后的请求中加入，并且会尝试SQL注入。如果你不想接受Set-Cookie可以使用–drop-set-cookie参数来拒接。当你使用–cookie参数时，当返回一个Set-Cookie头的时候，sqlmap会询问你用哪个cookie来继续接下来的请求。当–level的参数设定为2或者2以上的时候，sqlmap会尝试注入Cookie参数。</p>
+</li>
+<li><p>HTTP User-Agent头(<font color="#66FFFF">–user-agent/–random-agent</font>)：<br>默认情况下sqlmap的HTTP请求头中User-Agent值是||sqlmap/1.0-dev-xxxxxxx||。可以使用–user-anget参数来修改，同时也可以使用–random-agnet参数来随机的从./txt/user-agents.txt中获取。当–level参数设定为3或者3以上的时候，会尝试对User-Angent进行注入。</p>
+</li>
+<li><p>HTTP Referer头(<font color="#66FFFF">–referer</font>):<br>sqlmap可以在请求中伪造HTTP中的referer，当–level参数设定为3或者3以上的时候会尝试对referer注入。</p>
+</li>
+<li></li>
 </ol>
+<font color="#66FFFF"></font>
 
+<h1 id="lt-f-sqlmap使用介绍"><a href="#lt-f-sqlmap使用介绍" class="headerlink" title="&lt;f# sqlmap使用介绍"></a>&lt;f# <font color="#3399FF">sqlmap使用介绍</font></h1>
       
       
         <div class="page-reward">
@@ -349,7 +362,7 @@
         <p><span>本文标题:</span><a href="/2019/04/01/sqlmap使用介绍/">sqlmap使用介绍</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年04月01日 - 20时25分</p>
-        <p><span>最后更新:</span>2019年04月01日 - 21时32分</p>
+        <p><span>最后更新:</span>2019年04月01日 - 21时46分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/04/01/sqlmap使用介绍/" title="sqlmap使用介绍">https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -378,7 +391,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlmap介绍"><span class="toc-number">1.</span> <span class="toc-text">sqlmap介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlmap三种等级"><span class="toc-number">2.</span> <span class="toc-text">sqlmap三种等级</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlmap使用介绍"><span class="toc-number">3.</span> <span class="toc-text">sqlmap使用介绍</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlmap介绍"><span class="toc-number">1.</span> <span class="toc-text">sqlmap介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlmap三种等级"><span class="toc-number">2.</span> <span class="toc-text">sqlmap三种等级</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlmap使用介绍"><span class="toc-number">3.</span> <span class="toc-text">sqlmap使用介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lt-f-sqlmap使用介绍"><span class="toc-number">4.</span> <span class="toc-text">&lt;f# sqlmap使用介绍</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
