@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="sqlmap的常规语句规则和使用方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-01T14:17:53.524Z">
+<meta property="og:updated_time" content="2019-04-01T14:35:43.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqlmap使用介绍">
 <meta name="twitter:description" content="sqlmap的常规语句规则和使用方法">
@@ -315,9 +315,25 @@
 </li>
 <li><p>注入：<br> 1： 测试参数(<font color="#66FFFF">-p/–skip</font>):<br> sqlmap默认测试所有的GET和POST参数，当–level的值大于等于2的时候也会测试HTTP Cookie头的值，当大于等于3的时候也会测试User-Agent和HTTP Referer头的值。但是你可以手动用-p参数设置想要测试的参数( 如：-p “id,user-anget”)。当你使用–level的值很大但是有个别参数不想测试的时候可以使用–skip参数(如：–skip=”user-angent.referer”)。在有些时候web服务器使用了URL重写，导致无法直接使用sqlmap测试参数，可以在想测试的参数后面加*</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">例如：python sqlmap.py -u "http://targeturl/param1/value1*/param2/value2/"</span><br><span class="line"><span class="comment">#sqlmap将会测试value1的位置是否可注入。</span></span><br></pre></td></tr></table></figure>
+<p> 2：指定数据库(<font color="#66FFFF">–dbms</font>):<br> 默认情况系sqlmap会自动的探测web应用后端的数据库是什么。</p>
+<p> 3：指定数据库服务器系统(<font color="#66FFFF">–os</font>):<br> 默认情况下sqlmap会自动的探测数据库服务器系统，支持的系统有：Linux、Windows。</p>
+<p> 4：指定无效的大数字(<font color="#66FFFF">–invalid-bignum</font>):<br> 当你想指定一个报错的数值时，可以使用这个参数，例如默认情况系id=13，sqlmap会变成id=-13来报错，你可以指定比如id=9999999来报错。</p>
+<p> 5：指定无效的逻辑(<font color="#66FFFF">–invalid-logical</font>):<br> 原因同上，可以指定id=13把原来的id=-13的报错改成id=13 AND 18=19。</p>
+<p> 6：注入payload(<font color="#66FFFF">–prefix/–suffix</font>):<br> 在有些环境中，需要在注入的payload的前面或者后面加一些字符，来保证payload的正常执行。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">例如：python sqlmap.py -u "http://192.168.136.131/sqlmap/mysql/get_str_brackets.php?id=1" -p id <span class="comment">--prefix "’)" --suffix "AND (’abc’=’abc"</span></span><br><span class="line"><span class="comment">#这样sql语句就变成：$query = "SELECT * FROM users WHERE id=(’1’) &amp;lt;PAYLOAD&amp;gt; AND (’abc’=’abc’) LIMIT 0, 1";</span></span><br></pre></td></tr></table></figure>
+<p> 7：修改注入的数据：(<font color="#66FFFF">–tamper</font>)：<br> sqlmap除了使用CHAR()函数来防止出现单引号之外没有对注入的数据修改，你可以使用–tamper参数对数据做修改来绕过WAF等设备。</p>
+</li>
+<li><p>探测：<br> 1：探测等级(<font color="#66FFFF">–level</font>)：<br> 共有五个等级，默认为1，sqlmap使用的payload可以在xml/payloads.xml中看到，你也可以根据相应的格式添加自己的payload。这个参数不仅影响使用哪些payload同时也会影响测试的注入点，GET和POST的数据都会测试，HTTP Cookie在level为2的时候就会测试，HTTP User-Agent/Referer头在level为3的时候就会测试。总之在你不确定哪个payload或者参数为注入点的时候，为了保证全面性，建议使用高的level值。<br> 2：风险等级(<font color="#66FFFF">–risk</font>)：<br> 共有四个风险等级，默认是1会测试大部分的测试语句，2会增加基于事件的测试语句，3会增加OR语句的SQL注入测试。在有些时候，例如在UPDATE的语句中，注入一个OR的测试语句，可能导致更新的整个表，可能造成很大的风险。测试的语句同样可以在xml/payloads.xml中找到，你也可以自行添加payload。<br> 3：页面比较(<font color="#66FFFF">–string/–not-string/–regexp/–code</font>)：<br> 默认情况下sqlmap通过判断返回页面的不同来判断真假，但有时候这会产生误差，因为有的页面在每次刷新的时候都会返回不同的代码，比如页面当中包含一个动态的广告或者其他内容，这会导致sqlmap的误判。此时用户可以提供一个字符串或者一段正则匹配，在原始页面与真条件下的页面都存在的字符串，而错误页面中不存在（使用–string参数添加字符串，–regexp添加正则），同时用户可以提供一段字符串在原始页面与真条件下的页面都不存在的字符串，而错误页面中存在的字符串（–not-string添加）。用户也可以提供真与假条件返回的HTTP状态码不一样来注入，例如，响应200的时候为真，响应401的时候为假，可以添加参数–code=200。</p>
+</li>
+<li><p>注入技术：<br> 1：测试是否是注入(<font color="#66FFFF">–technique</font>)：<br> 这个参数可以指定sqlmap使用的探测技术，默认情况下会测试所有的方式。</p>
+<p> 2：设定延迟注入的时间(<font color="#66FFFF">–time-sec</font>)：<br> 当使用继续时间的盲注时，时刻使用–time-sec参数设定延时时间，默认是5秒。</p>
+<p> 3：设定UNION查询字段数(<font color="#66FFFF">–union-cols</font>)：<br> 默认情况下sqlmap测试UNION查询注入会测试1-10个字段数，当–level为5的时候他会增加测试到50个字段数。设定–union-cols的值应该是一段整数，如：12-16，是测试12-16个字段数。</p>
+<p> 4：设定UNION查询使用的字符(<font color="#66FFFF">–union-char</font>)：<br> 默认情况下sqlmap针对UNION查询的注入会使用NULL字符，但是有些情况下会造成页面返回失败，而一个随机整数是成功的，这是你可以用–union-char指定UNION查询的字符。</p>
+<p> 5：二阶SQL注入(<font color="#66FFFF">–second-order</font>)：<br> 有些时候注入点输入的数据看返回结果的时候并不是当前的页面，而是另外的一个页面，这时候就需要你指定到哪个页面获取响应判断真假。–second-order后门跟一个判断页面的URL地址。</p>
+</li>
+<li><p>列数据<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：<br>(<font color="#66FFFF"></font>)：</p>
 </li>
 </ol>
-<p>(<font color="#66FFFF"></font>):<br>(<font color="#66FFFF"></font>):<br>(<font color="#66FFFF"></font>):<br>(<font color="#66FFFF"></font>):</p>
 <h1 id="未完待续……"><a href="#未完待续……" class="headerlink" title=" 未完待续…… "></a><font color="#3399FF"> 未完待续…… </font></h1>
       
       
@@ -376,7 +392,7 @@
         <p><span>本文标题:</span><a href="/2019/04/01/sqlmap使用介绍/">sqlmap使用介绍</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年04月01日 - 20时25分</p>
-        <p><span>最后更新:</span>2019年04月01日 - 22时17分</p>
+        <p><span>最后更新:</span>2019年04月01日 - 22时35分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/04/01/sqlmap使用介绍/" title="sqlmap使用介绍">https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
