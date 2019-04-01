@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://Hussar118.github.io/"/>
-  <updated>2019-04-01T12:53:51.231Z</updated>
+  <updated>2019-04-01T13:06:33.422Z</updated>
   <id>https://Hussar118.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://Hussar118.github.io/2019/04/01/sqlmap%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/"/>
     <id>https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/</id>
     <published>2019-04-01T12:25:51.112Z</published>
-    <updated>2019-04-01T12:53:51.231Z</updated>
+    <updated>2019-04-01T13:06:33.422Z</updated>
     
-    <content type="html"><![CDATA[<center><font color="#4094C7" size="4">sqlmap使用介绍</font></center><h1 id="sqlmap介绍"><a href="#sqlmap介绍" class="headerlink" title="sqlmap介绍"></a><font color="#3399FF">sqlmap介绍</font></h1><hr><ol><li>sqlmap工作步骤：<br>判断可注入的参数-&gt;判断可以用哪种sql注入技术来注入-&gt;识别出哪种数据库-&gt;根据用户选择和读取哪些数据</li><li>sqlmap支持的数据库：MySQL, Oracle, PostgreSQL, Microsoft SQL Server, Microsoft Access, IBM DB2, SQLite, Firebird, Sybase和SAP MaxDB。</li><li>sqlmap支持五种不同注入模式：<br>1：基于布尔的盲注，即可以根据返回页面判断条件真假的注入。<br>2：基于时间的盲注，即不能根据页面返回内容判断任何信息，用条件语句查看时间延迟语句是否执行（即页面返回时间是否增加）来判断。<br>3：基于报错注入，即页面会返回错误信息，或者把注入的语句的结果直接返回在页面中。<br>4：联合查询注入，可以使用union的情况下的注入。<br>5：堆查询注入，可以同时执行多条语句的执行时的注入。</li><li>sqlmap七个等级(默认为1，参数-v)：<br>0：只显示python错误以及严重的信息。<br>1：同时显示基本信息和警告信息。（默认）<br>2：同时显示debug信息。<br>3：同时显示注入的payload。<br>4：同时显示HTTP请求。<br>5：同时显示HTTP响应头。<br>6：同时显示HTTP响应页面。</li></ol>]]></content>
+    <content type="html"><![CDATA[<center><font color="#4094C7" size="4">sqlmap使用介绍</font></center><h1 id="sqlmap介绍"><a href="#sqlmap介绍" class="headerlink" title="sqlmap介绍"></a><font color="#3399FF">sqlmap介绍</font></h1><hr><ol><li>sqlmap工作步骤：<br>判断可注入的参数-&gt;判断可以用哪种sql注入技术来注入-&gt;识别出哪种数据库-&gt;根据用户选择和读取哪些数据</li><li>sqlmap支持的数据库：MySQL, Oracle, PostgreSQL, Microsoft SQL Server, Microsoft Access, IBM DB2, SQLite, Firebird, Sybase和SAP MaxDB。</li><li>sqlmap支持五种不同注入模式：<br>1：基于布尔的盲注，即可以根据返回页面判断条件真假的注入。<br>2：基于时间的盲注，即不能根据页面返回内容判断任何信息，用条件语句查看时间延迟语句是否执行（即页面返回时间是否增加）来判断。<br>3：基于报错注入，即页面会返回错误信息，或者把注入的语句的结果直接返回在页面中。<br>4：联合查询注入，可以使用union的情况下的注入。<br>5：堆查询注入，可以同时执行多条语句的执行时的注入。</li></ol><h1 id="sqlmap三种等级"><a href="#sqlmap三种等级" class="headerlink" title="sqlmap三种等级"></a><font color="#3399FF">sqlmap三种等级</font></h1><ol><li><p>sqlmap注入<font color="#66FFFF">检测等级</font>(默认为1,-v,七个等级):<br>观察sqlmap对一个点是进行了怎样的尝试判断以及读取数据<br>0：只显示python错误以及严重的信息。<br>1：同时显示基本信息和警告信息。<br>2：同时显示debug信息。<br>3：同时显示注入的payload。<br>4：同时显示HTTP请求。<br>5：同时显示HTTP响应头。<br>6：同时显示HTTP响应页面。</p></li><li><p>sqlmap注入<font color="#66FFFF">探测等级</font>(默认为1,–level,五个等级):<br>影响使用哪些payload同时也会影响测试的注入点，GET和POST的数据都会测试，HTTP Cookie在level为2的时候就会测试，HTTPUser-Agent/Referer头在level为3的时候就会测试。<br>总之在不确定哪个payload或者参数为注入点的时候，为了保证全面性，建议使用高的level值。</p></li><li><p>sqlmap注入<font color="#66FFFF">风险等级</font>(默认为1,–rsik,三个等级):<br>1：会测试大部分的测试语句<br>2：会增加基于事件的测试语句sql<br>3：会增加OR语句的SQL注入测试<br>(例：在UPDATE的语句中，注入一个OR的测试语句，可能导致更新的整个表，可能造成很大的风险)</p></li></ol>]]></content>
     
     <summary type="html">
     
@@ -35,6 +35,8 @@
     
     
       <category term="sqlmap介绍" scheme="https://Hussar118.github.io/tags/sqlmap%E4%BB%8B%E7%BB%8D/"/>
+    
+      <category term="sqlmap三种等级" scheme="https://Hussar118.github.io/tags/sqlmap%E4%B8%89%E7%A7%8D%E7%AD%89%E7%BA%A7/"/>
     
   </entry>
   
