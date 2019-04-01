@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="sqlmap的常规语句规则和使用方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-01T13:19:05.392Z">
+<meta property="og:updated_time" content="2019-04-01T13:27:25.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqlmap使用介绍">
 <meta name="twitter:description" content="sqlmap的常规语句规则和使用方法">
@@ -284,7 +284,10 @@
 </ol>
 <h1 id="sqlmap使用介绍"><a href="#sqlmap使用介绍" class="headerlink" title="sqlmap使用介绍"></a><font color="#3399FF">sqlmap使用介绍</font></h1><hr>
 <ol>
-<li>扫描目标：<br> 1：目标URL：<br> <code>python sqlmap.py -u &quot;http://www.target.com/vuln.php?id=1&quot;</code></li>
+<li><p>扫描目标：<br> 1：目标URL(<font color="#66FFFF">-u/-url</font>)：</p>
+ <figure class="highlight"><figcaption><span>sqlmap.py -u "http://www.target.com/vuln.php?id</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span>：从Burp或者WebScarab代理中获取日志(&lt;font color=<span class="comment">#66FFFF&gt;-l&lt;/font&gt;)：</span></span><br><span class="line">可以直接吧Burp proxy或者WebScarab proxy中的日志直接倒出来交给sqlmap来一个一个检测是否有注入。</span><br><span class="line"><span class="number">3</span>：从文件获取多个扫描目标(&lt;font color=<span class="comment">#66FFFF&gt;-m&lt;/font&gt;)：</span></span><br><span class="line">文件中保存url格式如下，sqlmap会一个一个检测。</span><br><span class="line"><span class="number">4</span>：从文件中加载HTTP请求(&lt;font color=<span class="comment">#66FFFF&gt;-r&lt;/font&gt;)：</span></span><br><span class="line">sqlmap可以从一个文本文件中获取HTTP请求，这样就可以跳过设置一些其他参数（比如cookie，POST数据，等等）</span><br><span class="line"><span class="number">5</span>：请求为HTTPS时(-force-ssl)：</span><br><span class="line">当请求是HTTPS的时候你需要配合这个–force-ssl参数来使用，或者你可以在Host头后门加上:<span class="number">443</span></span><br><span class="line"><span class="number">6</span>：google的搜索结果(&lt;font color=<span class="comment">#66FFFF&gt;-g&lt;/font&gt;)：</span></span><br><span class="line">sqlmap可以测试注入Google的搜索结果中的GET参数（只获取前<span class="number">100</span>个结果）,非常强大的功能。</span><br><span class="line">```python sqlmap.py -g "inurl:".php?id=1""</span><br></pre></td></tr></table></figure>
+<p> 7：<br> 8：</p>
+</li>
 </ol>
 
       
@@ -344,7 +347,7 @@
         <p><span>本文标题:</span><a href="/2019/04/01/sqlmap使用介绍/">sqlmap使用介绍</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年04月01日 - 20时25分</p>
-        <p><span>最后更新:</span>2019年04月01日 - 21时19分</p>
+        <p><span>最后更新:</span>2019年04月01日 - 21时27分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/04/01/sqlmap使用介绍/" title="sqlmap使用介绍">https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/04/01/sqlmap使用介绍/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
