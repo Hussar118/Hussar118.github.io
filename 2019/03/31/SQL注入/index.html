@@ -13,7 +13,7 @@
 <meta property="og:site_name">
 <meta property="og:description" content="SQL注入分析介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-02T12:42:51.713Z">
+<meta property="og:updated_time" content="2019-04-02T12:51:39.518Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL注入">
 <meta name="twitter:description" content="SQL注入分析介绍">
@@ -326,6 +326,8 @@
 </ol>
 <h1 id="SQL注入防御"><a href="#SQL注入防御" class="headerlink" title="SQL注入防御"></a><font color="#3399FF">SQL注入防御</font></h1><hr>
 <ol>
+<li><p>总结：<br> 1：永远不要信任用户的输入。对用户的输入进行校验，可以通过正则表达式，或限制长度；对单引号和 双”-“进行转换等。<br> 2：永远不要使用动态拼装sql，可以使用参数化的sql或者直接使用存储过程进行数据查询存取。<br> 3：永远不要使用管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接。<br> 4：不要把机密信息直接存放，加密或者hash掉密码和敏感的信息。<br> 5：应用的异常信息应该给出尽可能少的提示，最好使用自定义的错误信息对原始错误信息进行包装<br> 6：sql注入的检测方法一般采取辅助软件或网站平台来检测，软件一般采用sql注入检测工具jsky，网站平台就有亿思网站安全平台检测工具。MDCSOFT SCAN等。采用MDCSOFT-IPS可以有效的防御SQL注入，XSS攻击等。</p>
+</li>
 <li><p>使用预编译语句：预编译语句，绑定变量，此方式是防御sql注入的最佳方式。sql 预编译指的是数据库驱动在发送 sql 语句和参数给 DBMS 之前对 sql 语句进行编译，这样 DBMS 执行 sql 时，就不需要重新编译。使用预编译语句，sql语句的语义不会发生变化，在SQL语句中变量用?表示，攻击者无法改变SQL结构，即使攻击者使用类似 1’ or ‘1’=’1的字符串，也只会将此字符串当做username来查询。而在不同语言中，都有着使用预编译语句的方法。<br> 1：能使用#{}的地方就使用#{}，这样可以让预编译sql重复使用，同时${}在预编译之前就被变量替换了，这会存在sql注入问题。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">例如：<span class="keyword">select</span> * <span class="keyword">from</span> $&#123;tableName&#125; <span class="keyword">where</span> <span class="keyword">name</span> = <span class="comment">#&#123;name&#125;</span></span><br><span class="line">假如，我们的参数tableName为<span class="keyword">user</span>;<span class="keyword">delete</span> <span class="keyword">user</span>; <span class="comment">--,那么SQL动态解析阶段之后，预编译之前的SQL将变为：</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span>; <span class="keyword">delete</span> <span class="keyword">user</span>; <span class="comment">-- where name = ?;</span></span><br><span class="line"><span class="comment"># -- 之后的语句将作为注释，不起作用，因此本来的一条查询语句偷偷的包含了一个删除表数据的 SQL！</span></span><br></pre></td></tr></table></figure>
 <p> 2：表名作为变量时，必须使用 ${ }，这是因为，表名是字符串，使用 sql 占位符替换字符串时会带上单引号 ‘’ ，这会导致 sql 语法错误。</p>
@@ -396,7 +398,7 @@
         <p><span>本文标题:</span><a href="/2019/03/31/SQL注入/">SQL注入</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Hussar 的个人博客">Hussar</a></p>
         <p><span>发布时间:</span>2019年03月31日 - 22时33分</p>
-        <p><span>最后更新:</span>2019年04月02日 - 20时42分</p>
+        <p><span>最后更新:</span>2019年04月02日 - 20时51分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/31/SQL注入/" title="SQL注入">https://Hussar118.github.io/2019/03/31/SQL注入/</a>
             <span class="copy-path" data-clipboard-text="原文: https://Hussar118.github.io/2019/03/31/SQL注入/　　作者: Hussar" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
